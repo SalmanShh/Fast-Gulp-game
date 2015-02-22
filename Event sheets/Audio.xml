@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Audio</name>
+    <events>
+        <event-group description="" sid="8445247569027468" title="Audio -">
+            <sub-events>
+                <event-group description="" sid="118922993765452" title="Audio - Player -">
+                    <sub-events>
+                        <event-group description="" sid="2002662744509985" title="Audio - Player - Hurt">
+                            <sub-events>
+                                <event-block sid="4747702289897441">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="5312884983161779" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsHurt</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="6556717043681505" title="Audio - Player - Hits">
+                            <sub-events>
+                                <event-block sid="4133059273264121">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="7473570780346932" type="PlayerMask">
+                                            <param id="0" name="Instance variable">HurtsEnemy</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="4224623935913794" title="Audio - Player - Land">
+                            <sub-events>
+                                <event-block sid="769790407037978">
+                                    <conditions>
+                                        <condition behavior="Platform" id="9" name="On landed" sid="654848556685164" type="PlayerMask" />
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="2100761007258808" title="Audio - Player - Jump">
+                            <sub-events>
+                                <event-block sid="6624486976562159">
+                                    <conditions>
+                                        <condition behavior="Platform" id="5" name="On jump" sid="1580294195727256" type="PlayerMask" />
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="into slow mo sfx" sid="3247552562319198" title="Audio - Player - In Danger">
+                            <sub-events>
+                                <event-block sid="6726055037746046">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="8954840464053387" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsInDanger</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="7819129393435824" title="Audio - Objects - ">
+                    <sub-events>
+                        <event-group description="" sid="9592406545095193" title="Audio - Objects - Soft Block">
+                            <sub-events>
+                                <event-group description="" sid="7603293060608961" title="Audio - Objects - Soft Block - Stomped On" />
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="9383616167215911" title="Audio - Objects - Bounce">
+                            <sub-events>
+                                <event-group description="" sid="6802932160370889" title="Audio - Objects - Bounce - On Collided with" />
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="8366942777545013" title="Audio - Objects - Fizzy Drink">
+                            <sub-events>
+                                <event-group description="" sid="527142898063847" title="Audio - Objects - Fizzy Drink - On Hit" />
+                                <event-group description="" sid="6898852713960895" title="Audio - Objects - Fizzy Drink - Explode" />
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="227258579597004" title="Audio - Objects - Mozzeralla Stick Missile">
+                            <sub-events>
+                                <event-group description="" sid="5780575163906699" title="Audio - Objects - Mozzeralla Stick Missile - On Created" />
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="9781357984332681" title="Audio - Objects - Ladder">
+                            <sub-events>
+                                <event-group description="" sid="3778526294657336" title="Audio - Objects - Ladder - Climbing(Up)" />
+                                <event-group description="" sid="9058797576002056" title="Audio - Objects - Ladder - Climbing(Down)" />
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="3537480336166342" title="Audio - Objects - Popcorn Popper">
+                            <sub-events>
+                                <event-group description="" sid="88586241739898" title="Audio - Objects - Popcorn Popper - Shoots" />
+                                <event-group description="" sid="2427274592360889" title="Audio - Objects - Popcorn Popper - Popcorn Stepped On" />
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="8454782278466805" title="Audio - Objects - Spike">
+                            <sub-events>
+                                <event-group description="" sid="339796329530714" title="Audio - Objects - Spike - On Collision" />
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

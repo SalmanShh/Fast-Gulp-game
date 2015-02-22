@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Objects</name>
+    <events>
+        <event-group description="" sid="9387268606083935" title="Gameplay - Variant Object">
+            <sub-events>
+                <event-group description="" sid="1065466767923543" title="Soft Block -" />
+                <event-group description="finish me" sid="2650512970485886" title="Ladder -">
+                    <sub-events>
+                        <event-block sid="6167352417677983">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="2814604728663763" type="PlayerMask">
+                                    <param id="0" name="Object">Ladder</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="7055224202817485" type="PlayerMask">
+                                    <param id="0" name="Instance variable">IsOnLadder</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2932396216407103">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="8721913652272389" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="7134035465161463" type="PlayerMask">
+                                    <param id="0" name="Instance variable">IsOnLadder</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action behavior="LadderMovement" id="8" name="Set enabled" sid="7426876503102302" type="PlayerMask">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Platform" id="11" name="Set enabled" sid="8968649676599785" type="PlayerMask">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="7888538153035579" title="Popcorn Popper -" />
+                <event-group description="" sid="6959537897601516" title="Bounce Pad -">
+                    <sub-events>
+                        <event-group description="" sid="2229840752378519" title="Bounce Pad - Facing Up">
+                            <sub-events>
+                                <event-block sid="7106516958143975">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="4145681253395975" type="PlayerMask">
+                                            <param id="0" name="Object">BouncePad</param>
+                                        </condition>
+                                        <condition id="-13" name="Is between angles" sid="1134796392807065" type="BouncePad">
+                                            <param id="0" name="First angle">265</param>
+                                            <param id="1" name="Second angle">275</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="9" name="Set vector Y" sid="3660243131304282" type="PlayerMask">
+                                            <param id="0" name="Vector Y">-BouncePad.Power</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="9675276982096019" title="Bounce Pad - Facing Down">
+                            <sub-events>
+                                <event-block sid="3099222753259723">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="7363005019638161" type="PlayerMask">
+                                            <param id="0" name="Object">BouncePad</param>
+                                        </condition>
+                                        <condition id="-13" name="Is between angles" sid="6243568829046682" type="BouncePad">
+                                            <param id="0" name="First angle">85</param>
+                                            <param id="1" name="Second angle">95</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="9" name="Set vector Y" sid="9443106804632943" type="PlayerMask">
+                                            <param id="0" name="Vector Y">BouncePad.Power</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="6325390005320131" title="Bounce Pad - Facing Left">
+                            <sub-events>
+                                <event-block sid="8460055869254861">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="8930926293808538" type="PlayerMask">
+                                            <param id="0" name="Object">BouncePad</param>
+                                        </condition>
+                                        <condition id="-13" name="Is between angles" sid="9477975863497184" type="BouncePad">
+                                            <param id="0" name="First angle">175</param>
+                                            <param id="1" name="Second angle">185</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="8" name="Set vector X" sid="7913338111923987" type="PlayerMask">
+                                            <param id="0" name="Vector X">-BouncePad.Power</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="694333501496756" title="Bounce Pad - Facing Right">
+                            <sub-events>
+                                <event-block sid="2494376188028155">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="417594989104299" type="PlayerMask">
+                                            <param id="0" name="Object">BouncePad</param>
+                                        </condition>
+                                        <condition id="-13" name="Is between angles" sid="2309019118735017" type="BouncePad">
+                                            <param id="0" name="First angle">355</param>
+                                            <param id="1" name="Second angle">360</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="8" name="Set vector X" sid="232209981978545" type="PlayerMask">
+                                            <param id="0" name="Vector X">BouncePad.Power</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5861033797733235">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="1438764743809961" type="PlayerMask">
+                                            <param id="0" name="Object">BouncePad</param>
+                                        </condition>
+                                        <condition id="-13" name="Is between angles" sid="5612310404707656" type="BouncePad">
+                                            <param id="0" name="First angle">0</param>
+                                            <param id="1" name="Second angle">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="8" name="Set vector X" sid="7702471533595795" type="PlayerMask">
+                                            <param id="0" name="Vector X">BouncePad.Power</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+                <event-group description="(INCOMPLETE)" sid="8282309246397892" title="Gravity Switch -">
+                    <sub-events>
+                        <event-group description="" sid="4147200558678287" title="Gravity Switch - Facing Up">
+                            <sub-events>
+                                <event-block sid="1560157309322601">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="4287809848196675" type="PlayerMask">
+                                            <param id="0" name="Object">GravitySwitch</param>
+                                        </condition>
+                                        <condition id="-13" name="Is between angles" sid="2757895201770118" type="GravitySwitch">
+                                            <param id="0" name="First angle">265</param>
+                                            <param id="1" name="Second angle">275</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="10" name="Set angle of gravity" sid="1991946083716125" type="PlayerMask">
+                                            <param id="0" name="Angle">270</param>
+                                        </action>
+                                        <action id="8" name="Set flipped" sid="916878817374212" type="PlayerMask">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="4491970140092835" title="Gravity Switch - Facing Down">
+                            <sub-events>
+                                <event-block sid="5972183190100375">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="1109543787204986" type="PlayerMask">
+                                            <param id="0" name="Object">GravitySwitch</param>
+                                        </condition>
+                                        <condition id="-13" name="Is between angles" sid="7528198653077201" type="GravitySwitch">
+                                            <param id="0" name="First angle">85</param>
+                                            <param id="1" name="Second angle">95</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="10" name="Set angle of gravity" sid="6633176531183334" type="PlayerMask">
+                                            <param id="0" name="Angle">90</param>
+                                        </action>
+                                        <action id="8" name="Set flipped" sid="1916547480424576" type="PlayerMask">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="Fix Me" disabled="1" sid="9141654252740438" title="Gravity Switch - Facing Left">
+                            <sub-events>
+                                <event-block sid="7429419625042738">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="8945312257893361" type="PlayerMask">
+                                            <param id="0" name="Object">GravitySwitch</param>
+                                        </condition>
+                                        <condition id="-13" name="Is between angles" sid="9743805698224275" type="GravitySwitch">
+                                            <param id="0" name="First angle">85</param>
+                                            <param id="1" name="Second angle">95</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="10" name="Set angle of gravity" sid="629468775803999" type="PlayerMask">
+                                            <param id="0" name="Angle">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="Fix Me" disabled="1" sid="226547860015614" title="Gravity Switch - Facing Right">
+                            <sub-events>
+                                <event-block sid="5339372969508135">
+                                    <conditions>
+                                        <condition id="-13" name="Is between angles" sid="1911339742926441" type="GravitySwitch">
+                                            <param id="0" name="First angle">85</param>
+                                            <param id="1" name="Second angle">95</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="10" name="Set angle of gravity" sid="8229321754821359" type="PlayerMask">
+                                            <param id="0" name="Angle">180</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="4522645172681303">
+                                            <conditions>
+                                                <condition id="1" name="Is overlapping another object" sid="2181121343343235" type="PlayerMask">
+                                                    <param id="0" name="Object">GravitySwitch</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="4576666093628703" title="Things That Hurt - ">
+            <sub-events>
+                <event-group description="" sid="863356822153739" title="Things That Hurt - Spike">
+                    <sub-events>
+                        <event-group description="" sid="9683239869017355" title="Things That Hurt - Spike - On Collision">
+                            <sub-events>
+                                <event-block sid="378422186302342">
+                                    <conditions>
+                                        <condition id="0" name="On collision with another object" sid="3726925757981223" type="Spike">
+                                            <param id="0" name="Object">PlayerMask</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="20117771577992" type="Function">
+                                            <param id="0" name="Name">&quot;playerFail&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="6824186536341374" title="Things That Hurt - Spike - Angle">
+                            <sub-events>
+                                <event-group description="" sid="3514733583551544" title="Things That Hurt - Angle - Spike - Facing Up">
+                                    <sub-events>
+                                        <event-block sid="8843329828685507">
+                                            <conditions>
+                                                <condition id="-13" name="Is between angles" sid="7824098447173393" type="Spike">
+                                                    <param id="0" name="First angle">265</param>
+                                                    <param id="1" name="Second angle">275</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="793512300400744">
+                                                    <conditions>
+                                                        <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="429804469845448" type="PlayerMask" />
+                                                        <condition id="9" name="Is overlapping at offset" sid="9790286287776239" type="Spike">
+                                                            <param id="0" name="Object">PlayerMask</param>
+                                                            <param id="1" name="Offset X">0</param>
+                                                            <param id="2" name="Offset Y">-32</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="6320244567880769" type="Function">
+                                                            <param id="0" name="Name">&quot;playerInDanger&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="1196851240848976" title="Things That Hurt - Angle - Spike - Facing Down">
+                                    <sub-events>
+                                        <event-block sid="7135443334856428">
+                                            <conditions>
+                                                <condition id="-13" name="Is between angles" sid="4730653808684874" type="Spike">
+                                                    <param id="0" name="First angle">85</param>
+                                                    <param id="1" name="Second angle">95</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="8587898439349054">
+                                                    <conditions>
+                                                        <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="2663157595380701" type="PlayerMask" />
+                                                        <condition id="9" name="Is overlapping at offset" sid="2650489201183064" type="Spike">
+                                                            <param id="0" name="Object">PlayerMask</param>
+                                                            <param id="1" name="Offset X">0</param>
+                                                            <param id="2" name="Offset Y">32</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="8480732678292991" type="Function">
+                                                            <param id="0" name="Name">&quot;playerInDanger&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="2973821087255909" title="Things That Hurt - Angle - Spike - Facing Left">
+                                    <sub-events>
+                                        <event-block sid="9441882239374045">
+                                            <conditions>
+                                                <condition id="-13" name="Is between angles" sid="9289337936879308" type="Spike">
+                                                    <param id="0" name="First angle">175</param>
+                                                    <param id="1" name="Second angle">185</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="6786779797404083">
+                                                    <conditions>
+                                                        <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="6748649575928493" type="PlayerMask" />
+                                                        <condition id="9" name="Is overlapping at offset" sid="1765609787224012" type="Spike">
+                                                            <param id="0" name="Object">PlayerMask</param>
+                                                            <param id="1" name="Offset X">0</param>
+                                                            <param id="2" name="Offset Y">-32</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="4293931042013776" type="Function">
+                                                            <param id="0" name="Name">&quot;playerInDanger&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="8618531066436329" title="Things That Hurt - Angle - Spike - Facing Right">
+                                    <sub-events>
+                                        <event-block any="1" sid="7726092824420701">
+                                            <conditions>
+                                                <condition id="-13" name="Is between angles" sid="3328257143149983" type="Spike">
+                                                    <param id="0" name="First angle">355</param>
+                                                    <param id="1" name="Second angle">360</param>
+                                                </condition>
+                                                <condition id="-13" name="Is between angles" sid="5159617312581772" type="Spike">
+                                                    <param id="0" name="First angle">0</param>
+                                                    <param id="1" name="Second angle">5</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="2524004616244143">
+                                                    <conditions>
+                                                        <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="7721806146399715" type="PlayerMask" />
+                                                        <condition id="9" name="Is overlapping at offset" sid="8524859741677992" type="Spike">
+                                                            <param id="0" name="Object">PlayerMask</param>
+                                                            <param id="1" name="Offset X">0</param>
+                                                            <param id="2" name="Offset Y">-32</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="1380722048371258" type="Function">
+                                                            <param id="0" name="Name">&quot;playerInDanger&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+                <event-group description="moves in one direction and then Explodes" sid="1060420555475957" title="Things That Hurt - Fizzy Drink" />
+                <event-group description="" sid="467878975540198" title="Things That Hurt - Mozzeralla Stick Missile" />
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
