@@ -384,7 +384,7 @@
                                             </conditions>
                                             <actions>
                                                 <action id="0" name="Call function" sid="5423314109016531" type="Function">
-                                                    <param id="0" name="Name">&quot;playerMoveJumpUp&quot;</param>
+                                                    <param id="0" name="Name">&quot;playerJumpUp&quot;</param>
                                                     <param id="1" name="Parameter {n}"></param>
                                                 </action>
                                             </actions>
@@ -611,8 +611,11 @@
                                     <sub-events>
                                         <event-block sid="5181042828553437">
                                             <conditions>
-                                                <condition id="0" name="On function" sid="2923233385504067" type="Function">
-                                                    <param id="0" name="Name">&quot;playerLadderUp&quot;</param>
+                                                <condition id="5" name="Compare axis" sid="2923233385504067" type="Gamepad">
+                                                    <param id="0" name="Gamepad">0</param>
+                                                    <param id="1" name="Axis">1</param>
+                                                    <param id="2" name="Comparison">2</param>
+                                                    <param id="3" name="Value">-25</param>
                                                 </condition>
                                             </conditions>
                                             <actions>
@@ -628,8 +631,11 @@
                                     <sub-events>
                                         <event-block sid="7458304392985828">
                                             <conditions>
-                                                <condition id="0" name="On function" sid="2876493602546388" type="Function">
-                                                    <param id="0" name="Name">&quot;playerLadderDown&quot;</param>
+                                                <condition id="5" name="Compare axis" sid="2876493602546388" type="Gamepad">
+                                                    <param id="0" name="Gamepad">0</param>
+                                                    <param id="1" name="Axis">1</param>
+                                                    <param id="2" name="Comparison">4</param>
+                                                    <param id="3" name="Value">25</param>
                                                 </condition>
                                             </conditions>
                                             <actions>
