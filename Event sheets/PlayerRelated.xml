@@ -5,7 +5,7 @@
     <events>
         <event-group description="Player Abilities // Player Movement // Player Dead" sid="2185447301863743" title="Player - (Functions)">
             <sub-events>
-                <comment>Functions&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------PLAYER ABILITY---------&#x0D;&#x0A;-&quot;playerAbilityCharge&quot;        - charges player ability&#x0D;&#x0A;-&quot;playerAbilityDash&quot;            - player dash&#x0D;&#x0A;-&quot;playerAbilityFloatDown&quot;  - Slower decent down&#x0D;&#x0A;-&quot;playerAbilityStomp&quot;         - player Stomp&#x0D;&#x0A;-&quot;playerInDanger&quot;                - slow mo&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------PLAYER MOVEMENT---------&#x0D;&#x0A;-&quot;playerMoveLeft&quot;       - moves Left&#x0D;&#x0A;-&quot;playerMoveRight&quot;    - moves Right&#x0D;&#x0A;-&quot;playerJumpingUp&quot;        - jumps&#x0D;&#x0A;-&quot;playerFallThrough&quot;  - Jumps down (only on platfroms with jumpthru behaviour)&#x0D;&#x0A;-&quot;playerRunning&quot;        - Increases player speed&#x0D;&#x0A;-&quot;playerLadderUp&quot;      - Climb up ladder&#x0D;&#x0A;-&quot;playerLadderDown&quot; - Climb down ladder&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------FAIL STATE---------&#x0D;&#x0A;-&quot;playerFail&quot; - Restarts layout (needs to be updated later on for checkpoints)&#x0D;&#x0A;-&quot;&quot; </comment>
+                <comment>Functions&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------PLAYER ABILITY---------&#x0D;&#x0A;-&quot;playerAbilityCharge&quot;         - charges player ability&#x0D;&#x0A;-&quot;playerAbilityDashLeft&quot;      - dash Left&#x0D;&#x0A;-&quot;playerAbilityDashRight&quot;   - dash Right&#x0D;&#x0A;-&quot;playerAbilityFloatDown&quot;  - Slower decent down&#x0D;&#x0A;-&quot;playerAbilityStomp&quot;         - player Stomp&#x0D;&#x0A;-&quot;playerInDanger&quot;                - slow mo&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------PLAYER MOVEMENT---------&#x0D;&#x0A;-&quot;playerMoveLeft&quot;         - moves Left&#x0D;&#x0A;-&quot;playerMoveRight&quot;      - moves Right&#x0D;&#x0A;-&quot;playerJumpingUp&quot;     - jumps&#x0D;&#x0A;-&quot;playerFallThrough&quot;    - Jumps down (only on platfroms with jumpthru behaviour)&#x0D;&#x0A;-&quot;playerRunning&quot;          - Increases player speed&#x0D;&#x0A;-&quot;playerLadderUp&quot;        - Climb up ladder&#x0D;&#x0A;-&quot;playerLadderDown&quot;   - Climb down ladder&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------FAIL STATE---------&#x0D;&#x0A;-&quot;playerFail&quot; - Restarts layout (needs to be updated later on for checkpoints)&#x0D;&#x0A;-&quot;&quot; </comment>
                 <event-group description="" sid="4468828880694458" title="Player - Function - Fail/Death">
                     <sub-events>
                         <event-block sid="3153332251839405">
@@ -36,27 +36,61 @@
                         </event-group>
                         <event-group description="" sid="3197870126642459" title="Player - Controls - Functions - (playerAbilityDash)">
                             <sub-events>
-                                <event-block sid="8176494823089011">
-                                    <conditions>
-                                        <condition id="0" name="On function" sid="603752969293145" type="Function">
-                                            <param id="0" name="Name">&quot;playerAbilityDash&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                </event-block>
+                                <event-group description="" sid="809497371887239" title="Player - Controls - Functions - (playerAbilityDash) - Left">
+                                    <sub-events>
+                                        <event-block sid="8176494823089011">
+                                            <conditions>
+                                                <condition id="0" name="On function" sid="603752969293145" type="Function">
+                                                    <param id="0" name="Name">&quot;playerAbilityDashLeft&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="1717246638771812" title="Player - Controls - Functions - (playerAbilityDash) - Right">
+                                    <sub-events>
+                                        <event-block sid="8176494823089011">
+                                            <conditions>
+                                                <condition id="0" name="On function" sid="603752969293145" type="Function">
+                                                    <param id="0" name="Name">&quot;playerAbilityDashRight&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
                             </sub-events>
                         </event-group>
                         <event-group description="" sid="4688640827704595" title="Player - Controls - Functions - (playerAbilityFloatDown)">
                             <sub-events>
-                                <event-block sid="8176494823089011">
+                                <event-block sid="2125390323461157">
                                     <conditions>
-                                        <condition id="0" name="On function" sid="603752969293145" type="Function">
-                                            <param id="0" name="Name">&quot;playerAbilityFloatDown&quot;</param>
-                                        </condition>
+                                        <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="2878322913212498" type="PlayerMask" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="8176494823089011">
+                                            <conditions>
+                                                <condition id="0" name="On function" sid="603752969293145" type="Function">
+                                                    <param id="0" name="Name">&quot;playerAbilityFloatDown&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Platform" id="6" name="Set max fall speed" sid="7805843318868455" type="PlayerMask">
+                                                    <param id="0" name="Max fall speed">30</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="7095633709711853">
+                                    <conditions>
+                                        <condition behavior="Platform" id="2" name="Is on floor" sid="8405445471837853" type="PlayerMask" />
                                     </conditions>
                                     <actions>
-                                        <action behavior="Platform" id="6" name="Set max fall speed" sid="7805843318868455" type="PlayerMask">
-                                            <param id="0" name="Max fall speed">30</param>
+                                        <action behavior="Platform" id="6" name="Set max fall speed" sid="1668284522812453" type="PlayerMask">
+                                            <param id="0" name="Max fall speed">1000</param>
                                         </action>
                                     </actions>
                                 </event-block>
