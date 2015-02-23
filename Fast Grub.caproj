@@ -81,6 +81,9 @@
                     <instance-variable name="HasAbilityDoubleJump" sid="9798683063225981" type="boolean" />
                     <instance-variable name="HasAbilityDash" sid="5275237692988487" type="boolean" />
                     <instance-variable name="HasAbilityWallJump" sid="9144118587922382" type="boolean" />
+                    <instance-variable name="HasAbilityFloat" sid="5968319230058087" type="boolean" />
+                    <instance-variable name="HasAbilityInDanger" sid="5539248455790707" type="boolean" />
+                    <instance-variable name="HasAbilityCharge" sid="8217615966093671" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="Platform" sid="9232464172691835">
