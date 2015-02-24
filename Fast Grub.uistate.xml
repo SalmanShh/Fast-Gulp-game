@@ -10,10 +10,15 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="2">Sandbox</layout>
-        <event-sheet order="0">_Sandbox</event-sheet>
-        <event-sheet active="1" order="3">PlayerRelated</event-sheet>
-        <event-sheet order="1">Objects</event-sheet>
+        <layout order="1">Sandbox</layout>
+        <layout order="5">Asif&apos;s Level</layout>
+        <layout order="6">Corrina&apos;s Level</layout>
+        <layout order="7">Freddy&apos;s Level</layout>
+        <layout order="9">Hub</layout>
+        <event-sheet order="2">_Sandbox</event-sheet>
+        <event-sheet active="1" order="3">Objects</event-sheet>
+        <event-sheet order="4">PlayerRelated</event-sheet>
+        <event-sheet order="8">Hub</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -23,31 +28,35 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </properties>
     <families-expanded root="1" />
     <folders-expanded>
-        <folder expanded="0" path="object-folder/" />
+        <folder expanded="1" path="object-folder/" />
         <folder expanded="0" path="object-folder/Plugins/" />
-        <folder expanded="0" path="object-folder/Player/" />
+        <folder expanded="1" path="object-folder/Player/" />
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/" />
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Moving Platform/" />
         <folder expanded="1" path="object-folder/Tilesets/" />
         <folder expanded="1" path="object-folder/Menu/" />
         <folder expanded="1" path="object-folder/UI/" />
         <folder expanded="1" path="layout-folder/" />
-        <folder expanded="0" path="layout-folder/Levels/" />
+        <folder expanded="1" path="layout-folder/Levels/" />
         <folder expanded="0" path="layout-folder/Menus/" />
-        <folder expanded="0" path="event-folder/" />
-        <folder expanded="0" path="event-folder/Levels/" />
-        <folder expanded="0" path="event-folder/Gameplay Related/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="0" path="event-folder/Level Specific/" />
+        <folder expanded="0" path="event-folder/Gameplay Related (Attach to Levels)/" />
         <folder expanded="0" path="event-folder/Menus/" />
         <folder expanded="1" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
-        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="file-folder/Icons/" />
         <folder expanded="1" path="animation-folder/PlayerMask/" />
+        <folder expanded="1" path="animation-folder/PlayerAnim/" />
+        <folder expanded="1" path="animation-folder/PlayerAnim/Basic/" />
+        <folder expanded="1" path="animation-folder/PlayerAnim/Ability/" />
         <folder expanded="1" path="animation-folder/MovingPlatform64x32/" />
         <folder expanded="1" path="animation-folder/MovingPlatform32x32/" />
         <folder expanded="1" path="animation-folder/Spike/" />
         <folder expanded="1" path="animation-folder/BouncePad/" />
         <folder expanded="1" path="animation-folder/GravitySwitch/" />
+        <folder expanded="1" path="animation-folder/FizzyDrink/" />
         <folder expanded="1" path="animation-folder/GameCamera/" />
     </folders-expanded>
 </c2uistate>

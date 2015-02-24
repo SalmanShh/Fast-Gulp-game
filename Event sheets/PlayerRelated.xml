@@ -5,7 +5,7 @@
     <events>
         <event-group description="Player Abilities // Player Movement // Player Dead" sid="2185447301863743" title="Player - (Functions)">
             <sub-events>
-                <comment>Functions&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------PLAYER ABILITY---------&#x0D;&#x0A;-&quot;playerAbilityCharge&quot;         - charges player ability&#x0D;&#x0A;-&quot;playerAbilityDashLeft&quot;      - dash Left&#x0D;&#x0A;-&quot;playerAbilityDashRight&quot;   - dash Right&#x0D;&#x0A;-&quot;playerAbilityFloatDown&quot;  - Slower decent down&#x0D;&#x0A;-&quot;playerAbilityStomp&quot;         - player Stomp&#x0D;&#x0A;-&quot;playerInDanger&quot;                - slow mo&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------PLAYER MOVEMENT---------&#x0D;&#x0A;-&quot;playerMoveLeft&quot;         - moves Left&#x0D;&#x0A;-&quot;playerMoveRight&quot;      - moves Right&#x0D;&#x0A;-&quot;playerJumpingUp&quot;     - jumps&#x0D;&#x0A;-&quot;playerFallThrough&quot;    - Jumps down (only on platfroms with jumpthru behaviour)&#x0D;&#x0A;-&quot;playerRunning&quot;          - Increases player speed&#x0D;&#x0A;-&quot;playerLadderUp&quot;        - Climb up ladder&#x0D;&#x0A;-&quot;playerLadderDown&quot;   - Climb down ladder&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------FAIL STATE---------&#x0D;&#x0A;-&quot;playerFail&quot; - Restarts layout (needs to be updated later on for checkpoints)&#x0D;&#x0A;-&quot;&quot; </comment>
+                <comment>Functions&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------PLAYER ABILITY---------&#x0D;&#x0A;-&quot;playerAbilityCharge&quot;         - charges player ability&#x0D;&#x0A;-&quot;playerAbilityDashLeft&quot;      - dash Left&#x0D;&#x0A;-&quot;playerAbilityDashRight&quot;   - dash Right&#x0D;&#x0A;-&quot;playerAbilityFloatDown&quot;  - Slower decent down&#x0D;&#x0A;-&quot;playerAbilityStomp&quot;         - player Stomp&#x0D;&#x0A;-&quot;playerInDanger&quot;                - slow mo&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------PLAYER MOVEMENT---------&#x0D;&#x0A;-&quot;playerMoveLeft&quot;         - moves Left&#x0D;&#x0A;-&quot;playerMoveRight&quot;      - moves Right&#x0D;&#x0A;-&quot;playerJumpingUp&quot;     - jumps&#x0D;&#x0A;-&quot;playerFallThrough&quot;    - Jumps down (only on platfroms with jumpthru behaviour)&#x0D;&#x0A;-&quot;playerRunning&quot;          - Increases player speed&#x0D;&#x0A;-&quot;playerLadderUp&quot;        - Climb up ladder&#x0D;&#x0A;-&quot;playerLadderDown&quot;   - Climb down ladder&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------FAIL STATE---------&#x0D;&#x0A;-&quot;playerFail&quot; - Restarts layout (needs to be updated later on for checkpoints)&#x0D;&#x0A;-&quot;&quot;</comment>
                 <event-group description="" sid="4468828880694458" title="Player - Function - Fail/Death">
                     <sub-events>
                         <event-block sid="3153332251839405">
@@ -20,9 +20,79 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="(INCOMPLETE) Charge // Dash // Float Down// Double Jump // Stomp // In Danger" sid="3384061040936771" title="Player - Functions - Player Abilties">
+                <event-group description="(INCOMPLETE) Charge // Dash // Float Down// Double Jump // Stomp // In Danger // Wall Jump" sid="3384061040936771" title="Player - Functions - Player Abilties">
                     <sub-events>
-                        <event-group description="" sid="2757255610776746" title="Player - Controls - Functions - (playerAbilityCharge)">
+                        <event-group description="" sid="6760210739404122" title="Player - Controls - Functions - Player Abilties - (playerWallJump)">
+                            <sub-events>
+                                <event-group description="" sid="8867383599480089" title="Player - Functions - Player Abilties - (playerWallJump) - Left">
+                                    <sub-events>
+                                        <event-block sid="9357486780011924">
+                                            <conditions>
+                                                <condition id="0" name="On function" sid="803651531220856" type="Function">
+                                                    <param id="0" name="Name">&quot;playerJumpUp&quot;</param>
+                                                </condition>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="6366764087163192" type="PlayerMask">
+                                                    <param id="0" name="Instance variable">HasAbilityWallJump</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="3078330477594643">
+                                                    <conditions>
+                                                        <condition behavior="Platform" id="10" name="Is by wall" sid="9025700645557311" type="PlayerMask">
+                                                            <param id="0" name="Side">0</param>
+                                                        </condition>
+                                                        <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="725835927201667" type="PlayerMask" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="9" name="Set vector Y" sid="9635671291813335" type="PlayerMask">
+                                                            <param id="0" name="Vector Y">-500</param>
+                                                        </action>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="9106200816321507" type="PlayerMask">
+                                                            <param id="0" name="Vector X">500</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="8736143583497165" title="Player - Functions - Player Abilties - (playerWallJump) - Right">
+                                    <sub-events>
+                                        <event-block sid="2864760029738238">
+                                            <conditions>
+                                                <condition id="0" name="On function" sid="1721815090909749" type="Function">
+                                                    <param id="0" name="Name">&quot;playerJumpUp&quot;</param>
+                                                </condition>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="5154533333723571" type="PlayerMask">
+                                                    <param id="0" name="Instance variable">HasAbilityWallJump</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="4299293318047337">
+                                                    <conditions>
+                                                        <condition behavior="Platform" id="10" name="Is by wall" sid="8874041150866238" type="PlayerMask">
+                                                            <param id="0" name="Side">1</param>
+                                                        </condition>
+                                                        <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="6512724344592171" type="PlayerMask" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="9" name="Set vector Y" sid="5874438068896439" type="PlayerMask">
+                                                            <param id="0" name="Vector Y">-500</param>
+                                                        </action>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="7910803170871007" type="PlayerMask">
+                                                            <param id="0" name="Vector X">-500</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="2757255610776746" title="Player - Controls - Functions - Player Abilities - (playerAbilityCharge)">
                             <sub-events>
                                 <event-block sid="8047057542622392">
                                     <conditions>
@@ -44,7 +114,7 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="3197870126642459" title="Player - Controls - Functions - (playerAbilityDash)">
+                        <event-group description="" sid="3197870126642459" title="Player - Controls - Functions - Player Abilities - (playerAbilityDash)">
                             <sub-events>
                                 <event-group description="" sid="809497371887239" title="Player - Controls - Functions - (playerAbilityDash) - Left">
                                     <sub-events>
@@ -92,7 +162,7 @@
                                 </event-group>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="4688640827704595" title="Player - Controls - Functions - (playerAbilityFloatDown)">
+                        <event-group description="" sid="4688640827704595" title="Player - Controls - Functions - Player Abilities - (playerAbilityFloatDown)">
                             <sub-events>
                                 <event-block sid="6340849466623082">
                                     <conditions>
@@ -116,7 +186,7 @@
                                                     </conditions>
                                                     <actions>
                                                         <action behavior="Platform" id="6" name="Set max fall speed" sid="7805843318868455" type="PlayerMask">
-                                                            <param id="0" name="Max fall speed">30</param>
+                                                            <param id="0" name="Max fall speed">100</param>
                                                         </action>
                                                     </actions>
                                                 </event-block>
@@ -146,7 +216,7 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="2054527507274638" title="Player - Controls - Functions - (playerAbilityDoubleJump)">
+                        <event-group description="" sid="2054527507274638" title="Player - Controls - Functions - Player Abilities - (playerAbilityDoubleJump)">
                             <sub-events>
                                 <event-block disabled="1" sid="8176494823089011">
                                     <conditions>
@@ -182,7 +252,7 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="8351101132898268" title="Player - Controls - Functions - (playerAbilityStomp)">
+                        <event-group description="" sid="8351101132898268" title="Player - Controls - Functions - Player Abilities - (playerAbilityStomp)">
                             <sub-events>
                                 <event-block sid="7095448795327117">
                                     <conditions>
@@ -222,7 +292,7 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="4115599311906579" title="Player - Controls - Functions - (playerInDanger)">
+                        <event-group description="" sid="4115599311906579" title="Player - Controls - Functions - Player Abilities - (playerInDanger)">
                             <sub-events>
                                 <event-block sid="1943376668464229">
                                     <conditions>
@@ -472,7 +542,7 @@
                 </event-group>
             </sub-events>
         </event-group>
-        <event-group description="(INCOMPLETE) Functions // Gamepad // Keyboard" sid="7487333628573855" title="Player - Controls">
+        <event-group description="(INCOMPLETE) Gamepad // Keyboard" sid="7487333628573855" title="Player - Controls">
             <sub-events>
                 <event-group description="Abilities//Movements" sid="3032972720578711" title="Player - Controls - Keyboard">
                     <sub-events>
@@ -531,10 +601,10 @@
                                     <sub-events>
                                         <event-block any="1" sid="9563462959716056">
                                             <conditions>
-                                                <condition id="2" name="Key is down" sid="3872345754831413" type="Keyboard">
+                                                <condition id="0" name="On key pressed" sid="3872345754831413" type="Keyboard">
                                                     <param id="0" name="Key">38 (Up arrow)</param>
                                                 </condition>
-                                                <condition id="2" name="Key is down" sid="7958720107242481" type="Keyboard">
+                                                <condition id="0" name="On key pressed" sid="7958720107242481" type="Keyboard">
                                                     <param id="0" name="Key">87 (W)</param>
                                                 </condition>
                                             </conditions>
@@ -696,7 +766,7 @@
                                     <sub-events>
                                         <event-block sid="9563462959716056">
                                             <conditions>
-                                                <condition id="3" name="Is button down" sid="467658182640422" type="Gamepad">
+                                                <condition id="6" name="On button pressed" sid="467658182640422" type="Gamepad">
                                                     <param id="0" name="Gamepad">0</param>
                                                     <param id="1" name="Button">0</param>
                                                 </condition>
@@ -811,18 +881,22 @@
         </event-group>
         <event-group description="(INCOMPLETE) Misc // Basic // Abilities" sid="2602642971839222" title="Player - Animations">
             <sub-events>
-                <event-group description="Mirroring// Animation Sprite Position" sid="795251295526268" title="Player - Animations - Misc">
+                <event-group description="Mirroring// Flipped // Animation Sprite Position" sid="795251295526268" title="Player - Animations - Misc">
                     <sub-events>
                         <event-group description="" sid="337703758425789" title="Player - Animations - Misc - Mirroring">
                             <sub-events>
-                                <comment>Facing Left - Dont Mirror</comment>
+                                <comment>Facing Left - Mirror</comment>
                                 <event-block sid="4021660923581671">
                                     <conditions>
                                         <condition id="-8" name="Is boolean instance variable set" sid="2900735786943418" type="PlayerMask">
                                             <param id="0" name="Instance variable">IsMovingLeft</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="7" name="Set mirrored" sid="7995429582096229" type="PlayerAnim">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                                 <comment>Facing Right - Mirror</comment>
                                 <event-block sid="4025790612299331">
@@ -831,18 +905,66 @@
                                             <param id="0" name="Instance variable">IsMovingLeft</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="7" name="Set mirrored" sid="1098417937503515" type="PlayerAnim">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="7966390479677332" title="Player - Animations - Misc - Flipped" />
+                        <event-group description="" sid="7966390479677332" title="Player - Animations - Misc - Flipped">
+                            <sub-events>
+                                <event-block sid="4122761099177431">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="45455861831825" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-8" name="Set angle" sid="6722631801037169" type="PlayerMask">
+                                            <param id="0" name="Angle">180</param>
+                                        </action>
+                                        <action id="-23" name="Set layer angle" sid="5178358175442717" type="System">
+                                            <param id="0" name="Layer">&quot;UI&quot;</param>
+                                            <param id="1" name="Angle">180</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7908279457602374">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7590476706642409" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-8" name="Set angle" sid="1767582330169877" type="PlayerMask">
+                                            <param id="0" name="Angle">0</param>
+                                        </action>
+                                        <action id="-23" name="Set layer angle" sid="1270652746214225" type="System">
+                                            <param id="0" name="Layer">&quot;UI&quot;</param>
+                                            <param id="1" name="Angle">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
                         <event-group description="" sid="216762760977768" title="Player - Animations - Misc - Animation Sprite Position">
                             <sub-events>
                                 <event-block sid="4002293077125234">
                                     <conditions>
                                         <condition id="-2" name="On start of layout" sid="5077683236168423" type="System" />
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="3088665631139078" type="PlayerAnim">
+                                            <param id="0" name="X">PlayerMask.ImagePointX(&quot;PlayerAnim&quot;)</param>
+                                            <param id="1" name="Y">PlayerMask.ImagePointY(&quot;PlayerAnim&quot;)</param>
+                                        </action>
+                                        <action behavior="Pin" id="0" name="Pin to object" sid="2298331102950454" type="PlayerAnim">
+                                            <param id="0" name="Pin to">PlayerMask</param>
+                                            <param id="1" name="Mode">0</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
@@ -850,6 +972,22 @@
                 </event-group>
                 <event-group description="Walking // Running // Jumping // Falling // Landing // In Danger // Hurt // Ladder" sid="6626233000411003" title="Player - Animations - Basic">
                     <sub-events>
+                        <event-group description="" sid="6134030060779196" title="Player - Animations - Basic - Idle">
+                            <sub-events>
+                                <event-block sid="5312944408589148">
+                                    <conditions>
+                                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="5559671100904033" type="PlayerMask" />
+                                        <condition behavior="Platform" id="2" name="Is on floor" sid="5678229210847716" type="PlayerMask" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="3436442128929801" type="PlayerAnim">
+                                            <param id="0" name="Animation">&quot;Idle&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
                         <event-group description="" sid="9724441908459793" title="Player - Animations - Basic - Walking">
                             <sub-events>
                                 <event-block sid="1157995227253048">
@@ -865,7 +1003,12 @@
                                                 <condition behavior="Platform" id="0" name="Is moving" sid="3186449019499909" type="PlayerMask" />
                                                 <condition behavior="Platform" id="2" name="Is on floor" sid="4692710325290708" type="PlayerMask" />
                                             </conditions>
-                                            <actions />
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="1822454215372179" type="PlayerAnim">
+                                                    <param id="0" name="Animation">&quot;Walk&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
                                         </event-block>
                                     </sub-events>
                                 </event-block>
@@ -886,7 +1029,12 @@
                                                 <condition behavior="Platform" id="0" name="Is moving" sid="3186449019499909" type="PlayerMask" />
                                                 <condition behavior="Platform" id="2" name="Is on floor" sid="4692710325290708" type="PlayerMask" />
                                             </conditions>
-                                            <actions />
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="7060998705184447" type="PlayerAnim">
+                                                    <param id="0" name="Animation">&quot;Run&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
                                         </event-block>
                                     </sub-events>
                                 </event-block>
@@ -898,7 +1046,12 @@
                                     <conditions>
                                         <condition behavior="Platform" id="5" name="On jump" sid="8009746572206732" type="PlayerMask" />
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1167667878832861" type="PlayerAnim">
+                                            <param id="0" name="Animation">&quot;Jump&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
@@ -908,7 +1061,12 @@
                                     <conditions>
                                         <condition behavior="Platform" id="4" name="Is falling" sid="1449179683743483" type="PlayerMask" />
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="6998223699054348" type="PlayerAnim">
+                                            <param id="0" name="Animation">&quot;Fall&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
@@ -918,7 +1076,12 @@
                                     <conditions>
                                         <condition behavior="Platform" id="9" name="On landed" sid="752926348714791" type="PlayerMask" />
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="7972433762038269" type="PlayerAnim">
+                                            <param id="0" name="Animation">&quot;Land&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
@@ -930,7 +1093,12 @@
                                             <param id="0" name="Instance variable">IsInDanger</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="3268189775728218" type="PlayerAnim">
+                                            <param id="0" name="Animation">&quot;InDanger&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
@@ -942,7 +1110,12 @@
                                             <param id="0" name="Instance variable">IsInDanger</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="525711166404644" type="PlayerAnim">
+                                            <param id="0" name="Animation">&quot;InDanger&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
@@ -950,11 +1123,31 @@
                             <sub-events>
                                 <event-block sid="7701352319598496">
                                     <conditions>
-                                        <condition id="-8" name="Is boolean instance variable set" sid="752926348714791" type="PlayerMask">
+                                        <condition id="-8" name="Is boolean instance variable set" sid="1490976127424136" type="PlayerMask">
                                             <param id="0" name="Instance variable">IsOnLadder</param>
                                         </condition>
+                                        <condition behavior="LadderMovement" id="0" inverted="1" name="Is moving" sid="752926348714791" type="PlayerMask" />
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1734904331500034" type="PlayerAnim">
+                                            <param id="0" name="Animation">&quot;LadderIdle&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="158150693454248">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="5896745770145075" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsOnLadder</param>
+                                        </condition>
+                                        <condition behavior="LadderMovement" id="0" name="Is moving" sid="8367191397702556" type="PlayerMask" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="853825394351597" type="PlayerAnim">
+                                            <param id="0" name="Animation">&quot;LadderMoving&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
@@ -962,10 +1155,87 @@
                 </event-group>
                 <event-group description="Charging Abilities // Stomp // Dash // Double Jump // Wall Sliding" sid="3024096771146767" title="Player - Animations - Abilities">
                     <sub-events>
-                        <event-group description="" sid="1909389437435544" title="Player - Animations - Ability - Charging Abilities" />
-                        <event-group description="" sid="626373630093698" title="Player - Animations - Ability - Stomp" />
-                        <event-group description="" sid="9045679552563879" title="Player - Animations - Ability - Dash" />
-                        <event-group description="" sid="1936225135331563" title="Player - Animations - Ability - Double Jump" />
+                        <event-group description="" sid="1909389437435544" title="Player - Animations - Ability - Charging Abilities">
+                            <sub-events>
+                                <event-block sid="1918153829641597">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="5336787225385001" type="Function">
+                                            <param id="0" name="Name">&quot;playerAbilityCharge&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="4366826058179469" type="PlayerAnim">
+                                            <param id="0" name="Animation">&quot;Charge&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="626373630093698" title="Player - Animations - Ability - Stomp">
+                            <sub-events>
+                                <event-block sid="6092545976421498">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="1989297148507262" type="Function">
+                                            <param id="0" name="Name">&quot;playerAbilityStomp&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="6694393444819149" type="PlayerAnim">
+                                            <param id="0" name="Animation">&quot;Stomp&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="9045679552563879" title="Player - Animations - Ability - Dash">
+                            <sub-events>
+                                <event-group description="" sid="9691373963880642" title="Player - Animations - Ability - Dash - Left">
+                                    <sub-events>
+                                        <event-block sid="2562758109768862">
+                                            <conditions>
+                                                <condition id="0" name="On function" sid="6437224847003925" type="Function">
+                                                    <param id="0" name="Name">&quot;playerAbilityDashLeft&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="3443856215249001" type="PlayerAnim">
+                                                    <param id="0" name="Animation">&quot;Dash&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="2202379861494826" type="PlayerMask">
+                                                    <param id="0" name="Instance variable">IsMovingLeft</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="241864659516175" title="Player - Animations - Ability - Dash - Right">
+                                    <sub-events>
+                                        <event-block sid="4671375940031529">
+                                            <conditions>
+                                                <condition id="0" name="On function" sid="2911963693308018" type="Function">
+                                                    <param id="0" name="Name">&quot;playerAbilityDashRight&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="435086710799307" type="PlayerAnim">
+                                                    <param id="0" name="Animation">&quot;Stomp&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="6178215429484445" type="PlayerMask">
+                                                    <param id="0" name="Instance variable">IsMovingLeft</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" disabled="1" sid="1936225135331563" title="Player - Animations - Ability - Double Jump" />
                         <event-group description="" sid="7128202922897778" title="Player - Animations - Ability - Wall Sliding">
                             <sub-events>
                                 <event-group description="" sid="8703347424806855" title="Player - Animations - Ability - Wall Sliding(Left)">
@@ -978,9 +1248,9 @@
                                                 <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="7384907650001606" type="PlayerMask" />
                                             </conditions>
                                             <actions>
-                                                <action id="-13" name="Set boolean" sid="3082553638059194" type="PlayerMask">
-                                                    <param id="0" name="Instance variable">IsMovingLeft</param>
-                                                    <param id="1" name="Value">1</param>
+                                                <action id="4" name="Set animation" sid="7067392485213779" type="PlayerAnim">
+                                                    <param id="0" name="Animation">&quot;WallSlide&quot;</param>
+                                                    <param id="1" name="From">1</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -996,9 +1266,9 @@
                                                 <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="439823315185663" type="PlayerMask" />
                                             </conditions>
                                             <actions>
-                                                <action id="-13" name="Set boolean" sid="2576314135407625" type="PlayerMask">
-                                                    <param id="0" name="Instance variable">IsMovingLeft</param>
-                                                    <param id="1" name="Value">0</param>
+                                                <action id="4" name="Set animation" sid="5169531709027723" type="PlayerAnim">
+                                                    <param id="0" name="Animation">&quot;WallSlide&quot;</param>
+                                                    <param id="1" name="From">1</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -1023,8 +1293,8 @@
                             </conditions>
                             <actions>
                                 <action id="-3" name="Set position" sid="8486758013000145" type="GameCamera">
-                                    <param id="0" name="X">lerp(Self.X,PlayerMask.X,0.1)</param>
-                                    <param id="1" name="Y">lerp(Self.Y, PlayerMask.Y,0.1)</param>
+                                    <param id="0" name="X">lerp(Self.X,PlayerMask.X,0.075)</param>
+                                    <param id="1" name="Y">lerp(Self.Y, PlayerMask.Y,0.05)</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -1034,7 +1304,9 @@
                     <sub-events>
                         <event-block sid="4807874788800734">
                             <conditions>
-                                <condition id="8" name="Is flipped" sid="6050965346401916" type="PlayerMask" />
+                                <condition id="-8" name="Is boolean instance variable set" sid="6050965346401916" type="PlayerMask">
+                                    <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-22" name="Set layout angle" sid="8811525750760621" type="System">
@@ -1044,7 +1316,9 @@
                         </event-block>
                         <event-block sid="3953328708486533">
                             <conditions>
-                                <condition id="8" inverted="1" name="Is flipped" sid="9763974654615366" type="PlayerMask" />
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9763974654615366" type="PlayerMask">
+                                    <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-22" name="Set layout angle" sid="5902262881621777" type="System">
@@ -1090,6 +1364,40 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2665419218345003" title="Player - UI">
+            <sub-events>
+                <event-group description="" sid="2825663536428505" title="Player - UI - Flip UI on camera flip">
+                    <sub-events>
+                        <event-block sid="9180755533357379">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="1084296376614704" type="PlayerMask">
+                                    <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-23" name="Set layer angle" sid="2954316977120738" type="System">
+                                    <param id="0" name="Layer">&quot;UI&quot;</param>
+                                    <param id="1" name="Angle">180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4304373262414081">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7002186617580982" type="PlayerMask">
+                                    <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-23" name="Set layer angle" sid="3309493683885583" type="System">
+                                    <param id="0" name="Layer">&quot;UI&quot;</param>
+                                    <param id="1" name="Angle">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-group>
             </sub-events>

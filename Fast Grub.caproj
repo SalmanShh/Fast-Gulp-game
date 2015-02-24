@@ -2,7 +2,7 @@
 <c2project>
     <name>Fast Grub</name>
     <description></description>
-    <version>1.0.0.0</version>
+    <version>0.01</version>
     <author></author>
     <author-email></author-email>
     <author-website>http://</author-website>
@@ -15,10 +15,13 @@
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="jumpthru" version="1">Jump-thru</behavior>
@@ -32,23 +35,23 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>854</width>
-        <height>480</height>
+        <width>960</width>
+        <height>540</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
-    <preview-effects>1</preview-effects>
+    <preview-effects>0</preview-effects>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
         <prop name="Enable WebGL">On</prop>
-        <prop name="Fullscreen in browser">Scale outer</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
         <prop name="Fullscreen scaling">High quality</prop>
         <prop name="Loader style">Progress bar &amp; logo</prop>
         <prop name="Orientations">Landscape</prop>
-        <prop name="Pause on unfocus">No</prop>
+        <prop name="Pause on unfocus">Yes</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
         <prop name="Preview browser">NW.js</prop>
-        <prop name="Sampling">Linear</prop>
+        <prop name="Sampling">Point</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
@@ -70,7 +73,7 @@
             <object-type name="PlayerMask" sid="6767176467596916">
                 <plugin id="Sprite" />
                 <instance-variables>
-                    <instance-variable name="CameraOnPlayer" sid="1634880065375411" type="boolean" />
+                    <instance-variable comment="check as false - to move the camera anywhere" name="CameraOnPlayer" sid="1634880065375411" type="boolean" />
                     <instance-variable name="HurtsEnemy" sid="7382211946899077" type="boolean" />
                     <instance-variable comment="This will be used to check for Player Mirroring" name="IsMovingLeft" sid="2159412688412509" type="boolean" />
                     <instance-variable name="IsHurt" sid="5273671047347346" type="boolean" />
@@ -84,6 +87,7 @@
                     <instance-variable name="HasAbilityFloat" sid="5968319230058087" type="boolean" />
                     <instance-variable name="HasAbilityInDanger" sid="5539248455790707" type="boolean" />
                     <instance-variable name="HasAbilityCharge" sid="8217615966093671" type="boolean" />
+                    <instance-variable name="IsPlayerFlipped" sid="4476436388287353" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="Platform" sid="9232464172691835">
@@ -93,9 +97,14 @@
                         <behavior id="EightDir" />
                     </behavior-type>
                 </behaviors>
+                <container>
+                    <type>PlayerMask</type>
+                    <type>PlayerAnim</type>
+                </container>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="971864770559616" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="PlayerAnim" x="0.5" y="1" />
                             <collision-poly>
                                 <point x="1" y="1" />
                                 <point x="0" y="1" />
@@ -104,6 +113,66 @@
                             </collision-poly>
                         </frame>
                     </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="PlayerAnim" sid="3204694635257565">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="4069596999939684">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+                <container>
+                    <type>PlayerMask</type>
+                    <type>PlayerAnim</type>
+                </container>
+                <animation-folder>
+                    <animation-folder name="Basic">
+                        <animation framecount="1" loop="0" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="2661607520590561" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="Walk" pingpong="0" repeatcount="1" repeatto="0" sid="1175089520707905" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="6218049257305822" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="Jump" pingpong="0" repeatcount="1" repeatto="0" sid="3936117553114347" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="Fall" pingpong="0" repeatcount="1" repeatto="0" sid="3306808682862454" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="Land" pingpong="0" repeatcount="1" repeatto="0" sid="1691919726726951" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="Hurt" pingpong="0" repeatcount="1" repeatto="0" sid="184975065589333" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="LadderIdle" pingpong="0" repeatcount="1" repeatto="0" sid="4599837888663029" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="LadderMoving" pingpong="0" repeatcount="1" repeatto="0" sid="1120495055326311" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                    </animation-folder>
+                    <animation-folder name="Ability">
+                        <animation framecount="1" loop="0" name="Charge" pingpong="0" repeatcount="1" repeatto="0" sid="9557198258615501" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="Stomp" pingpong="0" repeatcount="1" repeatto="0" sid="1480600595504949" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="Dash" pingpong="0" repeatcount="1" repeatto="0" sid="3552615549177702" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="WallSlide" pingpong="0" repeatcount="1" repeatto="0" sid="7094963386768368" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="InDanger" pingpong="0" repeatcount="1" repeatto="0" sid="2655362259352308" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                        </animation>
+                    </animation-folder>
                 </animation-folder>
             </object-type>
         </object-folder>
@@ -159,12 +228,13 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7575801260064312" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0" hotspotY="0.25">
                             <collision-poly>
-                                <point x="1" y="0" />
-                                <point x="1" y="1" />
-                                <point x="0" y="1" />
                                 <point x="0" y="0" />
+                                <point x="0.75" y="0.265625" />
+                                <point x="0.0625" y="0.484375" />
+                                <point x="0.75" y="0.703125" />
+                                <point x="0" y="1" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -193,8 +263,150 @@
                 <plugin id="TiledBg" />
                 <texture />
             </object-type>
+            <object-type name="FizzyDrink" sid="2705488113475224">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Physics" sid="2658150799730136">
+                        <behavior id="Physics" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="7551220664593014" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1">
+                            <collision-poly>
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Moving" pingpong="0" repeatcount="1" repeatto="0" sid="998491336379294" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1">
+                            <collision-poly>
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
-        <object-folder name="Tilesets" />
+        <object-folder name="Tilesets">
+            <object-type name="SolidTileset" sid="418035377282748">
+                <plugin id="Tilemap" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="8278779661376442">
+                        <behavior id="solid" />
+                    </behavior-type>
+                    <behavior-type name="Physics" sid="5164483248275628">
+                        <behavior id="Physics" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+                <tiles>
+                    <tile id="1">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="2">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.25" y="0" />
+                            <point x="0.25" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="3">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.25" />
+                            <point x="0" y="0.25" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="4">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.25" />
+                            <point x="0.25" y="0.25" />
+                            <point x="0.25" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="5">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0.75" y="1" />
+                            <point x="0.75" y="0.25" />
+                            <point x="0" y="0.25" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="6">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.248047" y="0" />
+                            <point x="0.25" y="0.96875" />
+                            <point x="0" y="0.96875" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="7">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.25" y="0" />
+                            <point x="0.25" y="0.75" />
+                            <point x="1" y="0.75" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="8">
+                        <collision-poly>
+                            <point x="0.75" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0.75" />
+                            <point x="0.75" y="0.75" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="9">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0.75" y="1" />
+                            <point x="0.75" y="0.25" />
+                            <point x="0" y="0.25" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="10">
+                        <collision-poly>
+                            <point x="0.765625" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0.757813" y="0.984375" />
+                        </collision-poly>
+                    </tile>
+                    <tile id="11">
+                        <collision-poly>
+                            <point x="0.75" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.25" />
+                            <point x="0.75" y="0.25" />
+                        </collision-poly>
+                    </tile>
+                </tiles>
+            </object-type>
+        </object-folder>
         <object-folder name="Menu" />
         <object-folder name="UI" />
         <object-type name="DeleteMeLater" sid="3704502931799404">
@@ -223,7 +435,10 @@
     <families />
     <layout-folder>
         <layout-folder name="Levels">
-            <layout>Level 1.xml</layout>
+            <layout>Hub.xml</layout>
+            <layout>Freddy&apos;s Level.xml</layout>
+            <layout>Asif&apos;s Level.xml</layout>
+            <layout>Corrina&apos;s Level.xml</layout>
         </layout-folder>
         <layout-folder name="Menus">
             <layout>Main Menu.xml</layout>
@@ -231,10 +446,13 @@
         <layout>Sandbox.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-folder name="Levels">
-            <event-sheet>Level 1.xml</event-sheet>
+        <event-folder name="Level Specific">
+            <event-sheet>Freddy&apos;s Level.xml</event-sheet>
+            <event-sheet>Asif&apos;s Level.xml</event-sheet>
+            <event-sheet>Corrina&apos;s Level.xml</event-sheet>
+            <event-sheet>Hub.xml</event-sheet>
         </event-folder>
-        <event-folder name="Gameplay Related">
+        <event-folder name="Gameplay Related (Attach to Levels)">
             <event-sheet>PlayerRelated.xml</event-sheet>
             <event-sheet>Objects.xml</event-sheet>
             <event-sheet>Audio.xml</event-sheet>
