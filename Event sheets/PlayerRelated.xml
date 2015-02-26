@@ -1042,9 +1042,10 @@
                         </event-group>
                         <event-group description="" sid="4800143114549541" title="Player - Animations - Basic - Jumping">
                             <sub-events>
-                                <event-block sid="1820205922524023">
+                                <event-block any="1" sid="1820205922524023">
                                     <conditions>
                                         <condition behavior="Platform" id="5" name="On jump" sid="8009746572206732" type="PlayerMask" />
+                                        <condition behavior="Platform" id="3" name="Is jumping" sid="4700079054275574" type="PlayerMask" />
                                     </conditions>
                                     <actions>
                                         <action id="4" name="Set animation" sid="1167667878832861" type="PlayerAnim">

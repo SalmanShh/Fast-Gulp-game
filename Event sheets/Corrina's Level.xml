@@ -2,5 +2,9 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Corrina&apos;s Level</name>
-    <events />
+    <events>
+        <include>Audio</include>
+        <include>PlayerRelated</include>
+        <include>Objects</include>
+    </events>
 </c2eventsheet>
