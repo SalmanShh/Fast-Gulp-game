@@ -11,12 +11,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="0">Hub</layout>
-        <layout order="1">Freddy&apos;s Level</layout>
-        <layout order="2">Asif&apos;s Level</layout>
-        <layout active="1" order="3">Corrina&apos;s Level</layout>
-        <layout order="6">Sandbox</layout>
-        <event-sheet order="5">PlayerRelated</event-sheet>
-        <event-sheet order="4">Corrina&apos;s Level</event-sheet>
+        <event-sheet active="1" order="1">PlayerRelated</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />

@@ -1333,6 +1333,26 @@
         </event-group>
         <event-group description="" sid="5997810737035322" title="Player - Effects">
             <sub-events>
+                <event-group description="" sid="5197808467341455" title="Player - Effects - Screenshake">
+                    <sub-events>
+                        <event-group description="" sid="5399541094278557" title="Player - Effects - Screenshake - Landing">
+                            <sub-events>
+                                <event-block sid="5030299685551396">
+                                    <conditions>
+                                        <condition behavior="Platform" id="9" name="On landed" sid="8725886573239135" type="PlayerMask" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="ScrollTo" id="0" name="Shake" sid="9681693575939374" type="GameCamera">
+                                            <param id="0" name="Magnitude">5</param>
+                                            <param id="1" name="Duration">0.05</param>
+                                            <param id="2" name="Mode">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="9419708058065423" title="Player - Effects - Vignette">
                     <sub-events>
                         <event-group description="" sid="3032036168008226" title="Player - Effects - Vignette - IsInDanger">
