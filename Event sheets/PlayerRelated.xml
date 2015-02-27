@@ -1294,7 +1294,7 @@
                             </conditions>
                             <actions>
                                 <action id="-3" name="Set position" sid="8486758013000145" type="GameCamera">
-                                    <param id="0" name="X">lerp(Self.X,PlayerMask.X,0.075)</param>
+                                    <param id="0" name="X">lerp(Self.X,PlayerMask.X,0.025)</param>
                                     <param id="1" name="Y">lerp(Self.Y, PlayerMask.Y,0.05)</param>
                                 </action>
                             </actions>

@@ -47,7 +47,7 @@
                                                                 <condition id="9" name="Is overlapping at offset" sid="9790286287776239" type="Spike">
                                                                     <param id="0" name="Object">PlayerMask</param>
                                                                     <param id="1" name="Offset X">0</param>
-                                                                    <param id="2" name="Offset Y">-32</param>
+                                                                    <param id="2" name="Offset Y">-15</param>
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
@@ -79,7 +79,7 @@
                                                                 <condition id="9" name="Is overlapping at offset" sid="2650489201183064" type="Spike">
                                                                     <param id="0" name="Object">PlayerMask</param>
                                                                     <param id="1" name="Offset X">0</param>
-                                                                    <param id="2" name="Offset Y">32</param>
+                                                                    <param id="2" name="Offset Y">15</param>
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
@@ -110,7 +110,7 @@
                                                                 <condition id="9" name="Is overlapping at offset" sid="1765609787224012" type="Spike">
                                                                     <param id="0" name="Object">PlayerMask</param>
                                                                     <param id="1" name="Offset X">0</param>
-                                                                    <param id="2" name="Offset Y">-32</param>
+                                                                    <param id="2" name="Offset Y">-15</param>
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
@@ -146,7 +146,7 @@
                                                                 <condition id="9" name="Is overlapping at offset" sid="8524859741677992" type="Spike">
                                                                     <param id="0" name="Object">PlayerMask</param>
                                                                     <param id="1" name="Offset X">0</param>
-                                                                    <param id="2" name="Offset Y">-32</param>
+                                                                    <param id="2" name="Offset Y">-15</param>
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
@@ -166,18 +166,33 @@
                         </event-group>
                         <event-group description="(INCOMPLETE) moves in one direction and then Explodes" sid="1060420555475957" title="Gameplay - Variant Object - Fizzy Drink">
                             <sub-events>
-                                <event-group description="" sid="4525325997055105" title="Gameplay - Variant Object - Fizzy Drink - Collide from Left">
+                                <event-group description="" sid="4525325997055105" title="Gameplay - Variant Object - Fizzy Drink - IsHit">
                                     <sub-events>
                                         <comment>-Salman</comment>
-                                        <event-block sid="1129216826635766">
+                                        <event-block sid="1390595665354514">
                                             <conditions>
-                                                <condition id="9" name="Is overlapping at offset" sid="2932880261192406" type="PlayerMask">
-                                                    <param id="0" name="Object">FizzyDrink</param>
-                                                    <param id="1" name="Offset X">-2</param>
-                                                    <param id="2" name="Offset Y">0</param>
+                                                <condition id="-11" inverted="1" name="Is within angle" sid="299805521885484" type="FizzyDrink">
+                                                    <param id="0" name="Within">1</param>
+                                                    <param id="1" name="Angle">270</param>
                                                 </condition>
                                             </conditions>
-                                            <actions />
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="2793450305912707" type="FizzyDrink">
+                                                    <param id="0" name="Instance variable">IsHit</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="572921606614965">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="5840622941650223" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="2716857606219099" type="FizzyDrink">
+                                                    <param id="0" name="Instance variable">IsHit</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
                                         </event-block>
                                     </sub-events>
                                 </event-group>
