@@ -20,6 +20,7 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="NoSave" version="1">No Save</behavior>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
@@ -193,6 +194,9 @@
                         <behavior-type name="MoveVertical" sid="6424751030852373">
                             <behavior id="Sin" />
                         </behavior-type>
+                        <behavior-type name="Physics" sid="180644692631124">
+                            <behavior id="Physics" />
+                        </behavior-type>
                     </behaviors>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3385905970415898" speed="5">
@@ -211,6 +215,9 @@
                         </behavior-type>
                         <behavior-type name="MoveVertical" sid="2432824559838529">
                             <behavior id="Sin" />
+                        </behavior-type>
+                        <behavior-type name="Physics" sid="1734018560280857">
+                            <behavior id="Physics" />
                         </behavior-type>
                     </behaviors>
                     <animation-folder>
@@ -271,10 +278,17 @@
                 <instance-variables>
                     <instance-variable name="IsHit" sid="2125659117970614" type="boolean" />
                     <instance-variable name="ReachedLimit" sid="6302691667013815" type="boolean" />
+                    <instance-variable name="WaitBeforeMoving" sid="6365461183692881" type="number" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="Physics" sid="2658150799730136">
                         <behavior id="Physics" />
+                    </behavior-type>
+                    <behavior-type name="NoSave" sid="1086475283593695">
+                        <behavior id="NoSave" />
+                    </behavior-type>
+                    <behavior-type name="Jumpthru" sid="9027341140689687">
+                        <behavior id="jumpthru" />
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
@@ -289,14 +303,7 @@
                         </frame>
                     </animation>
                     <animation framecount="1" loop="0" name="Moving" pingpong="0" repeatcount="1" repeatto="0" sid="998491336379294" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="1">
-                            <collision-poly>
-                                <point x="0" y="1" />
-                                <point x="0" y="0" />
-                                <point x="1" y="0" />
-                                <point x="1" y="1" />
-                            </collision-poly>
-                        </frame>
+                        <frame duration="1" hotspotX="0" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>

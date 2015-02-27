@@ -168,46 +168,73 @@
                             <sub-events>
                                 <event-group description="" sid="4525325997055105" title="Gameplay - Variant Object - Fizzy Drink - IsHit">
                                     <sub-events>
-                                        <comment>-Salman</comment>
-                                        <event-block sid="1390595665354514">
-                                            <conditions>
-                                                <condition id="-11" inverted="1" name="Is within angle" sid="299805521885484" type="FizzyDrink">
-                                                    <param id="0" name="Within">1</param>
-                                                    <param id="1" name="Angle">270</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-13" name="Set boolean" sid="2793450305912707" type="FizzyDrink">
-                                                    <param id="0" name="Instance variable">IsHit</param>
-                                                    <param id="1" name="Value">1</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="572921606614965">
-                                            <conditions>
-                                                <condition id="-22" name="Else" sid="5840622941650223" type="System" />
-                                            </conditions>
-                                            <actions>
-                                                <action id="-13" name="Set boolean" sid="2716857606219099" type="FizzyDrink">
-                                                    <param id="0" name="Instance variable">IsHit</param>
-                                                    <param id="1" name="Value">0</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
+                                        <event-group description="" sid="8487380945680822" title="Gameplay - Variant Object - Fizzy Drink - IsHit - when True">
+                                            <sub-events>
+                                                <event-block sid="9488474458587252">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="7342709684651762" type="FizzyDrink">
+                                                            <param id="0" name="Instance variable">IsHit</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-16" name="Wait" sid="9772419996020361" type="System">
+                                                            <param id="0" name="Seconds">FizzyDrink.WaitBeforeMoving</param>
+                                                        </action>
+                                                        <action behavior="Physics" id="2" name="Apply force at angle" sid="2480027470708545" type="FizzyDrink">
+                                                            <param id="0" name="Force">15</param>
+                                                            <param id="1" name="Angle">Self.Angle</param>
+                                                            <param id="2" name="Image point">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="6014691051290036" title="Gameplay - Variant Object - Fizzy Drink - IsHit - Trigger">
+                                            <sub-events>
+                                                <comment>if the object is not between 268 and 272 degrees --&gt; IsHit Bool is set to TRUE -Salman</comment>
+                                                <event-block sid="1390595665354514">
+                                                    <conditions>
+                                                        <condition id="-13" inverted="1" name="Is between angles" sid="299805521885484" type="FizzyDrink">
+                                                            <param id="0" name="First angle">268</param>
+                                                            <param id="1" name="Second angle">272</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="2793450305912707" type="FizzyDrink">
+                                                            <param id="0" name="Instance variable">IsHit</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                        <action id="4" name="Set animation" sid="4084389358300825" type="FizzyDrink">
+                                                            <param id="0" name="Animation">&quot;Moving&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
                                     </sub-events>
                                 </event-group>
                                 <event-group description="" sid="6892149134361683" title="Gameplay - Variant Object - Fizzy Drink - Collide from Right">
                                     <sub-events>
                                         <comment>-Salman</comment>
-                                        <event-block sid="3474056881671211">
+                                        <event-block any="1" sid="3474056881671211">
                                             <conditions>
                                                 <condition id="9" name="Is overlapping at offset" sid="9887693400470599" type="PlayerMask">
                                                     <param id="0" name="Object">FizzyDrink</param>
-                                                    <param id="1" name="Offset X">2</param>
+                                                    <param id="1" name="Offset X">5</param>
+                                                    <param id="2" name="Offset Y">0</param>
+                                                </condition>
+                                                <condition id="9" name="Is overlapping at offset" sid="5181403226755689" type="PlayerMask">
+                                                    <param id="0" name="Object">FizzyDrink</param>
+                                                    <param id="1" name="Offset X">-5</param>
                                                     <param id="2" name="Offset Y">0</param>
                                                 </condition>
                                             </conditions>
-                                            <actions />
+                                            <actions>
+                                                <action behavior="Physics" id="6" name="Apply torque" sid="1490935268646907" type="FizzyDrink">
+                                                    <param id="0" name="Torque">random(-10,10)</param>
+                                                </action>
+                                            </actions>
                                         </event-block>
                                     </sub-events>
                                 </event-group>
