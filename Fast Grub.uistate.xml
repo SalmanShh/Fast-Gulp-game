@@ -11,8 +11,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="2">Sandbox</layout>
-        <event-sheet active="1" order="1">PlayerRelated</event-sheet>
-        <event-sheet order="3">Objects</event-sheet>
+        <event-sheet order="1">PlayerRelated</event-sheet>
+        <event-sheet active="1" order="3">Objects</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -32,7 +32,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="object-folder/Menu/" />
         <folder expanded="1" path="object-folder/UI/" />
         <folder expanded="1" path="layout-folder/" />
-        <folder expanded="0" path="layout-folder/Levels/" />
+        <folder expanded="1" path="layout-folder/Levels/" />
         <folder expanded="0" path="layout-folder/Menus/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="0" path="event-folder/Level Specific/" />

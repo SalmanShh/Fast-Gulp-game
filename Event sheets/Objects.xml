@@ -7,7 +7,7 @@
             <sub-events>
                 <event-group description="Spike // Fizzy Drink // Mozzeralla Stick Missile" sid="4576666093628703" title="Gameplay - Variant Object - Hurts - ">
                     <sub-events>
-                        <event-group description="On Collision // Angle" sid="863356822153739" title="Gameplay - Variant Object - Hurts - Spike">
+                        <event-group description="" sid="863356822153739" title="Gameplay - Variant Object - Hurts - Spike">
                             <sub-events>
                                 <event-group description="" sid="9683239869017355" title="Things That Hurt - Spike - On Collision">
                                     <sub-events>
@@ -47,7 +47,7 @@
                                                                 <condition id="9" name="Is overlapping at offset" sid="9790286287776239" type="Spike">
                                                                     <param id="0" name="Object">PlayerMask</param>
                                                                     <param id="1" name="Offset X">0</param>
-                                                                    <param id="2" name="Offset Y">-15</param>
+                                                                    <param id="2" name="Offset Y">-20</param>
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
@@ -79,7 +79,7 @@
                                                                 <condition id="9" name="Is overlapping at offset" sid="2650489201183064" type="Spike">
                                                                     <param id="0" name="Object">PlayerMask</param>
                                                                     <param id="1" name="Offset X">0</param>
-                                                                    <param id="2" name="Offset Y">15</param>
+                                                                    <param id="2" name="Offset Y">20</param>
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
@@ -110,7 +110,7 @@
                                                                 <condition id="9" name="Is overlapping at offset" sid="1765609787224012" type="Spike">
                                                                     <param id="0" name="Object">PlayerMask</param>
                                                                     <param id="1" name="Offset X">0</param>
-                                                                    <param id="2" name="Offset Y">-15</param>
+                                                                    <param id="2" name="Offset Y">-20</param>
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
@@ -146,7 +146,7 @@
                                                                 <condition id="9" name="Is overlapping at offset" sid="8524859741677992" type="Spike">
                                                                     <param id="0" name="Object">PlayerMask</param>
                                                                     <param id="1" name="Offset X">0</param>
-                                                                    <param id="2" name="Offset Y">-15</param>
+                                                                    <param id="2" name="Offset Y">-20</param>
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
@@ -164,7 +164,7 @@
                                 </event-group>
                             </sub-events>
                         </event-group>
-                        <event-group description="(INCOMPLETE) moves in one direction and then Explodes" sid="1060420555475957" title="Gameplay - Variant Object - Fizzy Drink">
+                        <event-group description="" sid="1060420555475957" title="Gameplay - Variant Object - Fizzy Drink">
                             <sub-events>
                                 <event-group description="" sid="4525325997055105" title="Gameplay - Variant Object - Fizzy Drink - IsHit">
                                     <sub-events>
@@ -245,6 +245,7 @@
                         </event-group>
                         <event-group description="" sid="467878975540198" title="Gameplay - Variant Object - Mozzeralla Stick Shooter">
                             <sub-events>
+                                <event-group description="" sid="7004124772329657" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Animations/effects" />
                                 <event-group description="" sid="8373280980600339" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret">
                                     <sub-events>
                                         <event-group description="" sid="2070616779017015" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret - Shoot">
@@ -300,6 +301,33 @@
                                 </event-group>
                                 <event-group description="" sid="8990400956455567" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile">
                                     <sub-events>
+                                        <event-group description="" sid="1468042154873983" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Missile - Lifetime">
+                                            <sub-events>
+                                                <event-block sid="3806420209651999">
+                                                    <conditions>
+                                                        <condition behavior="Bullet" id="1" name="Compare distance travelled" sid="1131661344999383" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Comparison">4</param>
+                                                            <param id="1" name="Distance">350</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="8017426617579235" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="3657065156929042">
+                                                    <conditions>
+                                                        <condition id="-19" name="On destroyed" sid="7653579305925028" type="MozzerallaStickMissile" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="2619722448601519" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">Particles</param>
+                                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                                            <param id="2" name="Image point">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
                                         <event-group description="" sid="2362013718445968" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile - On Collision">
                                             <sub-events>
                                                 <event-block sid="4928131266118434">
@@ -324,6 +352,55 @@
                                                     </conditions>
                                                     <actions>
                                                         <action id="-9" name="Destroy" sid="6436634287559921" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="8432590611780732">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="77073597033507" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">FizzyDrink</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="3690884824726035" type="MozzerallaStickMissile" />
+                                                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="1757484585297047" type="FizzyDrink">
+                                                            <param id="0" name="Impulse">15</param>
+                                                            <param id="1" name="Angle">MozzerallaStickMissile.Angle </param>
+                                                            <param id="2" name="Image point">0</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="2826785301836513" type="FizzyDrink">
+                                                            <param id="0" name="Instance variable">IsHit</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="4709467912359153">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="5952720341085564" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">Spike</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="8200506304741443" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="6316079130105885">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="9612124986118171" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">MovingPlatform32x32</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="1728871233733298" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="9555309350864224">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="7922962387171442" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">MovingPlatform64x32</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="1029382640469347" type="MozzerallaStickMissile" />
                                                     </actions>
                                                 </event-block>
                                             </sub-events>
