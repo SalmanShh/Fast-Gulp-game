@@ -243,7 +243,110 @@
                                 </event-group>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="467878975540198" title="Gameplay - Variant Object - Mozzeralla Stick Missile" />
+                        <event-group description="" sid="467878975540198" title="Gameplay - Variant Object - Mozzeralla Stick Shooter">
+                            <sub-events>
+                                <event-group description="" sid="8373280980600339" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret">
+                                    <sub-events>
+                                        <event-group description="" sid="2070616779017015" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret - Shoot">
+                                            <sub-events>
+                                                <event-block sid="8010895994500173">
+                                                    <conditions>
+                                                        <condition behavior="Turret" id="1" name="On shoot" sid="451975076840715" type="MozzerallaTurret" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="4924602786043887" type="MozzerallaTurret">
+                                                            <param id="0" name="Object">MozzerallaStickMissile</param>
+                                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                                            <param id="2" name="Image point">&quot;Barrel&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="2323578990583436" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret - Turret Position">
+                                            <sub-events>
+                                                <event-block sid="4636277579898003">
+                                                    <conditions>
+                                                        <condition id="-2" name="On start of layout" sid="2192448605072595" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-3" name="Set position" sid="6220098994172853" type="MozzerallaTurret">
+                                                            <param id="0" name="X">TurretPosition.X</param>
+                                                            <param id="1" name="Y">TurretPosition.Y</param>
+                                                        </action>
+                                                        <action behavior="Pin" id="0" name="Pin to object" sid="5207253135465155" type="MozzerallaTurret">
+                                                            <param id="0" name="Pin to">TurretPosition</param>
+                                                            <param id="1" name="Mode">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="5860671587506808" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret - Target Objects">
+                                            <sub-events>
+                                                <event-block sid="711178508205051">
+                                                    <conditions>
+                                                        <condition id="-2" name="On start of layout" sid="5755739732560599" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Turret" id="1" name="Add object to target" sid="589376076901741" type="MozzerallaTurret">
+                                                            <param id="0" name="Target">PlayerMask</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="8990400956455567" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile">
+                                    <sub-events>
+                                        <event-group description="" sid="2362013718445968" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile - On Collision">
+                                            <sub-events>
+                                                <event-block sid="4928131266118434">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="9856768779316688" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">PlayerMask</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="3935579509404641" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsHurt</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                        <action id="-9" name="Destroy" sid="5208662684800146" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="3110449161273281">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="5200886531155553" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">SolidTileset</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="6436634287559921" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="9223594836186665" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile - On Created">
+                                            <sub-events>
+                                                <event-block sid="3653472625718911">
+                                                    <conditions>
+                                                        <condition id="-1" name="Every tick" sid="2499896370733577" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-22" name="Set angle toward position" sid="4739099108898605" type="MozzerallaStickMissile">
+                                                            <param id="0" name="X">PlayerMask.X</param>
+                                                            <param id="1" name="Y">PlayerMask.Y</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
                     </sub-events>
                 </event-group>
                 <event-group description="Soft Block // Ladder // Bounce Pad // Gravity Switcher" sid="3584885138058153" title="Gameplay - Variant Object -  Does not Hurt">

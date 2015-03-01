@@ -203,7 +203,7 @@
                         <opacity>1</opacity>
                     </world>
                     <tilemap-data>
-                        <width>54</width>
+                        <width>55</width>
                         <height>30</height>
                         <max-width>55</max-width>
                         <max-height>30</max-height>

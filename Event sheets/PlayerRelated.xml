@@ -18,6 +18,19 @@
                                 <action id="-26" name="Restart layout" sid="8585704519935674" type="System" />
                             </actions>
                         </event-block>
+                        <event-block sid="9916210416114819">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="7051375371142559" type="PlayerMask">
+                                    <param id="0" name="Instance variable">IsHurt</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="6080649287201575" type="Function">
+                                    <param id="0" name="Name">&quot;playerFail&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-group>
                 <event-group description="(INCOMPLETE) Charge // Dash // Float Down// Double Jump // Stomp // In Danger // Wall Jump" sid="3384061040936771" title="Player - Functions - Player Abilties">
@@ -1283,6 +1296,21 @@
         </event-group>
         <event-group description="" sid="1105700756480245" title="Player - Camera">
             <sub-events>
+                <event-group description="" sid="4741841921062512" title="Player - Camera - Start Position">
+                    <sub-events>
+                        <event-block sid="4726034461741572">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="1544170978211151" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="2042679221286673" type="GameCamera">
+                                    <param id="0" name="X">PlayerMask.X</param>
+                                    <param id="1" name="Y">PlayerMask.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="3299341627042497" title="Player - Camera - Centre on Player ">
                     <sub-events>
                         <comment>if the instance Bool is true ----&gt; The camera will centre to the &quot;PlayerMask&quot; sprite @ 5% the speed</comment>
