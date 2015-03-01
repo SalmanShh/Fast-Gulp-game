@@ -302,6 +302,10 @@
                         </animation>
                     </animation-folder>
                 </object-type>
+                <object-type name="CheeseSplatterParticles" sid="5573609586027129">
+                    <plugin id="Particles" />
+                    <texture />
+                </object-type>
             </object-folder>
             <object-type name="Spike" sid="6237907360238314">
                 <plugin id="Sprite" />
@@ -529,10 +533,6 @@
                     <frame duration="1" hotspotX="0.509434" hotspotY="0.512195" />
                 </animation>
             </animation-folder>
-        </object-type>
-        <object-type name="Particles" sid="5573609586027129">
-            <plugin id="Particles" />
-            <texture />
         </object-type>
     </object-folder>
     <families />
