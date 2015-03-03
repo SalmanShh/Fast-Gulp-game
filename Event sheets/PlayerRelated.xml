@@ -508,7 +508,7 @@
                                             </conditions>
                                             <actions>
                                                 <action behavior="Platform" id="1" name="Set max speed" sid="7811040817625604" type="PlayerMask">
-                                                    <param id="0" name="Max Speed">500</param>
+                                                    <param id="0" name="Max Speed">630</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -589,11 +589,124 @@
                     <sub-events>
                         <event-group description="(INCOMPLETE) Charge Abilities // Dash // Float Down // Double Jump // Stomp" sid="4072532014874905" title="Player - Controls - Keyboard - Abilities">
                             <sub-events>
-                                <event-group description="" sid="5173671964187145" title="Player - Controls - Keyboard - Abilities - Charge Abilites" />
-                                <event-group description="" sid="6152089537231029" title="Player - Controls - Keyboard - Abilities - Dash" />
-                                <event-group description="" sid="1650958722601008" title="Player - Controls - Keyboard - Abilities - Float Down" />
+                                <event-group description="" sid="5173671964187145" title="Player - Controls - Keyboard - Abilities - Charge Abilites">
+                                    <sub-events>
+                                        <event-block sid="6461601860943612">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="9266059581435625" type="Keyboard">
+                                                    <param id="0" name="Key">79 (O)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" disabled="1" sid="6152089537231029" title="Player - Controls - Keyboard - Abilities - Dash" />
+                                <event-group description="" sid="1650958722601008" title="Player - Controls - Keyboard - Abilities - Float Down">
+                                    <sub-events>
+                                        <comment></comment>
+                                        <event-block sid="2821341515302724">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="5805534729546301" type="Keyboard">
+                                                    <param id="0" name="Key">79 (O)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="1277501939659873">
+                                                    <conditions>
+                                                        <condition id="2" name="Key is down" sid="228340389318912" type="Keyboard">
+                                                            <param id="0" name="Key">87 (W)</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="3225267712967557" type="Function">
+                                                            <param id="0" name="Name">&quot;playerAbilityFloatDown&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment></comment>
+                                        <event-block sid="8457753773106543">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="4696651927399225" type="Keyboard">
+                                                    <param id="0" name="Key">79 (O)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="8731252083063376">
+                                                    <conditions>
+                                                        <condition id="2" name="Key is down" sid="326130122054196" type="Keyboard">
+                                                            <param id="0" name="Key">38 (Up arrow)</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="7405504623945053" type="Function">
+                                                            <param id="0" name="Name">&quot;playerAbilityFloatDown&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
                                 <event-group description="" disabled="1" sid="3154202616745031" title="Player - Controls - Keyboard - Abilities - Double Jump" />
-                                <event-group description="" sid="3412748154394522" title="Player - Controls - Keyboard - Abilities - Stomp" />
+                                <event-group description="" sid="3412748154394522" title="Player - Controls - Keyboard - Abilities - Stomp">
+                                    <sub-events>
+                                        <comment></comment>
+                                        <event-block sid="8766767585170677">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="9315436332769653" type="Keyboard">
+                                                    <param id="0" name="Key">79 (O)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="7991390470317276">
+                                                    <conditions>
+                                                        <condition id="2" name="Key is down" sid="4288418766967316" type="Keyboard">
+                                                            <param id="0" name="Key">83 (S)</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="5784587229200109" type="Function">
+                                                            <param id="0" name="Name">&quot;playerAbilityStomp&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment></comment>
+                                        <event-block sid="1317566688323043">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="8094568428740968" type="Keyboard">
+                                                    <param id="0" name="Key">79 (O)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="9987953235758337">
+                                                    <conditions>
+                                                        <condition id="2" name="Key is down" sid="1790964146829226" type="Keyboard">
+                                                            <param id="0" name="Key">40 (Down arrow)</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="4289075947456541" type="Function">
+                                                            <param id="0" name="Name">&quot;playerAbilityStomp&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
                             </sub-events>
                         </event-group>
                         <event-group description="(INCOMPLETE)Left // Right // Jump // Fall Through // Run" sid="2797414790790028" title="Player - Controls - Keyboard - Basic Movement">
@@ -640,13 +753,10 @@
                                 </event-group>
                                 <event-group description="" sid="2574792246857203" title="Player - Controls - Keyboard - Basic Movement -  Jump">
                                     <sub-events>
-                                        <event-block any="1" sid="9563462959716056">
+                                        <event-block sid="9563462959716056">
                                             <conditions>
                                                 <condition id="0" name="On key pressed" sid="3872345754831413" type="Keyboard">
-                                                    <param id="0" name="Key">38 (Up arrow)</param>
-                                                </condition>
-                                                <condition id="0" name="On key pressed" sid="7958720107242481" type="Keyboard">
-                                                    <param id="0" name="Key">87 (W)</param>
+                                                    <param id="0" name="Key">73 (I)</param>
                                                 </condition>
                                             </conditions>
                                             <actions>
@@ -660,21 +770,53 @@
                                 </event-group>
                                 <event-group description="" sid="906841131626261" title="Player - Controls - Keyboard - Basic Movement -  Fall Through">
                                     <sub-events>
-                                        <event-block any="1" sid="3069202028878425">
+                                        <comment></comment>
+                                        <event-block sid="883029463266172">
                                             <conditions>
                                                 <condition id="2" name="Key is down" sid="8426207823000115" type="Keyboard">
                                                     <param id="0" name="Key">40 (Down arrow)</param>
                                                 </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="7277943777995264">
+                                                    <conditions>
+                                                        <condition id="0" name="On key pressed" sid="9938622002002919" type="Keyboard">
+                                                            <param id="0" name="Key">73 (I)</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="666550042390107" type="Function">
+                                                            <param id="0" name="Name">&quot;playerFallThrough&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment></comment>
+                                        <event-block sid="3069202028878425">
+                                            <conditions>
                                                 <condition id="2" name="Key is down" sid="8823524401653057" type="Keyboard">
                                                     <param id="0" name="Key">83 (S)</param>
                                                 </condition>
                                             </conditions>
-                                            <actions>
-                                                <action id="0" name="Call function" sid="666550042390107" type="Function">
-                                                    <param id="0" name="Name">&quot;playerFallThrough&quot;</param>
-                                                    <param id="1" name="Parameter {n}"></param>
-                                                </action>
-                                            </actions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="9911784334112806">
+                                                    <conditions>
+                                                        <condition id="0" name="On key pressed" sid="2980981042030492" type="Keyboard">
+                                                            <param id="0" name="Key">73 (I)</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="8154056692987508" type="Function">
+                                                            <param id="0" name="Name">&quot;playerFallThrough&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
                                         </event-block>
                                     </sub-events>
                                 </event-group>
@@ -683,7 +825,7 @@
                                         <event-block sid="3069202028878425">
                                             <conditions>
                                                 <condition id="2" name="Key is down" sid="8823524401653057" type="Keyboard">
-                                                    <param id="0" name="Key">16 (Shift)</param>
+                                                    <param id="0" name="Key">85 (U)</param>
                                                 </condition>
                                             </conditions>
                                             <actions>

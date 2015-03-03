@@ -486,6 +486,86 @@
                 <event-group description="Soft Block // Ladder // Bounce Pad // Gravity Switcher" sid="3584885138058153" title="Gameplay - Variant Object -  Does not Hurt">
                     <sub-events>
                         <event-group description="" sid="1065466767923543" title="Gameplay - Variant Object - Soft Block" />
+                        <event-group description="" sid="2344510200924031" title="Gameplay - Variant Object - Moving Platform (64x64)">
+                            <sub-events>
+                                <event-group description="" sid="4142577764804984" title="Gameplay - Variant Object - Moving Platform (64x64) - Immovable">
+                                    <sub-events>
+                                        <comment></comment>
+                                        <event-block sid="4004163875509609">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="9807109380948074" type="MovingPlatform64x32">
+                                                    <param id="0" name="Instance variable">Immovable</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="MoveVertical" id="0" name="Set active" sid="1075930114654311" type="MovingPlatform64x32">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                                <action behavior="MoveHorizontal" id="0" name="Set active" sid="6295424322514748" type="MovingPlatform64x32">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment></comment>
+                                        <event-block sid="4799199220060215">
+                                            <conditions>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8062221538966493" type="MovingPlatform64x32">
+                                                    <param id="0" name="Instance variable">Immovable</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="MoveVertical" id="0" name="Set active" sid="5745640481925553" type="MovingPlatform64x32">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                                <action behavior="MoveHorizontal" id="0" name="Set active" sid="4517707075960328" type="MovingPlatform64x32">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="2481792425743472" title="Gameplay - Variant Object - Moving Platform (32x32)">
+                            <sub-events>
+                                <event-group description="" sid="4142577764804984" title="Gameplay - Variant Object - Moving Platform (32x32) - Immovable">
+                                    <sub-events>
+                                        <comment></comment>
+                                        <event-block sid="2426712734996227">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="4497947760885371" type="MovingPlatform32x32">
+                                                    <param id="0" name="Instance variable">Immovable</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="MoveHorizontal" id="0" name="Set active" sid="2541625434015634" type="MovingPlatform32x32">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                                <action behavior="MoveVertical" id="0" name="Set active" sid="1080508373176446" type="MovingPlatform32x32">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment></comment>
+                                        <event-block sid="2890194409070589">
+                                            <conditions>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2258831673458704" type="MovingPlatform32x32">
+                                                    <param id="0" name="Instance variable">Immovable</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="MoveHorizontal" id="0" name="Set active" sid="8372288376386486" type="MovingPlatform32x32">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                                <action behavior="MoveVertical" id="0" name="Set active" sid="6004422363655772" type="MovingPlatform32x32">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
                         <event-group description="(INCOMPLETE)" sid="2650512970485886" title="Gameplay - Variant Object - Ladder">
                             <sub-events>
                                 <comment>-Salman</comment>
