@@ -6,5 +6,27 @@
         <include>PlayerRelated</include>
         <include>Objects</include>
         <include>Audio</include>
+        <event-block sid="4364504800438975">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="677035870351715" type="Keyboard">
+                    <param id="0" name="Key">112 (F1)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="10" name="Request fullscreen" sid="7495117544599772" type="Browser">
+                    <param id="0" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="256873133638468">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="7305389545311387" type="Keyboard">
+                    <param id="0" name="Key">27 (Esc)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="11" name="Cancel fullscreen" sid="5062498199812999" type="Browser" />
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

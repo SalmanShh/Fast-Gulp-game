@@ -170,6 +170,8 @@
                         <IsRunning>false</IsRunning>
                         <IsOnLadder>false</IsOnLadder>
                         <IsInDanger>false</IsInDanger>
+                        <IsStomping>false</IsStomping>
+                        <IsFloating>false</IsFloating>
                         <HasAbilityStomp>true</HasAbilityStomp>
                         <HasAbilityDoubleJump>true</HasAbilityDoubleJump>
                         <HasAbilityDash>true</HasAbilityDash>

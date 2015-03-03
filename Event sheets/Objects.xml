@@ -168,6 +168,45 @@
                             <sub-events>
                                 <event-group description="" sid="4525325997055105" title="Gameplay - Variant Object - Fizzy Drink - IsHit">
                                     <sub-events>
+                                        <event-group description="" sid="4918449436986146" title="Gameplay - Variant Object - Fizzy Drink - IsHit - On Destroyed/destroy">
+                                            <sub-events>
+                                                <event-block sid="4517555451371798">
+                                                    <conditions>
+                                                        <condition id="-19" name="On destroyed" sid="7826318896473463" type="FizzyDrink" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="8504053174961829" type="FizzyDrink">
+                                                            <param id="0" name="Object">FireSplatterParticle</param>
+                                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                                            <param id="2" name="Image point">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="8925015008855441">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="2918916900011085" type="FizzyDrink">
+                                                            <param id="0" name="Instance variable">IsHit</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <comment>if it is more than 2000px away from the player while active -&gt; Destroyed</comment>
+                                                        <event-block sid="5949674399334287">
+                                                            <conditions>
+                                                                <condition id="-8" name="Compare two values" sid="7555581022271112" type="System">
+                                                                    <param id="0" name="First value">distance(PlayerMask.x, PlayerMask.Y,FizzyDrink.X, FizzyDrink.Y)</param>
+                                                                    <param id="1" name="Comparison">4</param>
+                                                                    <param id="2" name="Second value">2000</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-9" name="Destroy" sid="2855890266456753" type="FizzyDrink" />
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
                                         <event-group description="" sid="8487380945680822" title="Gameplay - Variant Object - Fizzy Drink - IsHit - when True">
                                             <sub-events>
                                                 <event-block sid="9488474458587252">
@@ -185,10 +224,30 @@
                                                             <param id="1" name="Angle">Self.Angle</param>
                                                             <param id="2" name="Image point">0</param>
                                                         </action>
-                                                        <action id="-16" name="Wait" sid="8448968024989564" type="System">
-                                                            <param id="0" name="Seconds">FizzyDrink.DestroyAfter</param>
-                                                        </action>
                                                     </actions>
+                                                    <sub-events>
+                                                        <event-block sid="3870504623423839">
+                                                            <conditions>
+                                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4789128021471039" type="FizzyDrink">
+                                                                    <param id="0" name="Instance variable">Indestructable</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-16" name="Wait" sid="262019346933976" type="System">
+                                                                    <param id="0" name="Seconds">FizzyDrink.DestroyAfter</param>
+                                                                </action>
+                                                                <action id="-9" name="Destroy" sid="6055402397117791" type="FizzyDrink" />
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="3312729927903415">
+                                                            <conditions>
+                                                                <condition id="-8" name="Is boolean instance variable set" sid="2464689128022104" type="FizzyDrink">
+                                                                    <param id="0" name="Instance variable">Indestructable</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                        </event-block>
+                                                    </sub-events>
                                                 </event-block>
                                             </sub-events>
                                         </event-group>
@@ -408,12 +467,11 @@
                                             <sub-events>
                                                 <event-block sid="3653472625718911">
                                                     <conditions>
-                                                        <condition id="-1" name="Every tick" sid="2499896370733577" type="System" />
+                                                        <condition id="-18" name="On created" sid="2499896370733577" type="MozzerallaStickMissile" />
                                                     </conditions>
                                                     <actions>
-                                                        <action id="-22" name="Set angle toward position" sid="4739099108898605" type="MozzerallaStickMissile">
-                                                            <param id="0" name="X">PlayerMask.X</param>
-                                                            <param id="1" name="Y">PlayerMask.Y</param>
+                                                        <action id="-8" name="Set angle" sid="4739099108898605" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Angle">MozzerallaTurret.Angle</param>
                                                         </action>
                                                     </actions>
                                                 </event-block>
@@ -574,103 +632,60 @@
                                 </event-group>
                             </sub-events>
                         </event-group>
-                        <event-group description="(INCOMPLETE)" sid="8282309246397892" title="Gameplay - Variant Object - Gravity Switch">
+                        <event-group description="" sid="8282309246397892" title="Gameplay - Variant Object - Gravity Switch">
                             <sub-events>
-                                <event-group description="" sid="4147200558678287" title="Gravity Switch - Facing Up">
+                                <event-group description="" sid="1918177835712404" title="Gameplay - Variant Object - Gravity Switch - Angle + Collision">
                                     <sub-events>
-                                        <comment>-Salman</comment>
-                                        <event-block sid="1560157309322601">
-                                            <conditions>
-                                                <condition id="1" name="Is overlapping another object" sid="4287809848196675" type="PlayerMask">
-                                                    <param id="0" name="Object">GravitySwitch</param>
-                                                </condition>
-                                                <condition id="-13" name="Is between angles" sid="2757895201770118" type="GravitySwitch">
-                                                    <param id="0" name="First angle">265</param>
-                                                    <param id="1" name="Second angle">275</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action behavior="Platform" id="10" name="Set angle of gravity" sid="1991946083716125" type="PlayerMask">
-                                                    <param id="0" name="Angle">270</param>
-                                                </action>
-                                                <action id="-13" name="Set boolean" sid="916878817374212" type="PlayerMask">
-                                                    <param id="0" name="Instance variable">IsPlayerFlipped</param>
-                                                    <param id="1" name="Value">1</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
-                                </event-group>
-                                <event-group description="" sid="4491970140092835" title="Gravity Switch - Facing Down">
-                                    <sub-events>
-                                        <comment>-Salman</comment>
-                                        <event-block sid="5972183190100375">
-                                            <conditions>
-                                                <condition id="1" name="Is overlapping another object" sid="1109543787204986" type="PlayerMask">
-                                                    <param id="0" name="Object">GravitySwitch</param>
-                                                </condition>
-                                                <condition id="-13" name="Is between angles" sid="7528198653077201" type="GravitySwitch">
-                                                    <param id="0" name="First angle">85</param>
-                                                    <param id="1" name="Second angle">95</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action behavior="Platform" id="10" name="Set angle of gravity" sid="6633176531183334" type="PlayerMask">
-                                                    <param id="0" name="Angle">90</param>
-                                                </action>
-                                                <action id="-13" name="Set boolean" sid="6016953973662671" type="PlayerMask">
-                                                    <param id="0" name="Instance variable">IsPlayerFlipped</param>
-                                                    <param id="1" name="Value">0</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
-                                </event-group>
-                                <event-group description="Fix Me" disabled="1" sid="9141654252740438" title="Gravity Switch - Facing Left">
-                                    <sub-events>
-                                        <event-block sid="7429419625042738">
-                                            <conditions>
-                                                <condition id="1" name="Is overlapping another object" sid="8945312257893361" type="PlayerMask">
-                                                    <param id="0" name="Object">GravitySwitch</param>
-                                                </condition>
-                                                <condition id="-13" name="Is between angles" sid="9743805698224275" type="GravitySwitch">
-                                                    <param id="0" name="First angle">85</param>
-                                                    <param id="1" name="Second angle">95</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action behavior="Platform" id="10" name="Set angle of gravity" sid="629468775803999" type="PlayerMask">
-                                                    <param id="0" name="Angle">0</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
-                                </event-group>
-                                <event-group description="Fix Me" disabled="1" sid="226547860015614" title="Gravity Switch - Facing Right">
-                                    <sub-events>
-                                        <event-block sid="5339372969508135">
-                                            <conditions>
-                                                <condition id="-13" name="Is between angles" sid="1911339742926441" type="GravitySwitch">
-                                                    <param id="0" name="First angle">85</param>
-                                                    <param id="1" name="Second angle">95</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action behavior="Platform" id="10" name="Set angle of gravity" sid="8229321754821359" type="PlayerMask">
-                                                    <param id="0" name="Angle">180</param>
-                                                </action>
-                                            </actions>
+                                        <event-group description="" sid="4147200558678287" title="Gravity Switch - Facing Up">
                                             <sub-events>
-                                                <event-block sid="4522645172681303">
+                                                <comment>-Salman</comment>
+                                                <event-block sid="1560157309322601">
                                                     <conditions>
-                                                        <condition id="1" name="Is overlapping another object" sid="2181121343343235" type="PlayerMask">
+                                                        <condition id="1" name="Is overlapping another object" sid="4287809848196675" type="PlayerMask">
                                                             <param id="0" name="Object">GravitySwitch</param>
                                                         </condition>
+                                                        <condition id="-13" name="Is between angles" sid="2757895201770118" type="GravitySwitch">
+                                                            <param id="0" name="First angle">265</param>
+                                                            <param id="1" name="Second angle">275</param>
+                                                        </condition>
                                                     </conditions>
-                                                    <actions />
+                                                    <actions>
+                                                        <action behavior="Platform" id="10" name="Set angle of gravity" sid="1991946083716125" type="PlayerMask">
+                                                            <param id="0" name="Angle">270</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="916878817374212" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
                                                 </event-block>
                                             </sub-events>
-                                        </event-block>
+                                        </event-group>
+                                        <event-group description="" sid="4491970140092835" title="Gravity Switch - Facing Down">
+                                            <sub-events>
+                                                <comment>-Salman</comment>
+                                                <event-block sid="5972183190100375">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="1109543787204986" type="PlayerMask">
+                                                            <param id="0" name="Object">GravitySwitch</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="7528198653077201" type="GravitySwitch">
+                                                            <param id="0" name="First angle">85</param>
+                                                            <param id="1" name="Second angle">95</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="10" name="Set angle of gravity" sid="6633176531183334" type="PlayerMask">
+                                                            <param id="0" name="Angle">90</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="6016953973662671" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
                                     </sub-events>
                                 </event-group>
                             </sub-events>

@@ -10,9 +10,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="2">Sandbox</layout>
-        <event-sheet order="1">PlayerRelated</event-sheet>
-        <event-sheet active="1" order="3">Objects</event-sheet>
+        <layout order="1">Sandbox</layout>
+        <layout order="3">Hub</layout>
+        <layout order="4">Freddy&apos;s Level</layout>
+        <event-sheet order="2">Objects</event-sheet>
+        <event-sheet order="5">Freddy&apos;s Level</event-sheet>
+        <event-sheet order="6">_Sandbox</event-sheet>
+        <event-sheet active="1" order="7">PlayerRelated</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -23,11 +27,12 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <families-expanded root="1" />
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
-        <folder expanded="0" path="object-folder/Plugins/" />
-        <folder expanded="0" path="object-folder/Player/" />
-        <folder expanded="0" path="object-folder/Gameplay Varient Objects/" />
+        <folder expanded="1" path="object-folder/Plugins/" />
+        <folder expanded="1" path="object-folder/Player/" />
+        <folder expanded="1" path="object-folder/Gameplay Varient Objects/" />
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Moving Platform/" />
         <folder expanded="1" path="object-folder/Gameplay Varient Objects/Mozerella Turret/" />
+        <folder expanded="1" path="object-folder/Gameplay Varient Objects/Fizzy Drink/" />
         <folder expanded="1" path="object-folder/Tilesets/" />
         <folder expanded="1" path="object-folder/Menu/" />
         <folder expanded="1" path="object-folder/UI/" />
@@ -35,9 +40,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="layout-folder/Levels/" />
         <folder expanded="0" path="layout-folder/Menus/" />
         <folder expanded="1" path="event-folder/" />
-        <folder expanded="0" path="event-folder/Level Specific/" />
+        <folder expanded="1" path="event-folder/Level Specific/" />
         <folder expanded="1" path="event-folder/Gameplay Related (Attach to Levels)/" />
-        <folder expanded="0" path="event-folder/Menus/" />
+        <folder expanded="1" path="event-folder/Menus/" />
         <folder expanded="0" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
@@ -51,10 +56,11 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/MozzerallaStickMissile/" />
         <folder expanded="1" path="animation-folder/MozzerallaTurret/" />
         <folder expanded="1" path="animation-folder/TurretPosition/" />
+        <folder expanded="1" path="animation-folder/FizzyDrink/" />
         <folder expanded="1" path="animation-folder/Spike/" />
         <folder expanded="1" path="animation-folder/BouncePad/" />
         <folder expanded="1" path="animation-folder/GravitySwitch/" />
-        <folder expanded="1" path="animation-folder/FizzyDrink/" />
+        <folder expanded="1" path="animation-folder/Sprite/" />
         <folder expanded="1" path="animation-folder/GameCamera/" />
     </folders-expanded>
 </c2uistate>

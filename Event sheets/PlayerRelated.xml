@@ -15,11 +15,13 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action behavior="Platform" id="0" name="Set ignoring input" sid="8355844118215496" type="PlayerMask">
-                                    <param id="0" name="Input">1</param>
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="6152357357010051" type="GameCamera">
+                                    <param id="0" name="Magnitude">100</param>
+                                    <param id="1" name="Duration">0.4</param>
+                                    <param id="2" name="Mode">0</param>
                                 </action>
                                 <action id="-16" name="Wait" sid="9622871462258619" type="System">
-                                    <param id="0" name="Seconds">1.0</param>
+                                    <param id="0" name="Seconds">0.1</param>
                                 </action>
                                 <action id="-26" name="Restart layout" sid="8585704519935674" type="System" />
                             </actions>
@@ -188,6 +190,9 @@
                                         <condition id="-8" name="Is boolean instance variable set" sid="7194737873318657" type="PlayerMask">
                                             <param id="0" name="Instance variable">HasAbilityFloat</param>
                                         </condition>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="5862684924322708" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsFloating</param>
+                                        </condition>
                                     </conditions>
                                     <actions />
                                     <sub-events>
@@ -217,6 +222,9 @@
                                     <conditions>
                                         <condition id="-8" name="Is boolean instance variable set" sid="8727474597068669" type="PlayerMask">
                                             <param id="0" name="Instance variable">HasAbilityFloat</param>
+                                        </condition>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="6859196902759722" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsFloating</param>
                                         </condition>
                                     </conditions>
                                     <actions />
@@ -275,6 +283,9 @@
                             <sub-events>
                                 <event-block sid="7095448795327117">
                                     <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2262493813004424" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsStomping</param>
+                                        </condition>
                                         <condition id="-8" name="Is boolean instance variable set" sid="66028751536798" type="PlayerMask">
                                             <param id="0" name="Instance variable">HasAbilityStomp</param>
                                         </condition>
@@ -290,7 +301,11 @@
                                             </conditions>
                                             <actions>
                                                 <action behavior="Platform" id="5" name="Set gravity" sid="3478909590414589" type="PlayerMask">
-                                                    <param id="0" name="Gravity">3000</param>
+                                                    <param id="0" name="Gravity">30000</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="7029287042959934" type="PlayerMask">
+                                                    <param id="0" name="Instance variable">IsStomping</param>
+                                                    <param id="1" name="Value">1</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -298,14 +313,21 @@
                                 </event-block>
                                 <event-block sid="7589154967814857">
                                     <conditions>
+                                        <condition behavior="Platform" id="9" name="On landed" sid="100122620450081" type="PlayerMask" />
+                                        <condition id="-8" name="Is boolean instance variable set" sid="2745555319698195" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsStomping</param>
+                                        </condition>
                                         <condition id="-8" name="Is boolean instance variable set" sid="5327907691202355" type="PlayerMask">
                                             <param id="0" name="Instance variable">HasAbilityStomp</param>
                                         </condition>
-                                        <condition behavior="Platform" id="2" name="Is on floor" sid="100122620450081" type="PlayerMask" />
                                     </conditions>
                                     <actions>
                                         <action behavior="Platform" id="5" name="Set gravity" sid="2469719861705303" type="PlayerMask">
                                             <param id="0" name="Gravity">1500</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="3445963788471414" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsStomping</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -733,10 +755,91 @@
                         <event-group description="(INCOMPLETE) Charge Abilities// Dash// Float Down// Double Jump// Stomp" sid="4570750623883042" title="Player - Controls - Gamepad - Abilities">
                             <sub-events>
                                 <event-group description="" sid="2565261984915627" title="Player - Controls - Gamepad - Abilities - Charge Abilities" />
-                                <event-group description="" sid="6098694515867771" title="Player - Controls - Gamepad - Abilities - Dash" />
-                                <event-group description="" sid="1467147187177836" title="Player - Controls - Gamepad - Abilities - Float Down" />
-                                <event-group description="" disabled="1" sid="5874297921720096" title="Player - Controls - Gamepad - Abilities - Double Jump" />
-                                <event-group description="" sid="8844703233855995" title="Player - Controls - Gamepad - Abilities - Stomp" />
+                                <event-group description="" sid="6098694515867771" title="Player - Controls - Gamepad - Abilities - Dash">
+                                    <sub-events>
+                                        <comment></comment>
+                                        <event-block sid="4437125607806065">
+                                            <conditions>
+                                                <condition id="6" name="On button pressed" sid="9591766238625485" type="Gamepad">
+                                                    <param id="0" name="Gamepad">0</param>
+                                                    <param id="1" name="Button">6</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="7050774334855654" type="Function">
+                                                    <param id="0" name="Name">&quot;playerAbilityDashLeft&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment></comment>
+                                        <event-block sid="7530261019207082">
+                                            <conditions>
+                                                <condition id="6" name="On button pressed" sid="4093930386013813" type="Gamepad">
+                                                    <param id="0" name="Gamepad">0</param>
+                                                    <param id="1" name="Button">7</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="2628996352962237" type="Function">
+                                                    <param id="0" name="Name">&quot;playerAbilityDashRight&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="1467147187177836" title="Player - Controls - Gamepad - Abilities - Float Down">
+                                    <sub-events>
+                                        <event-block sid="4772337490187091">
+                                            <conditions>
+                                                <condition id="3" name="Is button down" sid="6241506579215238" type="Gamepad">
+                                                    <param id="0" name="Gamepad">0</param>
+                                                    <param id="1" name="Button">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="5059111265449677" type="Function">
+                                                    <param id="0" name="Name">&quot;playerAbilityFloatDown&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="7072076270121586" type="PlayerMask">
+                                                    <param id="0" name="Instance variable">IsFloating</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="2096336045739479">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="7271439313741047" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="2522804684904207" type="PlayerMask">
+                                                    <param id="0" name="Instance variable">IsFloating</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="8844703233855995" title="Player - Controls - Gamepad - Abilities - Stomp">
+                                    <sub-events>
+                                        <event-block sid="7089590221543955">
+                                            <conditions>
+                                                <condition id="6" name="On button pressed" sid="6434156787694108" type="Gamepad">
+                                                    <param id="0" name="Gamepad">0</param>
+                                                    <param id="1" name="Button">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="8668596648535509" type="Function">
+                                                    <param id="0" name="Name">&quot;playerAbilityStomp&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
                             </sub-events>
                         </event-group>
                         <event-group description="(INCOMPLETE) Left// Right// Jump// Fall Through// Run" sid="9632160640234395" title="Player - Controls - Gamepad - Basic Movement">

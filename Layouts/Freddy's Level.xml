@@ -11,7 +11,7 @@
         <horizontal>500</horizontal>
         <vertical>500</vertical>
     </margins>
-    <unbounded-scrolling>0</unbounded-scrolling>
+    <unbounded-scrolling>1</unbounded-scrolling>
     <layers>
         <layer name="BG" sid="5412393830861064">
             <initially-visible>1</initially-visible>
@@ -134,6 +134,8 @@
                         <IsRunning>false</IsRunning>
                         <IsOnLadder>false</IsOnLadder>
                         <IsInDanger>false</IsInDanger>
+                        <IsStomping>false</IsStomping>
+                        <IsFloating>false</IsFloating>
                         <HasAbilityStomp>true</HasAbilityStomp>
                         <HasAbilityDoubleJump>true</HasAbilityDoubleJump>
                         <HasAbilityDash>true</HasAbilityDash>
@@ -264,7 +266,30 @@
             <use-render-cells>0</use-render-cells>
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
-            <instances />
+            <instances>
+                <instance type="TurretPosition" uid="49">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>688</x>
+                        <y>112</y>
+                        <z>0</z>
+                        <width>24</width>
+                        <height>24</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
             <effects />
         </layer>
         <layer name="UI" sid="9183084452055761">

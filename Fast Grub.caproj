@@ -8,8 +8,10 @@
     <author-website>http://</author-website>
     <app-id>com.mycompany.myapp</app-id>
     <unique-id>2m2oqhlgof90t</unique-id>
-    <saved-with-version>19800</saved-with-version>
+    <saved-with-version>19700</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
@@ -42,20 +44,20 @@
         <width>1280</width>
         <height>720</height>
     </window-size>
-    <pixel-rounding>0</pixel-rounding>
+    <pixel-rounding>1</pixel-rounding>
     <preview-effects>0</preview-effects>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
         <prop name="Enable WebGL">On</prop>
-        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen in browser">Scale outer</prop>
         <prop name="Fullscreen scaling">High quality</prop>
         <prop name="Loader style">Progress bar &amp; logo</prop>
         <prop name="Orientations">Landscape</prop>
         <prop name="Pause on unfocus">Yes</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
         <prop name="Preview browser">NW.js</prop>
-        <prop name="Sampling">Point</prop>
+        <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
@@ -72,6 +74,12 @@
             <object-type name="Mouse" sid="8661982075722133">
                 <plugin id="Mouse" />
             </object-type>
+            <object-type name="Audio" sid="3039079259268187">
+                <plugin id="Audio" />
+            </object-type>
+            <object-type name="Browser" sid="1449090487687459">
+                <plugin id="Browser" />
+            </object-type>
         </object-folder>
         <object-folder name="Player">
             <object-type name="PlayerMask" sid="6767176467596916">
@@ -84,6 +92,8 @@
                     <instance-variable name="IsRunning" sid="6949335447336221" type="boolean" />
                     <instance-variable name="IsOnLadder" sid="5694664437241536" type="boolean" />
                     <instance-variable name="IsInDanger" sid="3650117738423551" type="boolean" />
+                    <instance-variable name="IsStomping" sid="6685660277906198" type="boolean" />
+                    <instance-variable name="IsFloating" sid="8349469539225841" type="boolean" />
                     <instance-variable name="HasAbilityStomp" sid="1792221718687419" type="boolean" />
                     <instance-variable name="HasAbilityDoubleJump" sid="9798683063225981" type="boolean" />
                     <instance-variable name="HasAbilityDash" sid="5275237692988487" type="boolean" />
@@ -115,8 +125,8 @@
                             <collision-poly>
                                 <point x="1" y="1" />
                                 <point x="0" y="1" />
-                                <point x="0" y="0" />
-                                <point x="1" y="0" />
+                                <point x="0" y="0.03125" />
+                                <point x="1" y="0.03125" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -307,6 +317,58 @@
                     <texture />
                 </object-type>
             </object-folder>
+            <object-folder name="Fizzy Drink">
+                <object-type name="FizzyDrink" sid="2705488113475224">
+                    <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="IsHit" sid="2125659117970614" type="boolean" />
+                        <instance-variable name="ReachedLimit" sid="6302691667013815" type="boolean" />
+                        <instance-variable name="WaitBeforeMoving" sid="6365461183692881" type="number" />
+                        <instance-variable name="DestroyAfter" sid="2496638299607573" type="number" />
+                        <instance-variable name="Indestructable" sid="6132870760305942" type="boolean" />
+                    </instance-variables>
+                    <behaviors>
+                        <behavior-type name="Physics" sid="2658150799730136">
+                            <behavior id="Physics" />
+                        </behavior-type>
+                        <behavior-type name="NoSave" sid="1086475283593695">
+                            <behavior id="NoSave" />
+                        </behavior-type>
+                        <behavior-type name="Jumpthru" sid="9027341140689687">
+                            <behavior id="jumpthru" />
+                        </behavior-type>
+                    </behaviors>
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="7551220664593014" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0.5">
+                                <collision-poly>
+                                    <point x="0.945313" y="0" />
+                                    <point x="1" y="0.507813" />
+                                    <point x="0.9375" y="1" />
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                        <animation framecount="1" loop="0" name="Moving" pingpong="0" repeatcount="1" repeatto="0" sid="998491336379294" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0.5">
+                                <collision-poly>
+                                    <point x="0" y="0.507813" />
+                                    <point x="0.0742188" y="0" />
+                                    <point x="0.941406" y="0" />
+                                    <point x="1" y="0.5" />
+                                    <point x="0.941406" y="1" />
+                                    <point x="0.0625" y="1" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="FireSplatterParticle" sid="9874409060354354">
+                    <plugin id="Particles" />
+                    <texture />
+                </object-type>
+            </object-folder>
             <object-type name="Spike" sid="6237907360238314">
                 <plugin id="Sprite" />
                 <behaviors>
@@ -350,51 +412,6 @@
             <object-type name="Ladder" sid="7565029458204069">
                 <plugin id="TiledBg" />
                 <texture />
-            </object-type>
-            <object-type name="FizzyDrink" sid="2705488113475224">
-                <plugin id="Sprite" />
-                <instance-variables>
-                    <instance-variable name="IsHit" sid="2125659117970614" type="boolean" />
-                    <instance-variable name="ReachedLimit" sid="6302691667013815" type="boolean" />
-                    <instance-variable name="WaitBeforeMoving" sid="6365461183692881" type="number" />
-                    <instance-variable name="DestroyAfter" sid="2496638299607573" type="number" />
-                </instance-variables>
-                <behaviors>
-                    <behavior-type name="Physics" sid="2658150799730136">
-                        <behavior id="Physics" />
-                    </behavior-type>
-                    <behavior-type name="NoSave" sid="1086475283593695">
-                        <behavior id="NoSave" />
-                    </behavior-type>
-                    <behavior-type name="Jumpthru" sid="9027341140689687">
-                        <behavior id="jumpthru" />
-                    </behavior-type>
-                </behaviors>
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="7551220664593014" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0.5">
-                            <collision-poly>
-                                <point x="0.945313" y="0" />
-                                <point x="1" y="0.507813" />
-                                <point x="0.9375" y="1" />
-                                <point x="0" y="1" />
-                                <point x="0" y="0" />
-                            </collision-poly>
-                        </frame>
-                    </animation>
-                    <animation framecount="1" loop="0" name="Moving" pingpong="0" repeatcount="1" repeatto="0" sid="998491336379294" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0.5">
-                            <collision-poly>
-                                <point x="0" y="0.507813" />
-                                <point x="0.0742188" y="0" />
-                                <point x="0.941406" y="0" />
-                                <point x="1" y="0.5" />
-                                <point x="0.941406" y="1" />
-                                <point x="0.0625" y="1" />
-                            </collision-poly>
-                        </frame>
-                    </animation>
-                </animation-folder>
             </object-type>
         </object-folder>
         <object-folder name="Tilesets">
@@ -521,6 +538,18 @@
             </behaviors>
             <texture />
         </object-type>
+        <object-type name="Sprite" sid="1282335988592317">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4592239739722076" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Particles" sid="5757024921273598">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
         <object-type name="GameCamera" sid="6480374560353459">
             <plugin id="Sprite" />
             <behaviors>
@@ -533,6 +562,10 @@
                     <frame duration="1" hotspotX="0.509434" hotspotY="0.512195" />
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="Particles2" sid="9853509631643898">
+            <plugin id="Particles" />
+            <texture />
         </object-type>
     </object-folder>
     <families />
@@ -574,6 +607,23 @@
             </properties>
         </global-instance>
         <global-instance type="Mouse" uid="5" />
+        <global-instance type="Audio" uid="46">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+                <speed-of-sound>5000</speed-of-sound>
+                <doppler-factor>1</doppler-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="Browser" uid="47" />
     </global-instances>
     <sounds-folder />
     <music-folder />
