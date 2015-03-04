@@ -229,6 +229,18 @@
                                     </conditions>
                                     <actions />
                                     <sub-events>
+                                        <event-block sid="7686874625846536">
+                                            <conditions>
+                                                <condition id="0" name="On function" sid="3567667959211219" type="Function">
+                                                    <param id="0" name="Name">&quot;playerAbilityFloatDown&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Platform" id="6" name="Set max fall speed" sid="1763984344044448" type="PlayerMask">
+                                                    <param id="0" name="Max fall speed">1000</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
                                         <event-block sid="7095633709711853">
                                             <conditions>
                                                 <condition behavior="Platform" id="2" name="Is on floor" sid="8405445471837853" type="PlayerMask" />
@@ -245,14 +257,6 @@
                         </event-group>
                         <event-group description="" sid="2054527507274638" title="Player - Controls - Functions - Player Abilities - (playerAbilityDoubleJump)">
                             <sub-events>
-                                <event-block disabled="1" sid="8176494823089011">
-                                    <conditions>
-                                        <condition id="0" name="On function" sid="603752969293145" type="Function">
-                                            <param id="0" name="Name">&quot;playerAbilityDoubleJump&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                </event-block>
                                 <event-block sid="2428015101744881">
                                     <conditions>
                                         <condition id="-8" name="Is boolean instance variable set" sid="613123534437516" type="PlayerMask">
@@ -300,12 +304,25 @@
                                                 <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="115187906892437" type="PlayerMask" />
                                             </conditions>
                                             <actions>
+                                                <action id="-14" name="Set object time scale" sid="1464891940827157" type="System">
+                                                    <param id="0" name="Object">PlayerMask</param>
+                                                    <param id="1" name="Time scale">0</param>
+                                                </action>
+                                                <action id="-16" name="Wait" sid="1579499286585465" type="System">
+                                                    <param id="0" name="Seconds">1.0</param>
+                                                </action>
+                                                <action id="-15" name="Restore object time scale" sid="6435846983022534" type="System">
+                                                    <param id="0" name="Object">PlayerMask</param>
+                                                </action>
                                                 <action behavior="Platform" id="5" name="Set gravity" sid="3478909590414589" type="PlayerMask">
                                                     <param id="0" name="Gravity">30000</param>
                                                 </action>
                                                 <action id="-13" name="Set boolean" sid="7029287042959934" type="PlayerMask">
                                                     <param id="0" name="Instance variable">IsStomping</param>
                                                     <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action behavior="Platform" id="6" name="Set max fall speed" sid="6998347893555382" type="PlayerMask">
+                                                    <param id="0" name="Max fall speed">5000</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -328,6 +345,9 @@
                                         <action id="-13" name="Set boolean" sid="3445963788471414" type="PlayerMask">
                                             <param id="0" name="Instance variable">IsStomping</param>
                                             <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action behavior="Platform" id="6" name="Set max fall speed" sid="6712378502374274" type="PlayerMask">
+                                            <param id="0" name="Max fall speed">1000</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -1614,6 +1634,26 @@
             <sub-events>
                 <event-group description="" sid="5197808467341455" title="Player - Effects - Screenshake">
                     <sub-events>
+                        <event-group description="" disabled="1" sid="9007032135257867" title="Player - Effects - Screenshake - Head Bump">
+                            <sub-events>
+                                <event-block disabled="1" sid="8201108825529559">
+                                    <conditions>
+                                        <condition id="9" name="Is overlapping at offset" sid="5690551324093563" type="PlayerMask">
+                                            <param id="0" name="Object">SolidTileset</param>
+                                            <param id="1" name="Offset X">0</param>
+                                            <param id="2" name="Offset Y">-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="ScrollTo" id="0" name="Shake" sid="324233569502614" type="GameCamera">
+                                            <param id="0" name="Magnitude">4</param>
+                                            <param id="1" name="Duration">0.1</param>
+                                            <param id="2" name="Mode">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
                         <event-group description="" sid="5399541094278557" title="Player - Effects - Screenshake - Landing">
                             <sub-events>
                                 <event-block sid="5030299685551396">
@@ -1623,7 +1663,26 @@
                                     <actions>
                                         <action behavior="ScrollTo" id="0" name="Shake" sid="9681693575939374" type="GameCamera">
                                             <param id="0" name="Magnitude">5</param>
-                                            <param id="1" name="Duration">0.05</param>
+                                            <param id="1" name="Duration">0.08</param>
+                                            <param id="2" name="Mode">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6351315507810616">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="7911758660775131" type="Function">
+                                            <param id="0" name="Name">&quot;playerAbilityStomp&quot;</param>
+                                        </condition>
+                                        <condition id="9" name="Is overlapping at offset" sid="6169688176134317" type="PlayerMask">
+                                            <param id="0" name="Object">SolidTileset</param>
+                                            <param id="1" name="Offset X">0</param>
+                                            <param id="2" name="Offset Y">32</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="ScrollTo" id="0" name="Shake" sid="6172115681159407" type="GameCamera">
+                                            <param id="0" name="Magnitude">100</param>
+                                            <param id="1" name="Duration">1</param>
                                             <param id="2" name="Mode">0</param>
                                         </action>
                                     </actions>

@@ -11,9 +11,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="1">Sandbox</layout>
+        <layout order="4">Fried Food Level</layout>
         <event-sheet order="2">Objects</event-sheet>
         <event-sheet order="3">_Sandbox</event-sheet>
-        <event-sheet active="1" order="4">PlayerRelated</event-sheet>
+        <event-sheet active="1" order="5">PlayerRelated</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -59,5 +60,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/GravitySwitch/" />
         <folder expanded="1" path="animation-folder/Sprite/" />
         <folder expanded="1" path="animation-folder/GameCamera/" />
+        <folder expanded="1" path="animation-folder/Sprite2/" />
     </folders-expanded>
 </c2uistate>

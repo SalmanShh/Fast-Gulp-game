@@ -124,10 +124,10 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="PlayerAnim" x="0.5" y="1" />
                             <collision-poly>
-                                <point x="1" y="1" />
-                                <point x="0" y="1" />
-                                <point x="0" y="0.03125" />
-                                <point x="1" y="0.03125" />
+                                <point x="0.96875" y="1" />
+                                <point x="0.03125" y="1" />
+                                <point x="0.03125" y="0.03125" />
+                                <point x="0.96875" y="0.03125" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -541,6 +541,11 @@
                     </tile>
                 </tiles>
             </object-type>
+            <object-type name="FriedFoodTileset" sid="5370464163391388">
+                <plugin id="Tilemap" />
+                <texture original-source="C:\Users\mrlig_000\Desktop\platformertiles.png" />
+                <tiles />
+            </object-type>
         </object-folder>
         <object-folder name="Menu" />
         <object-folder name="UI" />
@@ -582,12 +587,40 @@
             <plugin id="Particles" />
             <texture />
         </object-type>
+        <object-type name="Sprite2" sid="3749525843236059">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="4835449560929151">
+                    <behavior id="Physics" />
+                </behavior-type>
+                <behavior-type name="Solid" sid="4174534023617564">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7557808660558677" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.0390625" />
+                            <point x="0.03125" y="0" />
+                            <point x="0.96875" y="0" />
+                            <point x="1" y="0.03125" />
+                            <point x="1" y="0.96875" />
+                            <point x="0.96875" y="1" />
+                            <point x="0.03125" y="1" />
+                            <point x="0" y="0.96875" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout-folder name="Levels">
             <layout>Hub.xml</layout>
             <layout>Freddy&apos;s Level.xml</layout>
+            <layout>Fried Food Level.xml</layout>
             <layout>Asif&apos;s Level.xml</layout>
             <layout>Corrina&apos;s Level.xml</layout>
         </layout-folder>

@@ -11,7 +11,7 @@
         <horizontal>500</horizontal>
         <vertical>500</vertical>
     </margins>
-    <unbounded-scrolling>1</unbounded-scrolling>
+    <unbounded-scrolling>0</unbounded-scrolling>
     <layers>
         <layer name="BG" sid="5412393830861064">
             <initially-visible>1</initially-visible>
@@ -156,7 +156,7 @@
                                 <max-fall-speed>1000</max-fall-speed>
                                 <double-jump>Disabled</double-jump>
                                 <jump-sustain>100</jump-sustain>
-                                <default-controls>Yes</default-controls>
+                                <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
@@ -173,7 +173,7 @@
                         </behavior-instance>
                         <behavior-instance type="Physics">
                             <properties>
-                                <immovable>No</immovable>
+                                <immovable>Yes</immovable>
                                 <collision-mask>Use collision polygon</collision-mask>
                                 <prevent-rotation>No</prevent-rotation>
                                 <density>1</density>
