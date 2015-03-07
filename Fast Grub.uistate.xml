@@ -10,11 +10,11 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1" order="0">Sandbox</layout>
+        <layout order="1">Sandbox</layout>
         <layout order="3">Fried Food Level</layout>
-        <event-sheet order="1">Objects</event-sheet>
+        <event-sheet order="6">Objects</event-sheet>
         <event-sheet order="2">_Sandbox</event-sheet>
-        <event-sheet order="4">PlayerRelated</event-sheet>
+        <event-sheet active="1" order="4">PlayerRelated</event-sheet>
         <event-sheet order="5">Fried Food Level</event-sheet>
     </open-tabs>
     <properties>

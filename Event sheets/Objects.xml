@@ -359,6 +359,46 @@
                                 </event-group>
                                 <event-group description="" sid="8990400956455567" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile">
                                     <sub-events>
+                                        <event-group description="" sid="1068951176368237" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile - HasHomingMissiles(bool) ">
+                                            <sub-events>
+                                                <event-block sid="1993092501158302">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="3023069739674477" type="TurretPosition">
+                                                            <param id="0" name="Instance variable">HasHomingMissiles</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="6315045125180788" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Instance variable">HasHomingMissiles</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                    <sub-events>
+                                                        <event-block sid="990174918889208">
+                                                            <conditions>
+                                                                <condition id="-8" name="Is boolean instance variable set" sid="7162172121425786" type="MozzerallaStickMissile">
+                                                                    <param id="0" name="Instance variable">HasHomingMissiles</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                            <sub-events>
+                                                                <event-block sid="3747672026972779">
+                                                                    <conditions>
+                                                                        <condition id="-1" name="Every tick" sid="1426284898085447" type="System" />
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="-22" name="Set angle toward position" sid="9544659714609137" type="MozzerallaStickMissile">
+                                                                            <param id="0" name="X">PlayerMask.X</param>
+                                                                            <param id="1" name="Y">PlayerMask.Y</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
                                         <event-group description="" sid="1468042154873983" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Missile - Lifetime">
                                             <sub-events>
                                                 <event-block sid="3806420209651999">
@@ -774,5 +814,16 @@
                 </event-group>
             </sub-events>
         </event-group>
+        <event-block sid="2393686964076975">
+            <conditions>
+                <condition behavior="Turret" id="0" inverted="1" name="Has target" sid="4365066523766085" type="MozzerallaTurret" />
+            </conditions>
+            <actions>
+                <action id="-20" name="Rotate toward angle" sid="7674606952997057" type="MozzerallaTurret">
+                    <param id="0" name="Degrees">360</param>
+                    <param id="1" name="Angle">0</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

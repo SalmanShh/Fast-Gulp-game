@@ -52,12 +52,12 @@
         <prop name="Clear background">Yes</prop>
         <prop name="Enable WebGL">On</prop>
         <prop name="Fullscreen in browser">Scale outer</prop>
-        <prop name="Fullscreen scaling">Low quality</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
         <prop name="Loader style">Progress bar &amp; logo</prop>
         <prop name="Orientations">Landscape</prop>
         <prop name="Pause on unfocus">Yes</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
-        <prop name="Preview browser">Chrome</prop>
+        <prop name="Preview browser">NW.js</prop>
         <prop name="Sampling">Point</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
@@ -193,6 +193,10 @@
                     </animation-folder>
                 </animation-folder>
             </object-type>
+            <object-type name="StompDustParticle" sid="9853509631643898">
+                <plugin id="Particles" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="Gameplay Varient Objects">
             <object-folder name="Moving Platform">
@@ -250,12 +254,12 @@
                     </behaviors>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2788918833860661" speed="5">
-                            <frame duration="1" hotspotX="0.53125" hotspotY="0.03125">
+                            <frame duration="1" hotspotX="0.46875" hotspotY="0.96875">
                                 <collision-poly>
+                                    <point x="1" y="1" />
                                     <point x="0" y="1" />
                                     <point x="0" y="0" />
                                     <point x="1" y="0" />
-                                    <point x="1" y="1" />
                                 </collision-poly>
                             </frame>
                         </animation>
@@ -265,6 +269,9 @@
             <object-folder name="Mozerella Turret">
                 <object-type name="MozzerallaStickMissile" sid="965329951885641">
                     <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="HasHomingMissiles" sid="1743825242122889" type="boolean" />
+                    </instance-variables>
                     <behaviors>
                         <behavior-type name="Bullet" sid="946533971804097">
                             <behavior id="Bullet" />
@@ -317,6 +324,9 @@
                 </object-type>
                 <object-type name="TurretPosition" sid="7779738031513029">
                     <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="HasHomingMissiles" sid="7725789802541302" type="boolean" />
+                    </instance-variables>
                     <container>
                         <type>TurretPosition</type>
                         <type>MozzerallaTurret</type>
@@ -583,17 +593,16 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Particles2" sid="9853509631643898">
-            <plugin id="Particles" />
-            <texture />
-        </object-type>
         <object-type name="Sprite2" sid="3749525843236059">
             <plugin id="Sprite" />
             <behaviors>
                 <behavior-type name="Physics" sid="4835449560929151">
                     <behavior id="Physics" />
                 </behavior-type>
-                <behavior-type name="Solid" sid="4174534023617564">
+                <behavior-type name="NoSave" sid="6142180926580656">
+                    <behavior id="NoSave" />
+                </behavior-type>
+                <behavior-type name="Solid" sid="587709160271711">
                     <behavior id="solid" />
                 </behavior-type>
             </behaviors>
