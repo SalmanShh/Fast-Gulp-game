@@ -4,26 +4,26 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>394</position-x>
-        <position-y>494</position-y>
+        <position-x>446.961</position-x>
+        <position-y>4841.91</position-y>
         <position-z>100</position-z>
-        <lookat-x>394</lookat-x>
-        <lookat-y>494</lookat-y>
+        <lookat-x>446.961</lookat-x>
+        <lookat-y>4841.91</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
-    <snap-to-grid>0</snap-to-grid>
-    <show-grid>0</show-grid>
+    <snap-to-grid>1</snap-to-grid>
+    <show-grid>1</show-grid>
     <snap-width>32</snap-width>
     <snap-height>32</snap-height>
     <show-collision-polys>0</show-collision-polys>
-    <translucent-inactive-layers>1</translucent-inactive-layers>
+    <translucent-inactive-layers>0</translucent-inactive-layers>
     <properties>
         <property expanded="1" name="Layout properties" />
-        <property expanded="0" name="Layout Size" />
+        <property expanded="1" name="Layout Size" />
         <property expanded="0" name="Margins" />
         <property expanded="1" name="Effects" />
     </properties>
-    <active-layer name="SolidTileset" />
+    <active-layer name="ArtTileset" />
     <layers>
         <layer locked="0" name="BG" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="SolidTileset" parallax-in-editor="0" visible="1" />

@@ -52,13 +52,13 @@
         <prop name="Clear background">Yes</prop>
         <prop name="Enable WebGL">On</prop>
         <prop name="Fullscreen in browser">Scale outer</prop>
-        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Fullscreen scaling">Low quality</prop>
         <prop name="Loader style">Progress bar &amp; logo</prop>
         <prop name="Orientations">Landscape</prop>
         <prop name="Pause on unfocus">Yes</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
-        <prop name="Preview browser">NW.js</prop>
-        <prop name="Sampling">Linear</prop>
+        <prop name="Preview browser">Chrome</prop>
+        <prop name="Sampling">Point</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
@@ -636,6 +636,7 @@
             <event-sheet>Corrina&apos;s Level.xml</event-sheet>
             <event-sheet>Hub.xml</event-sheet>
             <event-sheet>_Sandbox.xml</event-sheet>
+            <event-sheet>Fried Food Level.xml</event-sheet>
         </event-folder>
         <event-folder name="Gameplay Related (Attach to Levels)">
             <event-sheet>PlayerRelated.xml</event-sheet>

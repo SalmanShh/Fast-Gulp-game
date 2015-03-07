@@ -153,7 +153,20 @@
                                                             <param id="0" name="Name">&quot;playerAbilityDashLeft&quot;</param>
                                                         </condition>
                                                     </conditions>
-                                                    <actions />
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="9449880472037224" type="PlayerMask">
+                                                            <param id="0" name="Vector X">-1000</param>
+                                                        </action>
+                                                        <action behavior="Platform" id="1" name="Set max speed" sid="5479286354953211" type="PlayerMask">
+                                                            <param id="0" name="Max Speed">1000</param>
+                                                        </action>
+                                                        <action id="-16" name="Wait" sid="3471674848122069" type="System">
+                                                            <param id="0" name="Seconds">0.2</param>
+                                                        </action>
+                                                        <action behavior="Platform" id="1" name="Set max speed" sid="4517761255735094" type="PlayerMask">
+                                                            <param id="0" name="Max Speed">330</param>
+                                                        </action>
+                                                    </actions>
                                                 </event-block>
                                             </sub-events>
                                         </event-block>
@@ -175,7 +188,20 @@
                                                             <param id="0" name="Name">&quot;playerAbilityDashRight&quot;</param>
                                                         </condition>
                                                     </conditions>
-                                                    <actions />
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="7899934149837917" type="PlayerMask">
+                                                            <param id="0" name="Vector X">1000</param>
+                                                        </action>
+                                                        <action behavior="Platform" id="1" name="Set max speed" sid="4493724062640314" type="PlayerMask">
+                                                            <param id="0" name="Max Speed">1000</param>
+                                                        </action>
+                                                        <action id="-16" name="Wait" sid="9661172630798617" type="System">
+                                                            <param id="0" name="Seconds">0.2</param>
+                                                        </action>
+                                                        <action behavior="Platform" id="1" name="Set max speed" sid="6242053021831445" type="PlayerMask">
+                                                            <param id="0" name="Max Speed">330</param>
+                                                        </action>
+                                                    </actions>
                                                 </event-block>
                                             </sub-events>
                                         </event-block>
@@ -309,7 +335,7 @@
                                                     <param id="1" name="Time scale">0</param>
                                                 </action>
                                                 <action id="-16" name="Wait" sid="1579499286585465" type="System">
-                                                    <param id="0" name="Seconds">1.0</param>
+                                                    <param id="0" name="Seconds">0.5</param>
                                                 </action>
                                                 <action id="-15" name="Restore object time scale" sid="6435846983022534" type="System">
                                                     <param id="0" name="Object">PlayerMask</param>
@@ -842,25 +868,28 @@
                                 </event-group>
                                 <event-group description="" sid="8909039576361943" title="Player - Controls - Keyboard - Basic Movement -  Run">
                                     <sub-events>
-                                        <event-block sid="3069202028878425">
+                                        <event-block any="1" sid="7774721241418399">
                                             <conditions>
-                                                <condition id="2" name="Key is down" sid="8823524401653057" type="Keyboard">
-                                                    <param id="0" name="Key">85 (U)</param>
+                                                <condition id="2" name="Key is down" sid="7275304441011245" type="Keyboard">
+                                                    <param id="0" name="Key">87 (W)</param>
+                                                </condition>
+                                                <condition id="2" name="Key is down" sid="4965664010770868" type="Keyboard">
+                                                    <param id="0" name="Key">38 (Up arrow)</param>
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="0" name="Call function" sid="666550042390107" type="Function">
+                                                <action id="0" name="Call function" sid="1254854447258848" type="Function">
                                                     <param id="0" name="Name">&quot;playerRunning&quot;</param>
                                                     <param id="1" name="Parameter {n}"></param>
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="560858068032162">
+                                        <event-block sid="5392458379071746">
                                             <conditions>
-                                                <condition id="-22" name="Else" sid="2833503472143324" type="System" />
+                                                <condition id="-22" name="Else" sid="1471252709557403" type="System" />
                                             </conditions>
                                             <actions>
-                                                <action id="-13" name="Set boolean" sid="956131939353845" type="PlayerMask">
+                                                <action id="-13" name="Set boolean" sid="4584481136251618" type="PlayerMask">
                                                     <param id="0" name="Instance variable">IsRunning</param>
                                                     <param id="1" name="Value">0</param>
                                                 </action>
