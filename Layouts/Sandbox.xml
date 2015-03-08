@@ -2289,8 +2289,10 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <ShootEvery>0</ShootEvery>
-                        <MaxDistance>0</MaxDistance>
+                        <ShootEvery>0.355</ShootEvery>
+                        <MaxDistance>600</MaxDistance>
+                        <Gravity>5</Gravity>
+                        <Speed>100</Speed>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Jumpthru">
@@ -2309,7 +2311,7 @@
                         <width>32</width>
                         <height>32</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
+                        <hotspotX>0</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>0.002652101</angle>
                         <opacity>1</opacity>
@@ -2322,14 +2324,24 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <MaxDistance>0</MaxDistance>
+                        <Gravity>0</Gravity>
+                        <Speed>0</Speed>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Bullet">
                             <properties>
-                                <speed>400</speed>
-                                <acceleration>0</acceleration>
+                                <speed>100</speed>
+                                <acceleration>400</acceleration>
                                 <gravity>0</gravity>
                                 <bounce-off-solids>No</bounce-off-solids>
                                 <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
@@ -2337,7 +2349,43 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>800</x>
+                        <x>-48</x>
+                        <y>1136</y>
+                        <z>0</z>
+                        <width>32</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>-3.066747427</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="PopcornPopper" uid="87">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <ShootEvery>0.8</ShootEvery>
+                        <MaxDistance>600</MaxDistance>
+                        <Gravity>0</Gravity>
+                        <Speed>50</Speed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="NoSave" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1536</x>
                         <y>1328</y>
                         <z>0</z>
                         <width>32</width>
@@ -2345,7 +2393,7 @@
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
+                        <angle>3.141592741</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
@@ -2464,8 +2512,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1440</x>
-                        <y>624</y>
+                        <x>800</x>
+                        <y>1296</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>

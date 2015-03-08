@@ -394,7 +394,9 @@
                                                             <sub-events>
                                                                 <event-block sid="3747672026972779">
                                                                     <conditions>
-                                                                        <condition id="-1" name="Every tick" sid="1426284898085447" type="System" />
+                                                                        <condition id="-6" name="Every X seconds" sid="1426284898085447" type="System">
+                                                                            <param id="0" name="Interval (seconds)">0.05</param>
+                                                                        </condition>
                                                                     </conditions>
                                                                     <actions>
                                                                         <action id="-22" name="Set angle toward position" sid="9544659714609137" type="MozzerallaStickMissile">
@@ -668,28 +670,93 @@
                         </event-group>
                         <event-group description="(INCOMPLETE)" sid="7888538153035579" title="Gameplay - Variant Object - Popcorn Popper">
                             <sub-events>
-                                <event-group description="" sid="2705474949293414" title="Gameplay - Variant Object - Popcorn Popper - Variables">
+                                <event-group description="" sid="4884426721178943" title="Gameplay - Variant Object - Popcorn Popper - Popcorn">
                                     <sub-events>
-                                        <event-group description="" sid="3974651740519647" title="Gameplay - Variant Object - Popcorn Popper - Variables - Shoot Every" />
-                                        <event-group description="" sid="5546841541205829" title="Gameplay - Variant Object - Popcorn Popper - Variables - Max Distance" />
+                                        <event-group description="" sid="2955644374394062" title="Gameplay - Variant Object - Popcorn Popper - Popcorn - On Created" />
                                     </sub-events>
                                 </event-group>
-                                <event-group description="" sid="2881468457549459" title="Gameplay - Variant Object - Popcorn Popper - Shoot">
+                                <event-group description="" sid="2705474949293414" title="Gameplay - Variant Object - Popcorn Popper - Variables">
                                     <sub-events>
-                                        <event-block sid="2287882091632716">
-                                            <conditions>
-                                                <condition id="-6" name="Every X seconds" sid="5383056888869788" type="System">
-                                                    <param id="0" name="Interval (seconds)">PopcornPopper.ShootEvery</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="0" name="Spawn another object" sid="4103647569619104" type="PopcornPopper">
-                                                    <param id="0" name="Object">Popcorn</param>
-                                                    <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
-                                                    <param id="2" name="Image point">&quot;Barrel&quot;</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
+                                        <event-group description="" sid="9046131863140611" title="Gameplay - Variant Object - Popcorn Popper - Variables - Gravity">
+                                            <sub-events>
+                                                <event-block sid="4215354356379544">
+                                                    <conditions>
+                                                        <condition id="-18" name="On created" sid="6510246667536381" type="Popcorn" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Bullet" id="2" name="Set gravity" sid="3451365858044394" type="Popcorn">
+                                                            <param id="0" name="Gravity">Self.Gravity</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="5788836762092248" title="Gameplay - Variant Object - Popcorn Popper - Variables - Speed">
+                                            <sub-events>
+                                                <event-block sid="4215354356379544">
+                                                    <conditions>
+                                                        <condition id="-18" name="On created" sid="6510246667536381" type="Popcorn" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="3451365858044394" type="Popcorn">
+                                                            <param id="0" name="Instance variable">Speed</param>
+                                                            <param id="1" name="Value">PopcornPopper.Speed</param>
+                                                        </action>
+                                                        <action behavior="Bullet" id="0" name="Set speed" sid="8194758994768669" type="Popcorn">
+                                                            <param id="0" name="Speed">Popcorn.Speed</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="5546841541205829" title="Gameplay - Variant Object - Popcorn Popper - Variables - Max Distance">
+                                            <sub-events>
+                                                <event-block sid="8964554794916975">
+                                                    <conditions>
+                                                        <condition id="-18" name="On created" sid="5340821721961319" type="Popcorn" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="1192566738064601" type="Popcorn">
+                                                            <param id="0" name="Instance variable">MaxDistance</param>
+                                                            <param id="1" name="Value">PopcornPopper.MaxDistance</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="5478165881181007">
+                                                    <conditions>
+                                                        <condition behavior="Bullet" id="1" name="Compare distance travelled" sid="2755509031244487" type="Popcorn">
+                                                            <param id="0" name="Comparison">4</param>
+                                                            <param id="1" name="Distance">Self.MaxDistance</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="9822117130596186" type="Popcorn" />
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="2881468457549459" title="Gameplay - Variant Object - Popcorn Popper - Turret">
+                                    <sub-events>
+                                        <event-group description="" sid="4768026482266122" title="Gameplay - Variant Object - Popcorn Popper - Turret - Shoot">
+                                            <sub-events>
+                                                <event-block sid="2287882091632716">
+                                                    <conditions>
+                                                        <condition id="-6" name="Every X seconds" sid="5383056888869788" type="System">
+                                                            <param id="0" name="Interval (seconds)">PopcornPopper.ShootEvery</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="4103647569619104" type="PopcornPopper">
+                                                            <param id="0" name="Object">Popcorn</param>
+                                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                                            <param id="2" name="Image point">&quot;Barrel&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
                                     </sub-events>
                                 </event-group>
                             </sub-events>

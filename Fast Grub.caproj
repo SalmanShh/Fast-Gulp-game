@@ -403,6 +403,8 @@
                     <instance-variables>
                         <instance-variable name="ShootEvery" sid="6644512416366177" type="number" />
                         <instance-variable comment="Distance in px" name="MaxDistance" sid="6243666726796208" type="number" />
+                        <instance-variable name="Gravity" sid="5484874396559684" type="number" />
+                        <instance-variable name="Speed" sid="9274565149271016" type="number" />
                     </instance-variables>
                     <behaviors>
                         <behavior-type name="Jumpthru" sid="317148583136523">
@@ -414,15 +416,25 @@
                     </behaviors>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8396790334996452" speed="5">
-                            <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                            <frame duration="1" hotspotX="0" hotspotY="0.5">
+                                <image-point name="Barrel" x="1" y="0.5" />
+                            </frame>
                         </animation>
                     </animation-folder>
                 </object-type>
                 <object-type name="Popcorn" sid="83498970837028">
                     <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="MaxDistance" sid="1962273825229379" type="number" />
+                        <instance-variable name="Gravity" sid="8887070781262448" type="number" />
+                        <instance-variable name="Speed" sid="4979580137180348" type="number" />
+                    </instance-variables>
                     <behaviors>
                         <behavior-type name="Bullet" sid="997252954515689">
                             <behavior id="Bullet" />
+                        </behavior-type>
+                        <behavior-type name="Jumpthru" sid="47130655455942">
+                            <behavior id="jumpthru" />
                         </behavior-type>
                     </behaviors>
                     <animation-folder>
