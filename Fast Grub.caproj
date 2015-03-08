@@ -36,6 +36,7 @@
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects>
+        <effect author="Brad Larson" id="bulge">Bulge</effect>
         <effect author="Brad Larson" id="vignette">Vignette</effect>
     </used-effects>
     <configurations>
@@ -45,11 +46,12 @@
         <width>1280</width>
         <height>720</height>
     </window-size>
-    <pixel-rounding>1</pixel-rounding>
+    <pixel-rounding>0</pixel-rounding>
     <preview-effects>0</preview-effects>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
         <prop name="Enable WebGL">On</prop>
         <prop name="Fullscreen in browser">Scale outer</prop>
         <prop name="Fullscreen scaling">High quality</prop>
@@ -58,7 +60,7 @@
         <prop name="Pause on unfocus">Yes</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
         <prop name="Preview browser">NW.js</prop>
-        <prop name="Sampling">Point</prop>
+        <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
@@ -103,6 +105,7 @@
                     <instance-variable name="HasAbilityInDanger" sid="5539248455790707" type="boolean" />
                     <instance-variable name="HasAbilityCharge" sid="8217615966093671" type="boolean" />
                     <instance-variable name="IsPlayerFlipped" sid="4476436388287353" type="boolean" />
+                    <instance-variable name="ChargeTime" sid="8125007491526771" type="number" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="Platform" sid="9232464172691835">
@@ -394,6 +397,41 @@
                     <texture />
                 </object-type>
             </object-folder>
+            <object-folder name="Popcorn Popper">
+                <object-type name="PopcornPopper" sid="9405062133754624">
+                    <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="ShootEvery" sid="6644512416366177" type="number" />
+                        <instance-variable comment="Distance in px" name="MaxDistance" sid="6243666726796208" type="number" />
+                    </instance-variables>
+                    <behaviors>
+                        <behavior-type name="Jumpthru" sid="317148583136523">
+                            <behavior id="jumpthru" />
+                        </behavior-type>
+                        <behavior-type name="NoSave" sid="5488308101772186">
+                            <behavior id="NoSave" />
+                        </behavior-type>
+                    </behaviors>
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8396790334996452" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="Popcorn" sid="83498970837028">
+                    <plugin id="Sprite" />
+                    <behaviors>
+                        <behavior-type name="Bullet" sid="997252954515689">
+                            <behavior id="Bullet" />
+                        </behavior-type>
+                    </behaviors>
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="27810381369363" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+            </object-folder>
             <object-type name="Spike" sid="6237907360238314">
                 <plugin id="Sprite" />
                 <behaviors>
@@ -422,20 +460,70 @@
                 </instance-variables>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7336400554714066" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
             <object-type name="GravitySwitch" sid="8197261808920728">
                 <plugin id="Sprite" />
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4176434130335946" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <animation framecount="4" loop="1" name="Default" pingpong="1" repeatcount="1" repeatto="0" sid="4176434130335946" speed="10">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
             <object-type name="Ladder" sid="7565029458204069">
                 <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="SoftBlock" sid="7247058008761229">
+                <plugin id="TiledBg" />
+                <behaviors>
+                    <behavior-type name="Jumpthru" sid="3012785502830812">
+                        <behavior id="jumpthru" />
+                    </behavior-type>
+                    <behavior-type name="NoSave" sid="6053114918817337">
+                        <behavior id="NoSave" />
+                    </behavior-type>
+                </behaviors>
                 <texture />
             </object-type>
         </object-folder>
@@ -568,18 +656,6 @@
             </behaviors>
             <texture />
         </object-type>
-        <object-type name="Sprite" sid="1282335988592317">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4592239739722076" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Particles" sid="5757024921273598">
-            <plugin id="Particles" />
-            <texture />
-        </object-type>
         <object-type name="GameCamera" sid="6480374560353459">
             <plugin id="Sprite" />
             <behaviors>
@@ -645,7 +721,6 @@
             <event-sheet>Corrina&apos;s Level.xml</event-sheet>
             <event-sheet>Hub.xml</event-sheet>
             <event-sheet>_Sandbox.xml</event-sheet>
-            <event-sheet>Fried Food Level.xml</event-sheet>
         </event-folder>
         <event-folder name="Gameplay Related (Attach to Levels)">
             <event-sheet>PlayerRelated.xml</event-sheet>

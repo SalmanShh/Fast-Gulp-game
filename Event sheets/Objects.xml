@@ -343,6 +343,16 @@
                                         </event-group>
                                         <event-group description="" sid="5860671587506808" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret - Target Objects">
                                             <sub-events>
+                                                <event-block sid="2393686964076975">
+                                                    <conditions>
+                                                        <condition behavior="Turret" id="0" inverted="1" name="Has target" sid="4365066523766085" type="MozzerallaTurret" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-8" name="Set angle" sid="7674606952997057" type="MozzerallaTurret">
+                                                            <param id="0" name="Angle">lerp(Self.Angle, 0, 0.1)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
                                                 <event-block sid="711178508205051">
                                                     <conditions>
                                                         <condition id="-2" name="On start of layout" sid="5755739732560599" type="System" />
@@ -609,23 +619,37 @@
                         <event-group description="(INCOMPLETE)" sid="2650512970485886" title="Gameplay - Variant Object - Ladder">
                             <sub-events>
                                 <comment>-Salman</comment>
-                                <event-block sid="6167352417677983">
+                                <event-block sid="6732870429686379">
                                     <conditions>
-                                        <condition id="1" name="Is overlapping another object" sid="2814604728663763" type="PlayerMask">
-                                            <param id="0" name="Object">Ladder</param>
+                                        <condition id="0" name="On function" sid="6447314432539916" type="Function">
+                                            <param id="0" name="Name">&quot;playerInteract&quot;</param>
                                         </condition>
                                     </conditions>
-                                    <actions>
-                                        <action id="-13" name="Set boolean" sid="7055224202817485" type="PlayerMask">
-                                            <param id="0" name="Instance variable">IsOnLadder</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="6167352417677983">
+                                            <conditions>
+                                                <condition id="1" name="Is overlapping another object" sid="2814604728663763" type="PlayerMask">
+                                                    <param id="0" name="Object">Ladder</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="7055224202817485" type="PlayerMask">
+                                                    <param id="0" name="Instance variable">IsOnLadder</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
-                                <comment>-Salman</comment>
-                                <event-block sid="2932396216407103">
+                                <event-block any="1" sid="264293293255054">
                                     <conditions>
-                                        <condition id="-22" name="Else" sid="8721913652272389" type="System" />
+                                        <condition id="0" name="On function" sid="5282968603491788" type="Function">
+                                            <param id="0" name="Name">&quot;playerJumpUp&quot;</param>
+                                        </condition>
+                                        <condition id="1" inverted="1" name="Is overlapping another object" sid="8943439604532547" type="PlayerMask">
+                                            <param id="0" name="Object">Ladder</param>
+                                        </condition>
                                     </conditions>
                                     <actions>
                                         <action id="-13" name="Set boolean" sid="7134035465161463" type="PlayerMask">
@@ -642,14 +666,40 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="(INCOMPLETE)" sid="7888538153035579" title="Gameplay - Variant Object - Popcorn Popper" />
+                        <event-group description="(INCOMPLETE)" sid="7888538153035579" title="Gameplay - Variant Object - Popcorn Popper">
+                            <sub-events>
+                                <event-group description="" sid="2705474949293414" title="Gameplay - Variant Object - Popcorn Popper - Variables">
+                                    <sub-events>
+                                        <event-group description="" sid="3974651740519647" title="Gameplay - Variant Object - Popcorn Popper - Variables - Shoot Every" />
+                                        <event-group description="" sid="5546841541205829" title="Gameplay - Variant Object - Popcorn Popper - Variables - Max Distance" />
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="2881468457549459" title="Gameplay - Variant Object - Popcorn Popper - Shoot">
+                                    <sub-events>
+                                        <event-block sid="2287882091632716">
+                                            <conditions>
+                                                <condition id="-6" name="Every X seconds" sid="5383056888869788" type="System">
+                                                    <param id="0" name="Interval (seconds)">PopcornPopper.ShootEvery</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="4103647569619104" type="PopcornPopper">
+                                                    <param id="0" name="Object">Popcorn</param>
+                                                    <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                                    <param id="2" name="Image point">&quot;Barrel&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
                         <event-group description="" sid="6959537897601516" title="Gameplay - Variant Object - Bounce Pad">
                             <sub-events>
                                 <event-group description="" sid="26755963525732" title="Gameplay - Variant Object - Bounce Pad - Angle + Collision">
                                     <sub-events>
                                         <event-group description="" sid="2229840752378519" title="Bounce Pad - Facing Up">
                                             <sub-events>
-                                                <comment>-Salman</comment>
                                                 <event-block sid="7106516958143975">
                                                     <conditions>
                                                         <condition id="1" name="Is overlapping another object" sid="4145681253395975" type="PlayerMask">
@@ -659,6 +709,9 @@
                                                             <param id="0" name="First angle">265</param>
                                                             <param id="1" name="Second angle">275</param>
                                                         </condition>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4976206135515077" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
                                                     </conditions>
                                                     <actions>
                                                         <action behavior="Platform" id="9" name="Set vector Y" sid="3660243131304282" type="PlayerMask">
@@ -666,11 +719,30 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
+                                                <comment>else if PlayerIsFlipped</comment>
+                                                <event-block sid="3528742346435678">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="7532587789904655" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="3886181891879194" type="BouncePad">
+                                                            <param id="0" name="First angle">265</param>
+                                                            <param id="1" name="Second angle">275</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="8578759689700519" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="9" name="Set vector Y" sid="3961443556880194" type="PlayerMask">
+                                                            <param id="0" name="Vector Y">BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
                                             </sub-events>
                                         </event-group>
                                         <event-group description="" sid="9675276982096019" title="Bounce Pad - Facing Down">
                                             <sub-events>
-                                                <comment>-Salman</comment>
                                                 <event-block sid="3099222753259723">
                                                     <conditions>
                                                         <condition id="1" name="Is overlapping another object" sid="7363005019638161" type="PlayerMask">
@@ -680,6 +752,9 @@
                                                             <param id="0" name="First angle">85</param>
                                                             <param id="1" name="Second angle">95</param>
                                                         </condition>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2736404049439257" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
                                                     </conditions>
                                                     <actions>
                                                         <action behavior="Platform" id="9" name="Set vector Y" sid="9443106804632943" type="PlayerMask">
@@ -687,11 +762,30 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
+                                                <comment>else if PlayerIsFlipped</comment>
+                                                <event-block sid="7585277547008885">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="2707103102977101" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="806919377944713" type="BouncePad">
+                                                            <param id="0" name="First angle">85</param>
+                                                            <param id="1" name="Second angle">95</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="5754533053702537" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="9" name="Set vector Y" sid="2950649246266296" type="PlayerMask">
+                                                            <param id="0" name="Vector Y">-BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
                                             </sub-events>
                                         </event-group>
                                         <event-group description="" sid="6325390005320131" title="Bounce Pad - Facing Left">
                                             <sub-events>
-                                                <comment>-Salman</comment>
                                                 <event-block sid="8460055869254861">
                                                     <conditions>
                                                         <condition id="1" name="Is overlapping another object" sid="8930926293808538" type="PlayerMask">
@@ -701,6 +795,9 @@
                                                             <param id="0" name="First angle">175</param>
                                                             <param id="1" name="Second angle">185</param>
                                                         </condition>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2543017587997338" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
                                                     </conditions>
                                                     <actions>
                                                         <action behavior="Platform" id="8" name="Set vector X" sid="7913338111923987" type="PlayerMask">
@@ -708,11 +805,30 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
+                                                <comment>else if PlayerIsFlipped</comment>
+                                                <event-block sid="7548302196451339">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="1195078805787455" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="4196538060514866" type="BouncePad">
+                                                            <param id="0" name="First angle">175</param>
+                                                            <param id="1" name="Second angle">185</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="1265528988657118" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="8144202281223045" type="PlayerMask">
+                                                            <param id="0" name="Vector X">BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
                                             </sub-events>
                                         </event-group>
                                         <event-group description="" sid="694333501496756" title="Bounce Pad - Facing Right">
                                             <sub-events>
-                                                <comment>-Salman</comment>
                                                 <event-block sid="2494376188028155">
                                                     <conditions>
                                                         <condition id="1" name="Is overlapping another object" sid="417594989104299" type="PlayerMask">
@@ -722,6 +838,9 @@
                                                             <param id="0" name="First angle">355</param>
                                                             <param id="1" name="Second angle">360</param>
                                                         </condition>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="1430328591161566" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
                                                     </conditions>
                                                     <actions>
                                                         <action behavior="Platform" id="8" name="Set vector X" sid="232209981978545" type="PlayerMask">
@@ -729,7 +848,6 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
-                                                <comment>-Salman</comment>
                                                 <event-block sid="5861033797733235">
                                                     <conditions>
                                                         <condition id="1" name="Is overlapping another object" sid="1438764743809961" type="PlayerMask">
@@ -739,10 +857,52 @@
                                                             <param id="0" name="First angle">0</param>
                                                             <param id="1" name="Second angle">5</param>
                                                         </condition>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9205831132462875" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
                                                     </conditions>
                                                     <actions>
                                                         <action behavior="Platform" id="8" name="Set vector X" sid="7702471533595795" type="PlayerMask">
                                                             <param id="0" name="Vector X">BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>else if PlayerIsFlipped</comment>
+                                                <event-block sid="839041964496869">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="6748252497752726" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="1317012016176704" type="BouncePad">
+                                                            <param id="0" name="First angle">0</param>
+                                                            <param id="1" name="Second angle">5</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="4325838698097783" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="3108131033779738" type="PlayerMask">
+                                                            <param id="0" name="Vector X">-BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="3205347828545972">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="2166433810757818" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="2153883755035591" type="BouncePad">
+                                                            <param id="0" name="First angle">355</param>
+                                                            <param id="1" name="Second angle">360</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="8666628245011547" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="4435296787622341" type="PlayerMask">
+                                                            <param id="0" name="Vector X">-BouncePad.Power</param>
                                                         </action>
                                                     </actions>
                                                 </event-block>
@@ -814,16 +974,5 @@
                 </event-group>
             </sub-events>
         </event-group>
-        <event-block sid="2393686964076975">
-            <conditions>
-                <condition behavior="Turret" id="0" inverted="1" name="Has target" sid="4365066523766085" type="MozzerallaTurret" />
-            </conditions>
-            <actions>
-                <action id="-20" name="Rotate toward angle" sid="7674606952997057" type="MozzerallaTurret">
-                    <param id="0" name="Degrees">360</param>
-                    <param id="1" name="Angle">0</param>
-                </action>
-            </actions>
-        </event-block>
     </events>
 </c2eventsheet>

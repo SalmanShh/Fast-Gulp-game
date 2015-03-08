@@ -11,11 +11,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="1">Sandbox</layout>
-        <layout order="3">Fried Food Level</layout>
-        <event-sheet order="6">Objects</event-sheet>
         <event-sheet order="2">_Sandbox</event-sheet>
-        <event-sheet active="1" order="4">PlayerRelated</event-sheet>
-        <event-sheet order="5">Fried Food Level</event-sheet>
+        <event-sheet active="1" order="3">PlayerRelated</event-sheet>
+        <event-sheet order="4">Objects</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -32,6 +30,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Moving Platform/" />
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Mozerella Turret/" />
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Fizzy Drink/" />
+        <folder expanded="1" path="object-folder/Gameplay Varient Objects/Popcorn Popper/" />
         <folder expanded="1" path="object-folder/Tilesets/" />
         <folder expanded="1" path="object-folder/Menu/" />
         <folder expanded="1" path="object-folder/UI/" />
@@ -56,10 +55,11 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/MozzerallaTurret/" />
         <folder expanded="1" path="animation-folder/TurretPosition/" />
         <folder expanded="1" path="animation-folder/FizzyDrink/" />
+        <folder expanded="1" path="animation-folder/PopcornPopper/" />
+        <folder expanded="1" path="animation-folder/Popcorn/" />
         <folder expanded="1" path="animation-folder/Spike/" />
         <folder expanded="1" path="animation-folder/BouncePad/" />
         <folder expanded="1" path="animation-folder/GravitySwitch/" />
-        <folder expanded="1" path="animation-folder/Sprite/" />
         <folder expanded="1" path="animation-folder/GameCamera/" />
         <folder expanded="1" path="animation-folder/Sprite2/" />
     </folders-expanded>
