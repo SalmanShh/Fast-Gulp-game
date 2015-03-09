@@ -537,7 +537,21 @@
                 </event-group>
                 <event-group description="Soft Block // Ladder // Bounce Pad // Gravity Switcher" sid="3584885138058153" title="Gameplay - Variant Object -  Does not Hurt">
                     <sub-events>
-                        <event-group description="" sid="1065466767923543" title="Gameplay - Variant Object - Soft Block" />
+                        <event-group description="" sid="1065466767923543" title="Gameplay - Variant Object - Soft Block">
+                            <sub-events>
+                                <event-block sid="3712710991446773">
+                                    <conditions>
+                                        <condition id="-18" name="On created" sid="4775570513200495" type="StompDustParticle" />
+                                        <condition id="9" name="Is overlapping at offset" sid="6353840030536727" type="PlayerMask">
+                                            <param id="0" name="Object">SoftBlock</param>
+                                            <param id="1" name="Offset X">0</param>
+                                            <param id="2" name="Offset Y">-2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-group>
                         <event-group description="" sid="2344510200924031" title="Gameplay - Variant Object - Moving Platform (64x64)">
                             <sub-events>
                                 <event-group description="" sid="4142577764804984" title="Gameplay - Variant Object - Moving Platform (64x64) - Immovable">
@@ -618,9 +632,8 @@
                                 </event-group>
                             </sub-events>
                         </event-group>
-                        <event-group description="(INCOMPLETE)" sid="2650512970485886" title="Gameplay - Variant Object - Ladder">
+                        <event-group description="" sid="2650512970485886" title="Gameplay - Variant Object - Ladder">
                             <sub-events>
-                                <comment>-Salman</comment>
                                 <event-block sid="6732870429686379">
                                     <conditions>
                                         <condition id="0" name="On function" sid="6447314432539916" type="Function">
@@ -644,6 +657,7 @@
                                         </event-block>
                                     </sub-events>
                                 </event-block>
+                                <comment>to get off</comment>
                                 <event-block any="1" sid="264293293255054">
                                     <conditions>
                                         <condition id="0" name="On function" sid="5282968603491788" type="Function">
@@ -668,13 +682,8 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="(INCOMPLETE)" sid="7888538153035579" title="Gameplay - Variant Object - Popcorn Popper">
+                        <event-group description="" sid="7888538153035579" title="Gameplay - Variant Object - Popcorn Popper">
                             <sub-events>
-                                <event-group description="" sid="4884426721178943" title="Gameplay - Variant Object - Popcorn Popper - Popcorn">
-                                    <sub-events>
-                                        <event-group description="" sid="2955644374394062" title="Gameplay - Variant Object - Popcorn Popper - Popcorn - On Created" />
-                                    </sub-events>
-                                </event-group>
                                 <event-group description="" sid="2705474949293414" title="Gameplay - Variant Object - Popcorn Popper - Variables">
                                     <sub-events>
                                         <event-group description="" sid="9046131863140611" title="Gameplay - Variant Object - Popcorn Popper - Variables - Gravity">
@@ -735,6 +744,11 @@
                                                 </event-block>
                                             </sub-events>
                                         </event-group>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="4884426721178943" title="Gameplay - Variant Object - Popcorn Popper - Popcorn">
+                                    <sub-events>
+                                        <event-group description="" sid="2955644374394062" title="Gameplay - Variant Object - Popcorn Popper - Popcorn - On Created" />
                                     </sub-events>
                                 </event-group>
                                 <event-group description="" sid="2881468457549459" title="Gameplay - Variant Object - Popcorn Popper - Turret">

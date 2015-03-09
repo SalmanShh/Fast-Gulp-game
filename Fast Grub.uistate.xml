@@ -10,10 +10,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1" order="1">Sandbox</layout>
-        <event-sheet order="2">_Sandbox</event-sheet>
-        <event-sheet order="3">PlayerRelated</event-sheet>
-        <event-sheet order="4">Objects</event-sheet>
+        <layout active="1" order="0">Sandbox</layout>
+        <event-sheet order="1">_Sandbox</event-sheet>
+        <event-sheet order="2">PlayerRelated</event-sheet>
+        <event-sheet order="3">Objects</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -24,14 +24,14 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <families-expanded root="1" />
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
-        <folder expanded="1" path="object-folder/Plugins/" />
-        <folder expanded="1" path="object-folder/Player/" />
-        <folder expanded="1" path="object-folder/Gameplay Varient Objects/" />
+        <folder expanded="0" path="object-folder/Plugins/" />
+        <folder expanded="0" path="object-folder/Player/" />
+        <folder expanded="0" path="object-folder/Gameplay Varient Objects/" />
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Moving Platform/" />
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Mozerella Turret/" />
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Fizzy Drink/" />
-        <folder expanded="1" path="object-folder/Gameplay Varient Objects/Popcorn Popper/" />
-        <folder expanded="1" path="object-folder/Tilesets/" />
+        <folder expanded="0" path="object-folder/Gameplay Varient Objects/Popcorn Popper/" />
+        <folder expanded="0" path="object-folder/Tilesets/" />
         <folder expanded="1" path="object-folder/Menu/" />
         <folder expanded="1" path="object-folder/UI/" />
         <folder expanded="1" path="layout-folder/" />
