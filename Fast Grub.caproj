@@ -731,6 +731,7 @@
         </layout-folder>
         <layout-folder name="Menus">
             <layout>Main Menu.xml</layout>
+            <layout>Options.xml</layout>
         </layout-folder>
         <layout>Sandbox.xml</layout>
     </layout-folder>
@@ -746,9 +747,11 @@
             <event-sheet>PlayerRelated.xml</event-sheet>
             <event-sheet>Objects.xml</event-sheet>
             <event-sheet>Audio.xml</event-sheet>
+            <event-sheet>Debug.xml</event-sheet>
         </event-folder>
         <event-folder name="Menus">
             <event-sheet>Main Menu.xml</event-sheet>
+            <event-sheet>Options Menu.xml</event-sheet>
         </event-folder>
     </event-folder>
     <global-instances>
@@ -776,7 +779,42 @@
         </global-instance>
         <global-instance type="Browser" uid="47" />
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <sound-folder name="TurretSFX">
+            <file name="TurretShot1.m4a" />
+            <file name="TurretShot1.ogg" />
+            <file name="TurretShot2.m4a" />
+            <file name="TurretShot2.ogg" />
+            <file name="TurretShot3.m4a" />
+            <file name="TurretShot3.ogg" />
+            <file name="Turret4.m4a" />
+            <file name="Turret4.ogg" />
+        </sound-folder>
+        <sound-folder name="ExplosionSFX">
+            <file name="Explosion.m4a" />
+            <file name="Explosion.ogg" />
+            <file name="Explosion2.m4a" />
+            <file name="Explosion2.ogg" />
+            <file name="Explosion3.m4a" />
+            <file name="Explosion3.ogg" />
+        </sound-folder>
+        <sound-folder name="HitSFX">
+            <file name="Hit1.m4a" />
+            <file name="Hit1.ogg" />
+            <file name="Hit2.m4a" />
+            <file name="Hit2.ogg" />
+            <file name="Hit3.m4a" />
+            <file name="Hit3.ogg" />
+        </sound-folder>
+        <sound-folder name="ObjectHitSFX">
+            <file name="ObjectHit1.m4a" />
+            <file name="ObjectHit1.ogg" />
+            <file name="ObjectHit2.m4a" />
+            <file name="ObjectHit2.ogg" />
+            <file name="ObjectHit3.m4a" />
+            <file name="ObjectHit3.ogg" />
+        </sound-folder>
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">
