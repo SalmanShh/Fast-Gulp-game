@@ -73,11 +73,11 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/Spike/" />
         <folder expanded="1" path="animation-folder/BouncePad/" />
         <folder expanded="1" path="animation-folder/GravitySwitch/" />
+        <folder expanded="1" path="animation-folder/PushableBlock/" />
         <folder expanded="1" path="animation-folder/BgAnim/" />
         <folder expanded="1" path="animation-folder/SaladBowlUI/" />
         <folder expanded="1" path="animation-folder/SaladBowlCollectable/" />
         <folder expanded="1" path="animation-folder/GameCamera/" />
-        <folder expanded="1" path="animation-folder/PushableBlock/" />
         <folder expanded="1" path="animation-folder/LockedDoor/" />
         <folder expanded="1" path="animation-folder/Shirt/" />
     </folders-expanded>

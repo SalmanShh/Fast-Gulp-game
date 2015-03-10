@@ -384,15 +384,21 @@
                                 </collision-poly>
                             </frame>
                         </animation>
-                        <animation framecount="1" loop="0" name="Moving" pingpong="0" repeatcount="1" repeatto="0" sid="998491336379294" speed="5">
-                            <frame duration="1" hotspotX="0" hotspotY="0.5">
+                        <animation framecount="2" loop="1" name="Moving" pingpong="1" repeatcount="1" repeatto="0" sid="998491336379294" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="1">
                                 <collision-poly>
-                                    <point x="0" y="0.507813" />
-                                    <point x="0.0742188" y="0" />
-                                    <point x="0.941406" y="0" />
-                                    <point x="1" y="0.5" />
-                                    <point x="0.941406" y="1" />
-                                    <point x="0.0625" y="1" />
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0" />
+                                    <point x="1" y="0" />
+                                    <point x="1" y="1" />
+                                </collision-poly>
+                            </frame>
+                            <frame duration="1" hotspotX="0.5" hotspotY="1">
+                                <collision-poly>
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0" />
+                                    <point x="1" y="0" />
+                                    <point x="1" y="1" />
                                 </collision-poly>
                             </frame>
                         </animation>
@@ -559,6 +565,32 @@
                     </behavior-type>
                 </behaviors>
                 <texture />
+            </object-type>
+            <object-type name="PushableBlock" sid="3749525843236059">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Physics" sid="1820601962044882">
+                        <behavior id="Physics" />
+                    </behavior-type>
+                    <behavior-type name="NoSave" sid="1746020515466594">
+                        <behavior id="NoSave" />
+                    </behavior-type>
+                    <behavior-type name="Solid" sid="8474703567678435">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7557808660558677" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.015625" y="0.03125" />
+                                <point x="0.984375" y="0.03125" />
+                                <point x="0.984375" y="1" />
+                                <point x="0.015625" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
             </object-type>
         </object-folder>
         <object-folder name="Tilesets">
@@ -848,32 +880,6 @@
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4468717719721463" speed="5">
                     <frame duration="1" hotspotX="0.509434" hotspotY="0.512195" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="PushableBlock" sid="3749525843236059">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Physics" sid="1820601962044882">
-                    <behavior id="Physics" />
-                </behavior-type>
-                <behavior-type name="NoSave" sid="1746020515466594">
-                    <behavior id="NoSave" />
-                </behavior-type>
-                <behavior-type name="Solid" sid="8474703567678435">
-                    <behavior id="solid" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7557808660558677" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                        <collision-poly>
-                            <point x="0.015625" y="0.03125" />
-                            <point x="0.984375" y="0.03125" />
-                            <point x="0.984375" y="1" />
-                            <point x="0.015625" y="1" />
-                        </collision-poly>
-                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
