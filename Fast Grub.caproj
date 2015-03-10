@@ -28,6 +28,7 @@
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="NoSave" version="1">No Save</behavior>
+        <behavior author="Scirra" id="Persist" version="1">Persist</behavior>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
@@ -49,7 +50,7 @@
         <height>360</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
-    <preview-effects>1</preview-effects>
+    <preview-effects>0</preview-effects>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -109,6 +110,7 @@
                     <instance-variable name="IsPlayerFlipped" sid="4476436388287353" type="boolean" />
                     <instance-variable name="ChargeTime" sid="8125007491526771" type="number" />
                     <instance-variable name="HasCollectedInLevel" sid="732939962368145" type="number" />
+                    <instance-variable name="IsUnlocked" sid="5569834069571957" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="Platform" sid="9232464172691835">
@@ -373,11 +375,12 @@
                         <animation framecount="1" loop="0" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="7551220664593014" speed="5">
                             <frame duration="1" hotspotX="0" hotspotY="0.5">
                                 <collision-poly>
-                                    <point x="0.945313" y="0" />
-                                    <point x="1" y="0.507813" />
-                                    <point x="0.9375" y="1" />
                                     <point x="0" y="1" />
                                     <point x="0" y="0" />
+                                    <point x="0.90625" y="0" />
+                                    <point x="1" y="0.142857" />
+                                    <point x="1" y="0.857143" />
+                                    <point x="0.90625" y="1" />
                                 </collision-poly>
                             </frame>
                         </animation>
@@ -456,6 +459,9 @@
                     <behavior-type name="Physics" sid="3124595308696154">
                         <behavior id="Physics" />
                     </behavior-type>
+                    <behavior-type name="NoSave" sid="1648401095370933">
+                        <behavior id="NoSave" />
+                    </behavior-type>
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7575801260064312" speed="5">
@@ -476,6 +482,11 @@
                 <instance-variables>
                     <instance-variable name="Power" sid="6646151976286622" type="number" />
                 </instance-variables>
+                <behaviors>
+                    <behavior-type name="NoSave" sid="8716279568325692">
+                        <behavior id="NoSave" />
+                    </behavior-type>
+                </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7336400554714066" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
@@ -491,6 +502,11 @@
             </object-type>
             <object-type name="GravitySwitch" sid="8197261808920728">
                 <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="NoSave" sid="669133492412514">
+                        <behavior id="NoSave" />
+                    </behavior-type>
+                </behaviors>
                 <animation-folder>
                     <animation framecount="4" loop="1" name="Default" pingpong="1" repeatcount="1" repeatto="0" sid="4176434130335946" speed="6">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
@@ -554,6 +570,9 @@
                     </behavior-type>
                     <behavior-type name="Physics" sid="5164483248275628">
                         <behavior id="Physics" />
+                    </behavior-type>
+                    <behavior-type name="NoSave" sid="9895428882722679">
+                        <behavior id="NoSave" />
                     </behavior-type>
                 </behaviors>
                 <texture />
@@ -664,6 +683,11 @@
             </object-type>
             <object-type name="SaladTileset" sid="2514383529442946">
                 <plugin id="Tilemap" />
+                <behaviors>
+                    <behavior-type name="NoSave" sid="1312095573563375">
+                        <behavior id="NoSave" />
+                    </behavior-type>
+                </behaviors>
                 <texture />
                 <tiles />
             </object-type>
@@ -790,6 +814,9 @@
                     <behavior-type name="Sine" sid="5259018904281716">
                         <behavior id="Sin" />
                     </behavior-type>
+                    <behavior-type name="NoSave" sid="5526771482759333">
+                        <behavior id="NoSave" />
+                    </behavior-type>
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9083254055342365" speed="5">
@@ -833,22 +860,60 @@
                 <behavior-type name="NoSave" sid="1746020515466594">
                     <behavior id="NoSave" />
                 </behavior-type>
-                <behavior-type name="Jumpthru" sid="2835622517385295">
-                    <behavior id="jumpthru" />
+                <behavior-type name="Solid" sid="8474703567678435">
+                    <behavior id="solid" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7557808660558677" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <collision-poly>
-                            <point x="0" y="0.0390625" />
-                            <point x="0.03125" y="0" />
-                            <point x="0.96875" y="0" />
-                            <point x="1" y="0.03125" />
-                            <point x="1" y="0.96875" />
-                            <point x="0.96875" y="1" />
-                            <point x="0.03125" y="1" />
-                            <point x="0" y="0.96875" />
+                            <point x="0.015625" y="0.03125" />
+                            <point x="0.984375" y="0.03125" />
+                            <point x="0.984375" y="1" />
+                            <point x="0.015625" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LockedDoor" sid="6143302293616046">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="9406164204999844">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="Solid" sid="9440670782850512">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Persist" sid="777451018351734">
+                    <behavior id="Persist" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7791583152755551" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Shirt" sid="7399835242221575">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Persist" sid="9892143795541842">
+                    <behavior id="Persist" />
+                </behavior-type>
+                <behavior-type name="Sine" sid="2282183963399887">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5413486280488239" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.4">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -956,8 +1021,15 @@
             <file name="Collect.m4a" />
             <file name="Collect.ogg" />
         </sound-folder>
+        <sound-folder name="FinishSFX">
+            <file name="Finish.m4a" />
+            <file name="Finish.ogg" />
+        </sound-folder>
     </sounds-folder>
-    <music-folder />
+    <music-folder>
+        <file name="Harbinger_-_SuperCharge_[Creative_Commons_.m4a" />
+        <file name="Harbinger_-_SuperCharge_[Creative_Commons_.ogg" />
+    </music-folder>
     <files-folder>
         <file-folder name="Icons">
             <file name="icon-16.png" />

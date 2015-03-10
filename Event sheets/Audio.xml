@@ -117,6 +117,23 @@
                 </event-group>
                 <event-group description="" sid="7819129393435824" title="Audio - Objects - ">
                     <sub-events>
+                        <event-group description="" sid="8195732787947642" title="Audio - Objects - Lock">
+                            <sub-events>
+                                <event-block sid="6193126383998986">
+                                    <conditions>
+                                        <condition id="-19" name="On destroyed" sid="136577042535473" type="LockedDoor" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="378540602711533" type="Audio">
+                                            <param id="0" name="Audio file">Finish</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
                         <event-group description="" sid="8538497023405461" title="Audio - Objects - Collection">
                             <sub-events>
                                 <event-block sid="4170307777009238">

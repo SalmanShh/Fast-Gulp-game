@@ -1743,7 +1743,7 @@
                 </event-group>
                 <event-group description="" sid="3299341627042497" title="Player - Camera - Centre on Player ">
                     <sub-events>
-                        <comment>if the instance Bool is true ----&gt; The camera will centre to the &quot;PlayerMask&quot; sprite @ 5% the speed</comment>
+                        <comment>if the instance Bool is true </comment>
                         <event-block sid="6222671528660231">
                             <conditions>
                                 <condition id="-8" name="Is boolean instance variable set" sid="2113214390890993" type="PlayerMask">
@@ -1807,7 +1807,7 @@
                                     </conditions>
                                     <actions>
                                         <action id="-20" name="Set layout scale" sid="6339636937100174" type="System">
-                                            <param id="0" name="Scale">lerp(LayoutScale, 0.4,0.1)</param>
+                                            <param id="0" name="Scale">lerp(LayoutScale, 0.5,0.1)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -1828,7 +1828,7 @@
                                             </conditions>
                                             <actions>
                                                 <action id="-20" name="Set layout scale" sid="7915399059465018" type="System">
-                                                    <param id="0" name="Scale">lerp(LayoutScale, 1,0.001)</param>
+                                                    <param id="0" name="Scale">lerp(LayoutScale, 0.8,0.001)</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -2062,6 +2062,9 @@
                         <condition id="-2" name="On start of layout" sid="1201663619223398" type="System" />
                     </conditions>
                     <actions>
+                        <action id="-16" name="Wait" sid="7409335693305981" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
                         <action id="-36" name="Save" sid="9216502274574287" type="System">
                             <param id="0" name="Slot">&quot;LevelSave&quot;</param>
                         </action>
