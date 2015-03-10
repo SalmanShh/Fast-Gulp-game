@@ -12,9 +12,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <open-tabs>
         <layout order="3">Level 1</layout>
         <layout order="5">Lose</layout>
-        <event-sheet order="0">PlayerRelated</event-sheet>
+        <event-sheet active="1" order="0">PlayerRelated</event-sheet>
         <event-sheet order="1">Objects</event-sheet>
-        <event-sheet active="1" order="2">Audio</event-sheet>
+        <event-sheet order="2">Audio</event-sheet>
         <event-sheet order="4">Level 1</event-sheet>
         <event-sheet order="6">Lose</event-sheet>
     </open-tabs>
@@ -39,6 +39,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="object-folder/Menu/Lose/" />
         <folder expanded="0" path="object-folder/UI/" />
         <folder expanded="1" path="object-folder/Collectable/" />
+        <folder expanded="1" path="object-folder/BG Gradients/" />
+        <folder expanded="1" path="object-folder/In Levels Stuff/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="layout-folder/Levels/" />
         <folder expanded="1" path="layout-folder/Menus/Screens/" />
@@ -74,11 +76,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/BouncePad/" />
         <folder expanded="1" path="animation-folder/GravitySwitch/" />
         <folder expanded="1" path="animation-folder/PushableBlock/" />
+        <folder expanded="1" path="animation-folder/LockedDoor/" />
         <folder expanded="1" path="animation-folder/BgAnim/" />
         <folder expanded="1" path="animation-folder/SaladBowlUI/" />
         <folder expanded="1" path="animation-folder/SaladBowlCollectable/" />
-        <folder expanded="1" path="animation-folder/GameCamera/" />
-        <folder expanded="1" path="animation-folder/LockedDoor/" />
+        <folder expanded="1" path="animation-folder/BGGradient1/" />
+        <folder expanded="1" path="animation-folder/FallThrough/" />
         <folder expanded="1" path="animation-folder/Shirt/" />
+        <folder expanded="1" path="animation-folder/GameCamera/" />
     </folders-expanded>
 </c2uistate>

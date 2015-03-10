@@ -121,9 +121,9 @@
                     <behavior-instances>
                         <behavior-instance type="Anchor">
                             <properties>
-                                <left-edge>None</left-edge>
+                                <left-edge>Window left</left-edge>
                                 <top-edge>Window top</top-edge>
-                                <right-edge>None</right-edge>
+                                <right-edge>Window right</right-edge>
                                 <bottom-edge>Window bottom</bottom-edge>
                                 <initial-state>Enabled</initial-state>
                             </properties>

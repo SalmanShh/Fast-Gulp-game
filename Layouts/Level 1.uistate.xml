@@ -4,15 +4,15 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>-99.5</position-x>
-        <position-y>795</position-y>
-        <position-z>100</position-z>
-        <lookat-x>-99.5</lookat-x>
-        <lookat-y>795</lookat-y>
+        <position-x>1663.75</position-x>
+        <position-y>575.962</position-y>
+        <position-z>84.8195</position-z>
+        <lookat-x>1663.75</lookat-x>
+        <lookat-y>575.962</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
     <snap-to-grid>1</snap-to-grid>
-    <show-grid>1</show-grid>
+    <show-grid>0</show-grid>
     <snap-width>16</snap-width>
     <snap-height>16</snap-height>
     <show-collision-polys>0</show-collision-polys>
@@ -23,12 +23,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="0" name="Margins" />
         <property expanded="1" name="Effects" />
     </properties>
-    <active-layer name="InteractiveObjects" />
+    <active-layer name="ArtTileset" />
     <layers>
-        <layer locked="0" name="BG" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="BG" parallax-in-editor="1" visible="1" />
         <layer locked="0" name="SolidTileset" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="Player" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="ArtTileset" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Player" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="ArtGradient" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="InteractiveObjects" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="UI" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="Pause" parallax-in-editor="0" visible="1" />

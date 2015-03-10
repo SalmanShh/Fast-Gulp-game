@@ -18,6 +18,7 @@
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
@@ -49,11 +50,11 @@
         <width>640</width>
         <height>360</height>
     </window-size>
-    <pixel-rounding>0</pixel-rounding>
+    <pixel-rounding>1</pixel-rounding>
     <preview-effects>0</preview-effects>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
-        <prop name="Clear background">Yes</prop>
+        <prop name="Clear background">No</prop>
         <prop name="Downscaling">Medium quality</prop>
         <prop name="Enable WebGL">On</prop>
         <prop name="Fullscreen in browser">Scale outer</prop>
@@ -111,6 +112,7 @@
                     <instance-variable name="ChargeTime" sid="8125007491526771" type="number" />
                     <instance-variable name="HasCollectedInLevel" sid="732939962368145" type="number" />
                     <instance-variable name="IsUnlocked" sid="5569834069571957" type="boolean" />
+                    <instance-variable name="IsCharging" sid="4654432765964298" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="Platform" sid="9232464172691835">
@@ -373,7 +375,7 @@
                     </behaviors>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="7551220664593014" speed="5">
-                            <frame duration="1" hotspotX="0" hotspotY="0.5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                                 <collision-poly>
                                     <point x="0" y="1" />
                                     <point x="0" y="0" />
@@ -384,23 +386,11 @@
                                 </collision-poly>
                             </frame>
                         </animation>
-                        <animation framecount="2" loop="1" name="Moving" pingpong="1" repeatcount="1" repeatto="0" sid="998491336379294" speed="5">
-                            <frame duration="1" hotspotX="0.5" hotspotY="1">
-                                <collision-poly>
-                                    <point x="0" y="1" />
-                                    <point x="0" y="0" />
-                                    <point x="1" y="0" />
-                                    <point x="1" y="1" />
-                                </collision-poly>
-                            </frame>
-                            <frame duration="1" hotspotX="0.5" hotspotY="1">
-                                <collision-poly>
-                                    <point x="0" y="1" />
-                                    <point x="0" y="0" />
-                                    <point x="1" y="0" />
-                                    <point x="1" y="1" />
-                                </collision-poly>
-                            </frame>
+                        <animation framecount="4" loop="1" name="Moving" pingpong="1" repeatcount="1" repeatto="0" sid="998491336379294" speed="10">
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                         </animation>
                     </animation-folder>
                 </object-type>
@@ -512,6 +502,9 @@
                     <behavior-type name="NoSave" sid="669133492412514">
                         <behavior id="NoSave" />
                     </behavior-type>
+                    <behavior-type name="Sine" sid="5145330191191507">
+                        <behavior id="Sin" />
+                    </behavior-type>
                 </behaviors>
                 <animation-folder>
                     <animation framecount="4" loop="1" name="Default" pingpong="1" repeatcount="1" repeatto="0" sid="4176434130335946" speed="6">
@@ -583,12 +576,31 @@
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7557808660558677" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <collision-poly>
-                                <point x="0.015625" y="0.03125" />
-                                <point x="0.984375" y="0.03125" />
+                                <point x="0.015625" y="0.015625" />
+                                <point x="0.984375" y="0.015625" />
                                 <point x="0.984375" y="1" />
                                 <point x="0.015625" y="1" />
                             </collision-poly>
                         </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="LockedDoor" sid="6143302293616046">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="9406164204999844">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                    <behavior-type name="Solid" sid="9440670782850512">
+                        <behavior id="solid" />
+                    </behavior-type>
+                    <behavior-type name="Persist" sid="777451018351734">
+                        <behavior id="Persist" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7791583152755551" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -861,6 +873,67 @@
                 <texture />
             </object-type>
         </object-folder>
+        <object-folder name="BG Gradients">
+            <object-type name="BGGradient1" sid="4289517779103852">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="NoSave" sid="5138430382985902">
+                        <behavior id="NoSave" />
+                    </behavior-type>
+                    <behavior-type name="Anchor" sid="9567387601496732">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1643302598169974" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\mrlig_000\Desktop\Gradient.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="In Levels Stuff">
+            <object-type name="FallThrough" sid="7001373859563766">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6698071356369771" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\mrlig_000\Desktop\Down + A.png">
+                            <collision-poly>
+                                <point x="0.1125" y="0.276923" />
+                                <point x="0.5" y="0.484615" />
+                                <point x="0.940625" y="0.146154" />
+                                <point x="1" y="0.5" />
+                                <point x="0.940625" y="0.853846" />
+                                <point x="0.5" y="0.6" />
+                                <point x="0.1125" y="0.723077" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Shirt" sid="7399835242221575">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Persist" sid="9892143795541842">
+                        <behavior id="Persist" />
+                    </behavior-type>
+                    <behavior-type name="Sine" sid="2282183963399887">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5413486280488239" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4">
+                            <collision-poly>
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
         <object-type name="DeleteMeLater" sid="3704502931799404">
             <plugin id="TiledBg" />
             <behaviors>
@@ -883,47 +956,8 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="LockedDoor" sid="6143302293616046">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Fade" sid="9406164204999844">
-                    <behavior id="Fade" />
-                </behavior-type>
-                <behavior-type name="Solid" sid="9440670782850512">
-                    <behavior id="solid" />
-                </behavior-type>
-                <behavior-type name="Persist" sid="777451018351734">
-                    <behavior id="Persist" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7791583152755551" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Shirt" sid="7399835242221575">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Persist" sid="9892143795541842">
-                    <behavior id="Persist" />
-                </behavior-type>
-                <behavior-type name="Sine" sid="2282183963399887">
-                    <behavior id="Sin" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5413486280488239" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.4">
-                        <collision-poly>
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0" />
-                            <point x="1" y="0" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
+        <object-type name="Text" sid="1726315304881695">
+            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families />
