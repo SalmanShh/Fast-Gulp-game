@@ -1026,6 +1026,8 @@
         <sound-folder name="CollectSFX">
             <file name="Collect.m4a" />
             <file name="Collect.ogg" />
+            <file name="CollectedEverything.m4a" />
+            <file name="CollectedEverything.ogg" />
         </sound-folder>
         <sound-folder name="FinishSFX">
             <file name="Finish.m4a" />

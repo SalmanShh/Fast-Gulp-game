@@ -121,14 +121,17 @@
                             <sub-events>
                                 <event-block sid="6193126383998986">
                                     <conditions>
-                                        <condition id="-19" name="On destroyed" sid="136577042535473" type="LockedDoor" />
+                                        <condition id="-4" name="Trigger once while true" sid="7911646085968577" type="System" />
+                                        <condition id="-8" name="Is boolean instance variable set" sid="136577042535473" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsUnlocked</param>
+                                        </condition>
                                     </conditions>
                                     <actions>
                                         <action id="0" name="Play" sid="378540602711533" type="Audio">
-                                            <param id="0" name="Audio file">Finish</param>
+                                            <param id="0" name="Audio file">CollectedEverything</param>
                                             <param id="2" name="Loop">0</param>
                                             <param id="3" name="Volume">0</param>
-                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                            <param id="1" name="Tag (optional)">&quot;Fin&quot;</param>
                                         </action>
                                     </actions>
                                 </event-block>
