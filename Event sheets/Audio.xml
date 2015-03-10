@@ -7,6 +7,35 @@
             <sub-events>
                 <event-group description="" sid="118922993765452" title="Audio - Player -">
                     <sub-events>
+                        <event-group description="" sid="7766073907663933" title="Audio - Player - Interact">
+                            <sub-events>
+                                <event-block sid="6316903564782173">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="8712060926072538" type="Function">
+                                            <param id="0" name="Name">&quot;playerInteract&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="1726014884401577" title="Audio - Player - Stomp">
+                            <sub-events>
+                                <event-block sid="8886486950948518">
+                                    <conditions>
+                                        <condition id="-18" name="On created" sid="1507827636152227" type="StompDustParticle" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="5330967315304657" type="Audio">
+                                            <param id="0" name="Audio file">Hit3</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">random(-2,2)</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
                         <event-group description="" sid="2002662744509985" title="Audio - Player - Hurt">
                             <sub-events>
                                 <event-block sid="4747702289897441">
@@ -15,7 +44,14 @@
                                             <param id="0" name="Instance variable">IsHurt</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="0" name="Play" sid="5234555016322656" type="Audio">
+                                            <param id="0" name="Audio file">Hit1</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">random(0,10)</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
@@ -37,7 +73,14 @@
                                     <conditions>
                                         <condition behavior="Platform" id="9" name="On landed" sid="654848556685164" type="PlayerMask" />
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="0" name="Play" sid="2209381032154222" type="Audio">
+                                            <param id="0" name="Audio file">Hit2</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
@@ -47,7 +90,14 @@
                                     <conditions>
                                         <condition behavior="Platform" id="5" name="On jump" sid="1580294195727256" type="PlayerMask" />
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="0" name="Play" sid="9278194976380746" type="Audio">
+                                            <param id="0" name="Audio file">Jump</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">random(-10,-5)</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
@@ -67,6 +117,23 @@
                 </event-group>
                 <event-group description="" sid="7819129393435824" title="Audio - Objects - ">
                     <sub-events>
+                        <event-group description="" sid="8538497023405461" title="Audio - Objects - Collection">
+                            <sub-events>
+                                <event-block sid="4170307777009238">
+                                    <conditions>
+                                        <condition id="-18" name="On created" sid="6438261237686321" type="CollectionParticle" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="4071194014100117" type="Audio">
+                                            <param id="0" name="Audio file">Collect</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
                         <event-group description="" sid="9592406545095193" title="Audio - Objects - Soft Block">
                             <sub-events>
                                 <event-group description="" sid="7603293060608961" title="Audio - Objects - Soft Block - Stomped On" />
@@ -74,21 +141,83 @@
                         </event-group>
                         <event-group description="" sid="9383616167215911" title="Audio - Objects - Bounce">
                             <sub-events>
-                                <event-group description="" sid="6802932160370889" title="Audio - Objects - Bounce - On Collided with" />
+                                <event-group description="" sid="6802932160370889" title="Audio - Objects - Bounce - On Collided with">
+                                    <sub-events>
+                                        <event-block sid="8333035265260367">
+                                            <conditions>
+                                                <condition id="0" name="On collision with another object" sid="3221169422308784" type="PlayerMask">
+                                                    <param id="0" name="Object">BouncePad</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="25" name="Play at object" sid="8560645380220966" type="Audio">
+                                                    <param id="0" name="Audio file">ObjectHit2</param>
+                                                    <param id="1" name="Loop">0</param>
+                                                    <param id="2" name="Volume">random(-5,5)</param>
+                                                    <param id="3" name="Object">BouncePad</param>
+                                                    <param id="4" name="Inner angle">360</param>
+                                                    <param id="5" name="Outer angle">360</param>
+                                                    <param id="6" name="Outer gain">0</param>
+                                                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
                             </sub-events>
                         </event-group>
                         <event-group description="" sid="8366942777545013" title="Audio - Objects - Fizzy Drink">
                             <sub-events>
                                 <event-group description="" sid="527142898063847" title="Audio - Objects - Fizzy Drink - On Hit" />
-                                <event-group description="" sid="6898852713960895" title="Audio - Objects - Fizzy Drink - Explode" />
+                                <event-group description="" sid="6898852713960895" title="Audio - Objects - Fizzy Drink - Explode">
+                                    <sub-events>
+                                        <event-block sid="9548240926052071">
+                                            <conditions>
+                                                <condition id="-19" name="On destroyed" sid="3364502302198295" type="FizzyDrink" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="25" name="Play at object" sid="7835776241745906" type="Audio">
+                                                    <param id="0" name="Audio file">Explosion</param>
+                                                    <param id="1" name="Loop">0</param>
+                                                    <param id="2" name="Volume">random(0,5)</param>
+                                                    <param id="3" name="Object">FizzyDrink</param>
+                                                    <param id="4" name="Inner angle">360</param>
+                                                    <param id="5" name="Outer angle">360</param>
+                                                    <param id="6" name="Outer gain">0</param>
+                                                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
                             </sub-events>
                         </event-group>
                         <event-group description="" sid="227258579597004" title="Audio - Objects - Mozzeralla Stick Missile">
                             <sub-events>
-                                <event-group description="" sid="5780575163906699" title="Audio - Objects - Mozzeralla Stick Missile - On Created" />
+                                <event-group description="" sid="5780575163906699" title="Audio - Objects - Mozzeralla Stick Missile - On Created">
+                                    <sub-events>
+                                        <event-block sid="2141263987737814">
+                                            <conditions>
+                                                <condition id="-18" name="On created" sid="3832238757664064" type="MozzerallaStickMissile" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="25" name="Play at object" sid="7061725549211995" type="Audio">
+                                                    <param id="0" name="Audio file">TurretShot3</param>
+                                                    <param id="1" name="Loop">0</param>
+                                                    <param id="2" name="Volume">0</param>
+                                                    <param id="3" name="Object">MozzerallaTurret</param>
+                                                    <param id="4" name="Inner angle">360</param>
+                                                    <param id="5" name="Outer angle">360</param>
+                                                    <param id="6" name="Outer gain">0</param>
+                                                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="9781357984332681" title="Audio - Objects - Ladder">
+                        <event-group description="" disabled="1" sid="9781357984332681" title="Audio - Objects - Ladder">
                             <sub-events>
                                 <event-group description="" sid="3778526294657336" title="Audio - Objects - Ladder - Climbing(Up)" />
                                 <event-group description="" sid="9058797576002056" title="Audio - Objects - Ladder - Climbing(Down)" />
@@ -96,13 +225,40 @@
                         </event-group>
                         <event-group description="" sid="3537480336166342" title="Audio - Objects - Popcorn Popper">
                             <sub-events>
-                                <event-group description="" sid="88586241739898" title="Audio - Objects - Popcorn Popper - Shoots" />
-                                <event-group description="" sid="2427274592360889" title="Audio - Objects - Popcorn Popper - Popcorn Stepped On" />
-                            </sub-events>
-                        </event-group>
-                        <event-group description="" sid="8454782278466805" title="Audio - Objects - Spike">
-                            <sub-events>
-                                <event-group description="" sid="339796329530714" title="Audio - Objects - Spike - On Collision" />
+                                <event-group description="" disabled="1" sid="88586241739898" title="Audio - Objects - Popcorn Popper - Shoots">
+                                    <sub-events>
+                                        <comment>if less than 1200px away</comment>
+                                        <event-block disabled="1" sid="6864429378921598">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="2015786721123318" type="System">
+                                                    <param id="0" name="First value">distance(PlayerMask.X,PlayerMask.Y,PopcornPopper.X,PopcornPopper.Y)</param>
+                                                    <param id="1" name="Comparison">2</param>
+                                                    <param id="2" name="Second value">1200</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block disabled="1" sid="4794238364810069">
+                                                    <conditions>
+                                                        <condition id="-18" name="On created" sid="4267717777617918" type="Popcorn" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="25" name="Play at object" sid="4091515590415566" type="Audio">
+                                                            <param id="0" name="Audio file">ObjectHit1</param>
+                                                            <param id="1" name="Loop">0</param>
+                                                            <param id="2" name="Volume">random(-10,0)</param>
+                                                            <param id="3" name="Object">Popcorn</param>
+                                                            <param id="4" name="Inner angle">10</param>
+                                                            <param id="5" name="Outer angle">10</param>
+                                                            <param id="6" name="Outer gain">0</param>
+                                                            <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
                             </sub-events>
                         </event-group>
                     </sub-events>

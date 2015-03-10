@@ -8,7 +8,7 @@
     <author-website>http://</author-website>
     <app-id>com.mycompany.myapp</app-id>
     <unique-id>2m2oqhlgof90t</unique-id>
-    <saved-with-version>19800</saved-with-version>
+    <saved-with-version>19900</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
@@ -17,11 +17,13 @@
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Anchor" version="1">Anchor</behavior>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
@@ -43,11 +45,11 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>1280</width>
-        <height>720</height>
+        <width>640</width>
+        <height>360</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
-    <preview-effects>0</preview-effects>
+    <preview-effects>1</preview-effects>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -60,7 +62,7 @@
         <prop name="Pause on unfocus">Yes</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
         <prop name="Preview browser">NW.js</prop>
-        <prop name="Sampling">Linear</prop>
+        <prop name="Sampling">Point</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
@@ -106,6 +108,7 @@
                     <instance-variable name="HasAbilityCharge" sid="8217615966093671" type="boolean" />
                     <instance-variable name="IsPlayerFlipped" sid="4476436388287353" type="boolean" />
                     <instance-variable name="ChargeTime" sid="8125007491526771" type="number" />
+                    <instance-variable name="HasCollectedInLevel" sid="732939962368145" type="number" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="Platform" sid="9232464172691835">
@@ -456,7 +459,7 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7575801260064312" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0.25">
+                        <frame duration="1" hotspotX="0" hotspotY="0.5">
                             <collision-poly>
                                 <point x="0" y="0" />
                                 <point x="0.75" y="0.265625" />
@@ -479,8 +482,8 @@
                             <collision-poly>
                                 <point x="0" y="1" />
                                 <point x="0" y="0" />
-                                <point x="1" y="0" />
-                                <point x="1" y="1" />
+                                <point x="0.46875" y="0" />
+                                <point x="0.46875" y="1" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -665,8 +668,140 @@
                 <tiles />
             </object-type>
         </object-folder>
-        <object-folder name="Menu" />
-        <object-folder name="UI" />
+        <object-folder name="Menu">
+            <object-folder name="Lose">
+                <object-type name="BgAnim" sid="2199324613875598">
+                    <plugin id="Sprite" />
+                    <behaviors>
+                        <behavior-type name="Anchor" sid="337072104417953">
+                            <behavior id="Anchor" />
+                        </behavior-type>
+                    </behaviors>
+                    <animation-folder>
+                        <animation framecount="19" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3755581932219185" speed="7">
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="YouHaveFailed" sid="8904631992333798">
+                    <plugin id="Spritefont2" />
+                    <behaviors>
+                        <behavior-type name="Anchor" sid="5659105806049583">
+                            <behavior id="Anchor" />
+                        </behavior-type>
+                    </behaviors>
+                    <texture />
+                </object-type>
+                <object-type name="PressAnyButton" sid="6657008431231502">
+                    <plugin id="Spritefont2" />
+                    <behaviors>
+                        <behavior-type name="Anchor" sid="1670104105752222">
+                            <behavior id="Anchor" />
+                        </behavior-type>
+                    </behaviors>
+                    <texture />
+                </object-type>
+            </object-folder>
+        </object-folder>
+        <object-folder name="UI">
+            <object-type name="SaladBowlUI" sid="2386160110849669">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Anchor" sid="1137811564741467">
+                        <behavior id="Anchor" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7777770759291042" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0.454545">
+                            <collision-poly>
+                                <point x="0.17" y="0.939394" />
+                                <point x="0.01" y="0.939394" />
+                                <point x="0.01" y="0.030303" />
+                                <point x="0.17" y="0.030303" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0" hotspotY="0.454545">
+                            <collision-poly>
+                                <point x="0.17" y="0.939394" />
+                                <point x="0.01" y="0.939394" />
+                                <point x="0.01" y="0.030303" />
+                                <point x="0.17" y="0.030303" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0" hotspotY="0.454545">
+                            <collision-poly>
+                                <point x="0.17" y="0.939394" />
+                                <point x="0.01" y="0.939394" />
+                                <point x="0.01" y="0.030303" />
+                                <point x="0.17" y="0.030303" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0" hotspotY="0.454545">
+                            <collision-poly>
+                                <point x="0.17" y="0.939394" />
+                                <point x="0.01" y="0.939394" />
+                                <point x="0.01" y="0.030303" />
+                                <point x="0.17" y="0.030303" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0" hotspotY="0.454545">
+                            <collision-poly>
+                                <point x="0.17" y="0.939394" />
+                                <point x="0.01" y="0.939394" />
+                                <point x="0.01" y="0.030303" />
+                                <point x="0.17" y="0.030303" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0" hotspotY="0.454545">
+                            <collision-poly>
+                                <point x="0.17" y="0.939394" />
+                                <point x="0.01" y="0.939394" />
+                                <point x="0.01" y="0.030303" />
+                                <point x="0.17" y="0.030303" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="Collectable">
+            <object-type name="SaladBowlCollectable" sid="3592366183052489">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Sine" sid="5259018904281716">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9083254055342365" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.515152" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="CollectionParticle" sid="5451725774043177">
+                <plugin id="Particles" />
+                <texture />
+            </object-type>
+        </object-folder>
         <object-type name="DeleteMeLater" sid="3704502931799404">
             <plugin id="TiledBg" />
             <behaviors>
@@ -689,17 +824,17 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite2" sid="3749525843236059">
+        <object-type name="PushableBlock" sid="3749525843236059">
             <plugin id="Sprite" />
             <behaviors>
-                <behavior-type name="NoSave" sid="6142180926580656">
-                    <behavior id="NoSave" />
-                </behavior-type>
-                <behavior-type name="Solid" sid="587709160271711">
-                    <behavior id="solid" />
-                </behavior-type>
                 <behavior-type name="Physics" sid="1820601962044882">
                     <behavior id="Physics" />
+                </behavior-type>
+                <behavior-type name="NoSave" sid="1746020515466594">
+                    <behavior id="NoSave" />
+                </behavior-type>
+                <behavior-type name="Jumpthru" sid="2835622517385295">
+                    <behavior id="jumpthru" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
@@ -723,25 +858,19 @@
     <families />
     <layout-folder>
         <layout-folder name="Levels">
-            <layout>Hub.xml</layout>
-            <layout>Freddy&apos;s Level.xml</layout>
-            <layout>Fried Food Level.xml</layout>
-            <layout>Asif&apos;s Level.xml</layout>
-            <layout>Corrina&apos;s Level.xml</layout>
+            <layout>Level 1.xml</layout>
         </layout-folder>
-        <layout-folder name="Menus">
+        <layout-folder name="Menus/Screens">
             <layout>Main Menu.xml</layout>
             <layout>Options.xml</layout>
+            <layout>Lose.xml</layout>
         </layout-folder>
         <layout>Sandbox.xml</layout>
     </layout-folder>
     <event-folder>
         <event-folder name="Level Specific">
-            <event-sheet>Freddy&apos;s Level.xml</event-sheet>
-            <event-sheet>Asif&apos;s Level.xml</event-sheet>
-            <event-sheet>Corrina&apos;s Level.xml</event-sheet>
-            <event-sheet>Hub.xml</event-sheet>
             <event-sheet>_Sandbox.xml</event-sheet>
+            <event-sheet>Level 1.xml</event-sheet>
         </event-folder>
         <event-folder name="Gameplay Related (Attach to Levels)">
             <event-sheet>PlayerRelated.xml</event-sheet>
@@ -752,6 +881,7 @@
         <event-folder name="Menus">
             <event-sheet>Main Menu.xml</event-sheet>
             <event-sheet>Options Menu.xml</event-sheet>
+            <event-sheet>Lose.xml</event-sheet>
         </event-folder>
     </event-folder>
     <global-instances>
@@ -813,6 +943,18 @@
             <file name="ObjectHit2.ogg" />
             <file name="ObjectHit3.m4a" />
             <file name="ObjectHit3.ogg" />
+        </sound-folder>
+        <sound-folder name="JumpSFX">
+            <file name="Jump.m4a" />
+            <file name="Jump.ogg" />
+        </sound-folder>
+        <sound-folder name="LostSFX">
+            <file name="Lost.m4a" />
+            <file name="Lost.ogg" />
+        </sound-folder>
+        <sound-folder name="CollectSFX">
+            <file name="Collect.m4a" />
+            <file name="Collect.ogg" />
         </sound-folder>
     </sounds-folder>
     <music-folder />

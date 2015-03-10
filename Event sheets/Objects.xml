@@ -5,6 +5,60 @@
     <events>
         <event-group description="" sid="9387268606083935" title="Gameplay - Variant Object">
             <sub-events>
+                <event-group description="" sid="6522620414301495" title="Gameplay - Variant Object - Collectables">
+                    <sub-events>
+                        <event-group description="" sid="4472622999677514" title="Gameplay - Variant Object - Collectables - On Destroy2">
+                            <sub-events>
+                                <event-block sid="7036475479592918">
+                                    <conditions>
+                                        <condition id="-19" name="On destroyed" sid="420231426863805" type="SaladBowlCollectable" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="9840709858305442" type="SaladBowlCollectable">
+                                            <param id="0" name="Object">CollectionParticle</param>
+                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="827233821497248" title="Gameplay - Variant Object - Collectables - On Destroy">
+                            <sub-events>
+                                <event-block sid="7036475479592918">
+                                    <conditions>
+                                        <condition id="-19" name="On destroyed" sid="420231426863805" type="SaladBowlCollectable" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="9840709858305442" type="SaladBowlCollectable">
+                                            <param id="0" name="Object">CollectionParticle</param>
+                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="7091765193806865" title="Gameplay - Variant Object - Collectables - On Collision">
+                            <sub-events>
+                                <event-block sid="1373941471310262">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="2109230291598971" type="PlayerMask">
+                                            <param id="0" name="Object">SaladBowlCollectable</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Add to" sid="8993605482658864" type="PlayerMask">
+                                            <param id="0" name="Instance variable">HasCollectedInLevel</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="8261924762898287" type="SaladBowlCollectable" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
                 <event-group description="Spike // Fizzy Drink // Mozzeralla Stick Missile" sid="4576666093628703" title="Gameplay - Variant Object - Hurts - ">
                     <sub-events>
                         <event-group description="" sid="863356822153739" title="Gameplay - Variant Object - Spike">

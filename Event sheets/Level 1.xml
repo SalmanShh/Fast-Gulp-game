@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Level 1</name>
+    <events>
+        <include>Objects</include>
+        <include>PlayerRelated</include>
+        <include>Debug</include>
+        <include>Audio</include>
+        <event-block sid="7522454363056456">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3892548885203305" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set layer visible" sid="7328449724875995" type="System">
+                    <param id="0" name="Layer">&quot;SolidTileset&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

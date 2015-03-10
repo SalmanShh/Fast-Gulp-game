@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Lose</name>
+    <events>
+        <include>Debug</include>
+        <event-group description="" sid="7382068053554992" title="Text">
+            <sub-events>
+                <event-block sid="9514256985523155">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="4543565878581688" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="9596715170918662" type="YouHaveFailed">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Set text" sid="5273561387210845" type="PressAnyButton">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="7830749638479885" type="PressAnyButton">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3403331730189807">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="8505523077914777" type="BgAnim">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="6760390513520384" type="YouHaveFailed">
+                            <param id="0" name="Text">&quot;You Have Failed&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="7479974500088709" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="6131196474484224" type="PressAnyButton">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="2008657977349398" type="PressAnyButton">
+                            <param id="0" name="Text">&quot;Press Any Button&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="7123613068658632" title="Load The start of the Level Player Died in">
+            <sub-events>
+                <event-block sid="732590862329749">
+                    <conditions>
+                        <condition id="-9" name="Is visible" sid="347882403698256" type="PressAnyButton" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block any="1" sid="9591683531164749">
+                            <conditions>
+                                <condition id="8" name="On any button pressed" sid="5193657050526871" type="Gamepad">
+                                    <param id="0" name="Gamepad">0</param>
+                                </condition>
+                                <condition id="1" name="On any key pressed" sid="9615973203081252" type="Keyboard" />
+                            </conditions>
+                            <actions>
+                                <action id="-37" name="Load" sid="9366623649548075" type="System">
+                                    <param id="0" name="Slot">&quot;mysave&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="5375948964938503" title="Lost SFX">
+            <sub-events>
+                <event-block sid="4640544177692589">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="9178715656198902" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="3352837549695824" type="Audio">
+                            <param id="0" name="Audio file">Lost</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="9943464075599815">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="2213027777968631" type="System" />
+            </conditions>
+            <actions>
+                <action id="-6" name="Set height" sid="9959511202020638" type="BgAnim">
+                    <param id="0" name="Height">WindowHeight</param>
+                </action>
+                <action id="-5" name="Set width" sid="7387684255362555" type="BgAnim">
+                    <param id="0" name="Width">WindowWidth</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

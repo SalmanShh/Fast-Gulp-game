@@ -10,6 +10,20 @@
             </conditions>
             <actions />
             <sub-events>
+                <event-group description="" sid="2574061616266988" title="Restart Layout">
+                    <sub-events>
+                        <event-block sid="2058320595617398">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="9535580935936037" type="Keyboard">
+                                    <param id="0" name="Key">113 (F2)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-26" name="Restart layout" sid="9790818377611343" type="System" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="7025812223064632" title="Fullscreen">
                     <sub-events>
                         <event-block sid="8672429874391201">

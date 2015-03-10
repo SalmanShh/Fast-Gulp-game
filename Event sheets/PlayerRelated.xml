@@ -8,6 +8,14 @@
                 <comment>Functions&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------PLAYER ABILITY---------&#x0D;&#x0A;-&quot;playerAbilityCharge&quot;         - charges player abilities&#x0D;&#x0A;-&quot;playerAbilityDash&quot;      -  Dash&#x0D;&#x0A;-&quot;playerAbilityFloatDown&quot;  - Slower decent down&#x0D;&#x0A;-&quot;playerAbilityStomp&quot;         - player Stomp&#x0D;&#x0A;-&quot;playerInDanger&quot;                - slow mo&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------PLAYER MOVEMENT---------&#x0D;&#x0A;-&quot;playerMoveLeft&quot;         - moves Left&#x0D;&#x0A;-&quot;playerMoveRight&quot;      - moves Right&#x0D;&#x0A;-&quot;playerJumpingUp&quot;     - jumps&#x0D;&#x0A;-&quot;playerFallThrough&quot;    - Jumps down (only on platfroms with jumpthru behaviour)&#x0D;&#x0A;-&quot;playerRunning&quot;          - Increases player speed&#x0D;&#x0A;-&quot;playerLadderUp&quot;        - Climb up ladder&#x0D;&#x0A;-&quot;playerLadderDown&quot;   - Climb down ladder&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------Player Interaction---------&#x0D;&#x0A;-&quot;playerInteract&quot;            - Player Interacts&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;_______________________________________________&#x0D;&#x0A;---------FAIL STATE---------&#x0D;&#x0A;-&quot;playerFail&quot; - Restarts layout (needs to be updated later on for checkpoints)&#x0D;&#x0A;-&quot;&quot;</comment>
                 <event-group description="" sid="4468828880694458" title="Player - Function - Fail/Death">
                     <sub-events>
+                        <event-block sid="9934023572403456">
+                            <conditions>
+                                <condition id="-4" name="Is outside layout" sid="131630864925112" type="PlayerMask" />
+                            </conditions>
+                            <actions>
+                                <action id="-26" name="Restart layout" sid="6429548549507928" type="System" />
+                            </actions>
+                        </event-block>
                         <event-block sid="3153332251839405">
                             <conditions>
                                 <condition id="0" name="On function" sid="5812061235711364" type="Function">
@@ -21,9 +29,11 @@
                                     <param id="2" name="Mode">0</param>
                                 </action>
                                 <action id="-16" name="Wait" sid="9622871462258619" type="System">
-                                    <param id="0" name="Seconds">0.2</param>
+                                    <param id="0" name="Seconds">0.1</param>
                                 </action>
-                                <action id="-26" name="Restart layout" sid="8585704519935674" type="System" />
+                                <action id="-2" name="Go to layout" sid="3567460158067583" type="System">
+                                    <param id="0" name="Layout">Lose</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="9916210416114819">
@@ -41,7 +51,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="(INCOMPLETE) Charge // Dash // Float Down// Double Jump // Stomp // In Danger // Wall Jump" sid="3384061040936771" title="Player - Functions - Player Abilties">
+                <event-group description="" sid="3384061040936771" title="Player - Functions - Player Abilties">
                     <sub-events>
                         <event-group description="" sid="5201264872167396" title="Player - Controls - Functions - Player Abilities - (playerInteract)">
                             <sub-events>
@@ -369,7 +379,7 @@
                                                     <param id="1" name="Time scale">0</param>
                                                 </action>
                                                 <action id="-16" name="Wait" sid="1579499286585465" type="System">
-                                                    <param id="0" name="Seconds">0.3</param>
+                                                    <param id="0" name="Seconds">0.2</param>
                                                 </action>
                                                 <action id="-15" name="Restore object time scale" sid="6435846983022534" type="System">
                                                     <param id="0" name="Object">PlayerMask</param>
@@ -1797,7 +1807,7 @@
                                     </conditions>
                                     <actions>
                                         <action id="-20" name="Set layout scale" sid="6339636937100174" type="System">
-                                            <param id="0" name="Scale">lerp(LayoutScale, 0.8,0.1)</param>
+                                            <param id="0" name="Scale">lerp(LayoutScale, 0.4,0.1)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -1818,7 +1828,7 @@
                                             </conditions>
                                             <actions>
                                                 <action id="-20" name="Set layout scale" sid="7915399059465018" type="System">
-                                                    <param id="0" name="Scale">lerp(LayoutScale, 1,0.01)</param>
+                                                    <param id="0" name="Scale">lerp(LayoutScale, 1,0.001)</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -1918,6 +1928,100 @@
         </event-group>
         <event-group description="" sid="2665419218345003" title="Player - UI">
             <sub-events>
+                <event-group description="" sid="7566939820731121" title="Player - UI - Level Collectable">
+                    <sub-events>
+                        <event-group description="" sid="3979109697860868" title="Player - UI - Level Collectable - Reset">
+                            <sub-events>
+                                <comment>Resets the variable </comment>
+                                <event-block sid="4591349756624594">
+                                    <conditions>
+                                        <condition id="-2" name="On start of layout" sid="6279145468098586" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="7413373015382353" type="PlayerMask">
+                                            <param id="0" name="Instance variable">HasCollectedInLevel</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="3403516451062586" title="Player - UI - Level Collectable - Has collected">
+                            <sub-events>
+                                <event-block sid="849682599491794">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="2379123838087269" type="PlayerMask">
+                                            <param id="0" name="Instance variable">HasCollectedInLevel</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="5302531770973514" type="SaladBowlUI">
+                                            <param id="0" name="Frame number">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2361291358002316">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="4293950356332576" type="PlayerMask">
+                                            <param id="0" name="Instance variable">HasCollectedInLevel</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="8549269491085922" type="SaladBowlUI">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2221004767078471">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="9482970900131801" type="PlayerMask">
+                                            <param id="0" name="Instance variable">HasCollectedInLevel</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="6614604172726505" type="SaladBowlUI">
+                                            <param id="0" name="Frame number">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1217006764579306">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="516947989212572" type="PlayerMask">
+                                            <param id="0" name="Instance variable">HasCollectedInLevel</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="852483506902657" type="SaladBowlUI">
+                                            <param id="0" name="Frame number">3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6479740930956941">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="4916700511100807" type="PlayerMask">
+                                            <param id="0" name="Instance variable">HasCollectedInLevel</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">4</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="2877144820605315" type="SaladBowlUI">
+                                            <param id="0" name="Frame number">4</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="2825663536428505" title="Player - UI - Flip UI on camera flip">
                     <sub-events>
                         <event-block sid="9180755533357379">
@@ -1948,6 +2052,21 @@
                         </event-block>
                     </sub-events>
                 </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="4214815967254875" title="Save">
+            <sub-events>
+                <comment>If The Player Related Eventsheet is attached to a level it will save</comment>
+                <event-block sid="7252387821725057">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="1201663619223398" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-36" name="Save" sid="9216502274574287" type="System">
+                            <param id="0" name="Slot">&quot;LevelSave&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
     </events>

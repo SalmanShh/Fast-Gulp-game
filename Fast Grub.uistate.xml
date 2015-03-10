@@ -10,12 +10,15 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="0">Sandbox</layout>
-        <layout active="1" order="5">Options</layout>
-        <event-sheet order="1">_Sandbox</event-sheet>
-        <event-sheet order="2">PlayerRelated</event-sheet>
-        <event-sheet order="3">Objects</event-sheet>
-        <event-sheet order="4">Debug</event-sheet>
+        <layout order="4">Sandbox</layout>
+        <layout order="5">Level 1</layout>
+        <layout active="1" order="7">Lose</layout>
+        <event-sheet order="0">_Sandbox</event-sheet>
+        <event-sheet order="1">PlayerRelated</event-sheet>
+        <event-sheet order="2">Objects</event-sheet>
+        <event-sheet order="3">Audio</event-sheet>
+        <event-sheet order="6">Level 1</event-sheet>
+        <event-sheet order="8">Lose</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -33,16 +36,18 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Mozerella Turret/" />
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Fizzy Drink/" />
         <folder expanded="0" path="object-folder/Gameplay Varient Objects/Popcorn Popper/" />
-        <folder expanded="0" path="object-folder/Tilesets/" />
+        <folder expanded="1" path="object-folder/Tilesets/" />
         <folder expanded="1" path="object-folder/Menu/" />
+        <folder expanded="1" path="object-folder/Menu/Lose/" />
         <folder expanded="1" path="object-folder/UI/" />
-        <folder expanded="0" path="layout-folder/" />
-        <folder expanded="0" path="layout-folder/Levels/" />
-        <folder expanded="0" path="layout-folder/Menus/" />
+        <folder expanded="1" path="object-folder/Collectable/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="layout-folder/Levels/" />
+        <folder expanded="1" path="layout-folder/Menus/Screens/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="0" path="event-folder/Level Specific/" />
-        <folder expanded="0" path="event-folder/Gameplay Related (Attach to Levels)/" />
-        <folder expanded="0" path="event-folder/Menus/" />
+        <folder expanded="1" path="event-folder/Gameplay Related (Attach to Levels)/" />
+        <folder expanded="1" path="event-folder/Menus/" />
         <folder expanded="0" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
@@ -51,6 +56,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="0" path="sound-folder/ExplosionSFX/" />
         <folder expanded="0" path="sound-folder/HitSFX/" />
         <folder expanded="0" path="sound-folder/ObjectHitSFX/" />
+        <folder expanded="0" path="sound-folder/JumpSFX/" />
+        <folder expanded="0" path="sound-folder/LostSFX/" />
+        <folder expanded="0" path="sound-folder/CollectSFX/" />
         <folder expanded="1" path="animation-folder/PlayerMask/" />
         <folder expanded="1" path="animation-folder/PlayerAnim/" />
         <folder expanded="1" path="animation-folder/PlayerAnim/Basic/" />
@@ -66,7 +74,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/Spike/" />
         <folder expanded="1" path="animation-folder/BouncePad/" />
         <folder expanded="1" path="animation-folder/GravitySwitch/" />
+        <folder expanded="1" path="animation-folder/BgAnim/" />
+        <folder expanded="1" path="animation-folder/SaladBowlUI/" />
+        <folder expanded="1" path="animation-folder/SaladBowlCollectable/" />
         <folder expanded="1" path="animation-folder/GameCamera/" />
-        <folder expanded="1" path="animation-folder/Sprite2/" />
+        <folder expanded="1" path="animation-folder/PushableBlock/" />
     </folders-expanded>
 </c2uistate>
