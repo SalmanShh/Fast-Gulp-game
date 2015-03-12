@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout active="1" order="3">Level 1</layout>
+        <layout order="5">Lose</layout>
+        <event-sheet order="0">PlayerRelated</event-sheet>
+        <event-sheet order="1">Objects</event-sheet>
+        <event-sheet order="2">Audio</event-sheet>
+        <event-sheet order="4">Level 1</event-sheet>
+        <event-sheet order="6">Lose</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="0" path="object-folder/Plugins/" />
+        <folder expanded="0" path="object-folder/Player/" />
+        <folder expanded="0" path="object-folder/Gameplay Varient Objects/" />
+        <folder expanded="0" path="object-folder/Gameplay Varient Objects/Moving Platform/" />
+        <folder expanded="0" path="object-folder/Gameplay Varient Objects/Mozerella Turret/" />
+        <folder expanded="0" path="object-folder/Gameplay Varient Objects/Fizzy Drink/" />
+        <folder expanded="0" path="object-folder/Gameplay Varient Objects/Popcorn Popper/" />
+        <folder expanded="0" path="object-folder/Tilesets/" />
+        <folder expanded="1" path="object-folder/Menu/" />
+        <folder expanded="1" path="object-folder/Menu/Lose/" />
+        <folder expanded="0" path="object-folder/UI/" />
+        <folder expanded="1" path="object-folder/Collectable/" />
+        <folder expanded="1" path="object-folder/BG Gradients/" />
+        <folder expanded="1" path="object-folder/In Levels Stuff/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="layout-folder/Levels/" />
+        <folder expanded="1" path="layout-folder/Menus/Screens/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="0" path="event-folder/Level Specific/" />
+        <folder expanded="0" path="event-folder/Gameplay Related (Attach to Levels)/" />
+        <folder expanded="0" path="event-folder/Menus/" />
+        <folder expanded="0" path="file-folder/" />
+        <folder expanded="1" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="0" path="sound-folder/TurretSFX/" />
+        <folder expanded="0" path="sound-folder/ExplosionSFX/" />
+        <folder expanded="0" path="sound-folder/HitSFX/" />
+        <folder expanded="0" path="sound-folder/ObjectHitSFX/" />
+        <folder expanded="0" path="sound-folder/JumpSFX/" />
+        <folder expanded="0" path="sound-folder/LostSFX/" />
+        <folder expanded="0" path="sound-folder/CollectSFX/" />
+        <folder expanded="0" path="sound-folder/FinishSFX/" />
+        <folder expanded="1" path="animation-folder/PlayerMask/" />
+        <folder expanded="1" path="animation-folder/PlayerAnim/" />
+        <folder expanded="1" path="animation-folder/PlayerAnim/Basic/" />
+        <folder expanded="1" path="animation-folder/PlayerAnim/Ability/" />
+        <folder expanded="1" path="animation-folder/MovingPlatform64x32/" />
+        <folder expanded="1" path="animation-folder/MovingPlatform32x32/" />
+        <folder expanded="1" path="animation-folder/MozzerallaStickMissile/" />
+        <folder expanded="1" path="animation-folder/MozzerallaTurret/" />
+        <folder expanded="1" path="animation-folder/TurretPosition/" />
+        <folder expanded="1" path="animation-folder/FizzyDrink/" />
+        <folder expanded="1" path="animation-folder/PopcornPopper/" />
+        <folder expanded="1" path="animation-folder/Popcorn/" />
+        <folder expanded="1" path="animation-folder/Spike/" />
+        <folder expanded="1" path="animation-folder/BouncePad/" />
+        <folder expanded="1" path="animation-folder/GravitySwitch/" />
+        <folder expanded="1" path="animation-folder/PushableBlock/" />
+        <folder expanded="1" path="animation-folder/LockedDoor/" />
+        <folder expanded="1" path="animation-folder/BgAnim/" />
+        <folder expanded="1" path="animation-folder/SaladBowlUI/" />
+        <folder expanded="1" path="animation-folder/SaladBowlCollectable/" />
+        <folder expanded="1" path="animation-folder/BGGradient1/" />
+        <folder expanded="1" path="animation-folder/FallThrough/" />
+        <folder expanded="1" path="animation-folder/Shirt/" />
+        <folder expanded="1" path="animation-folder/GameCamera/" />
+    </folders-expanded>
+</c2uistate>

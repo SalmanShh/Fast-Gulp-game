@@ -1,0 +1,1185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Objects</name>
+    <events>
+        <event-group description="" sid="9387268606083935" title="Gameplay - Variant Object">
+            <sub-events>
+                <event-group description="" sid="6929366310990081" title="Gameplay - Variant Object - Lock">
+                    <sub-events>
+                        <event-group description="" sid="4804728080039282" title="Gameplay - Variant Object - Lock - IsUnlocked(Var)">
+                            <sub-events>
+                                <event-block sid="4976379674868705">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="6793499638191152" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsUnlocked</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Fade" id="1" name="Start fade" sid="5459803882914803" type="LockedDoor" />
+                                        <action id="-16" name="Wait" sid="263355537108474" type="System">
+                                            <param id="0" name="Seconds">1.0</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="1950712898115544" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsUnlocked</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Else not need Due to CameraOnPlayer Having been Set True</comment>
+                                <event-block sid="7407280211084877">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="2859114167989167" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsUnlocked</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="1864952394579603" type="PlayerMask">
+                                            <param id="0" name="Instance variable">CameraOnPlayer</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-3" name="Set position" sid="2277586832762275" type="GameCamera">
+                                            <param id="0" name="X">LockedDoor.X</param>
+                                            <param id="1" name="Y">LockedDoor.Y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1676861687103756">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="472362867046399" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="5565170833213314" type="PlayerMask">
+                                            <param id="0" name="Instance variable">CameraOnPlayer</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="1396285685902459" title="Gameplay - Variant Object - Lock - Camera on Lock">
+                            <sub-events>
+                                <event-block sid="2760037925030637">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="8588919672640902" type="PlayerMask">
+                                            <param id="0" name="Instance variable">HasCollectedInLevel</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">5</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="2381433398547499" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="1000940574260744" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsUnlocked</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="3308738564469262" title="Gameplay - Variant Object - Lock - On Fade Out Complete">
+                            <sub-events>
+                                <event-block any="1" sid="6722220131270712">
+                                    <conditions>
+                                        <condition behavior="Fade" id="0" name="On fade-out finished" sid="8772343364275924" type="LockedDoor" />
+                                        <condition behavior="Fade" id="1" name="On fade-in finished" sid="8517719095314436" type="LockedDoor" />
+                                        <condition id="-19" name="On destroyed" sid="5162317494609456" type="LockedDoor" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="5083199026336784" type="LockedDoor" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="6522620414301495" title="Gameplay - Variant Object - Collectables">
+                    <sub-events>
+                        <event-group description="" sid="827233821497248" title="Gameplay - Variant Object - Collectables - On Destroy">
+                            <sub-events>
+                                <event-block sid="7036475479592918">
+                                    <conditions>
+                                        <condition id="-19" name="On destroyed" sid="420231426863805" type="SaladBowlCollectable" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="9840709858305442" type="SaladBowlCollectable">
+                                            <param id="0" name="Object">CollectionParticle</param>
+                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="7091765193806865" title="Gameplay - Variant Object - Collectables - On Collision">
+                            <sub-events>
+                                <event-block sid="1373941471310262">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="2109230291598971" type="PlayerMask">
+                                            <param id="0" name="Object">SaladBowlCollectable</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Add to" sid="8993605482658864" type="PlayerMask">
+                                            <param id="0" name="Instance variable">HasCollectedInLevel</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="8261924762898287" type="SaladBowlCollectable" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="4576666093628703" title="Gameplay - Variant Object - Hurts">
+                    <sub-events>
+                        <event-group description="" sid="863356822153739" title="Gameplay - Variant Object - Spike">
+                            <sub-events>
+                                <event-group description="" sid="9683239869017355" title="Things That Hurt - Spike - On Collision">
+                                    <sub-events>
+                                        <comment>-Salman</comment>
+                                        <event-block sid="378422186302342">
+                                            <conditions>
+                                                <condition id="0" name="On collision with another object" sid="3726925757981223" type="Spike">
+                                                    <param id="0" name="Object">PlayerMask</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="20117771577992" type="Function">
+                                                    <param id="0" name="Name">&quot;playerFail&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="Facing Up // Facing Down // Facing Left // Facing Right" sid="6824186536341374" title="Things That Hurt - Spike - Angle">
+                                    <sub-events>
+                                        <event-group description="" sid="3514733583551544" title="Things That Hurt - Angle - Spike - Facing Up">
+                                            <sub-events>
+                                                <comment>-Salman</comment>
+                                                <event-block sid="8843329828685507">
+                                                    <conditions>
+                                                        <condition id="-13" name="Is between angles" sid="7824098447173393" type="Spike">
+                                                            <param id="0" name="First angle">265</param>
+                                                            <param id="1" name="Second angle">275</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="793512300400744">
+                                                            <conditions>
+                                                                <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="429804469845448" type="PlayerMask" />
+                                                                <condition id="9" name="Is overlapping at offset" sid="9790286287776239" type="Spike">
+                                                                    <param id="0" name="Object">PlayerMask</param>
+                                                                    <param id="1" name="Offset X">0</param>
+                                                                    <param id="2" name="Offset Y">-20</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="6320244567880769" type="Function">
+                                                                    <param id="0" name="Name">&quot;playerInDanger&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="1196851240848976" title="Things That Hurt - Angle - Spike - Facing Down">
+                                            <sub-events>
+                                                <comment>-Salman</comment>
+                                                <event-block sid="7135443334856428">
+                                                    <conditions>
+                                                        <condition id="-13" name="Is between angles" sid="4730653808684874" type="Spike">
+                                                            <param id="0" name="First angle">85</param>
+                                                            <param id="1" name="Second angle">95</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="8587898439349054">
+                                                            <conditions>
+                                                                <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="2663157595380701" type="PlayerMask" />
+                                                                <condition id="9" name="Is overlapping at offset" sid="2650489201183064" type="Spike">
+                                                                    <param id="0" name="Object">PlayerMask</param>
+                                                                    <param id="1" name="Offset X">0</param>
+                                                                    <param id="2" name="Offset Y">20</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="8480732678292991" type="Function">
+                                                                    <param id="0" name="Name">&quot;playerInDanger&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="2973821087255909" title="Things That Hurt - Angle - Spike - Facing Left">
+                                            <sub-events>
+                                                <event-block sid="9441882239374045">
+                                                    <conditions>
+                                                        <condition id="-13" name="Is between angles" sid="9289337936879308" type="Spike">
+                                                            <param id="0" name="First angle">175</param>
+                                                            <param id="1" name="Second angle">185</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="6786779797404083">
+                                                            <conditions>
+                                                                <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="6748649575928493" type="PlayerMask" />
+                                                                <condition id="9" name="Is overlapping at offset" sid="1765609787224012" type="Spike">
+                                                                    <param id="0" name="Object">PlayerMask</param>
+                                                                    <param id="1" name="Offset X">0</param>
+                                                                    <param id="2" name="Offset Y">-20</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="4293931042013776" type="Function">
+                                                                    <param id="0" name="Name">&quot;playerInDanger&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="8618531066436329" title="Things That Hurt - Angle - Spike - Facing Right">
+                                            <sub-events>
+                                                <comment>-Salman</comment>
+                                                <event-block any="1" sid="7726092824420701">
+                                                    <conditions>
+                                                        <condition id="-13" name="Is between angles" sid="3328257143149983" type="Spike">
+                                                            <param id="0" name="First angle">355</param>
+                                                            <param id="1" name="Second angle">360</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="5159617312581772" type="Spike">
+                                                            <param id="0" name="First angle">0</param>
+                                                            <param id="1" name="Second angle">5</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="2524004616244143">
+                                                            <conditions>
+                                                                <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="7721806146399715" type="PlayerMask" />
+                                                                <condition id="9" name="Is overlapping at offset" sid="8524859741677992" type="Spike">
+                                                                    <param id="0" name="Object">PlayerMask</param>
+                                                                    <param id="1" name="Offset X">0</param>
+                                                                    <param id="2" name="Offset Y">-20</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="1380722048371258" type="Function">
+                                                                    <param id="0" name="Name">&quot;playerInDanger&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="1060420555475957" title="Gameplay - Variant Object - Fizzy Drink">
+                            <sub-events>
+                                <event-group description="" sid="4525325997055105" title="Gameplay - Variant Object - Fizzy Drink - IsHit">
+                                    <sub-events>
+                                        <event-group description="" sid="4918449436986146" title="Gameplay - Variant Object - Fizzy Drink - IsHit - On Destroyed/destroy">
+                                            <sub-events>
+                                                <event-block sid="4517555451371798">
+                                                    <conditions>
+                                                        <condition id="-19" name="On destroyed" sid="7826318896473463" type="FizzyDrink" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="8504053174961829" type="FizzyDrink">
+                                                            <param id="0" name="Object">FireSplatterParticle</param>
+                                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                                            <param id="2" name="Image point">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="8925015008855441">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="2918916900011085" type="FizzyDrink">
+                                                            <param id="0" name="Instance variable">IsHit</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <comment>if it is more than 2000px away from the player while active -&gt; Destroyed</comment>
+                                                        <event-block sid="5949674399334287">
+                                                            <conditions>
+                                                                <condition id="-8" name="Compare two values" sid="7555581022271112" type="System">
+                                                                    <param id="0" name="First value">distance(PlayerMask.x, PlayerMask.Y,FizzyDrink.X, FizzyDrink.Y)</param>
+                                                                    <param id="1" name="Comparison">4</param>
+                                                                    <param id="2" name="Second value">2000</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-9" name="Destroy" sid="2855890266456753" type="FizzyDrink" />
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="8487380945680822" title="Gameplay - Variant Object - Fizzy Drink - IsHit - when True">
+                                            <sub-events>
+                                                <event-block sid="9488474458587252">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="7342709684651762" type="FizzyDrink">
+                                                            <param id="0" name="Instance variable">IsHit</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-16" name="Wait" sid="9772419996020361" type="System">
+                                                            <param id="0" name="Seconds">FizzyDrink.WaitBeforeMoving</param>
+                                                        </action>
+                                                        <action behavior="Physics" id="2" name="Apply force at angle" sid="2480027470708545" type="FizzyDrink">
+                                                            <param id="0" name="Force">15</param>
+                                                            <param id="1" name="Angle">Self.Angle</param>
+                                                            <param id="2" name="Image point">0</param>
+                                                        </action>
+                                                    </actions>
+                                                    <sub-events>
+                                                        <event-block sid="3870504623423839">
+                                                            <conditions>
+                                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4789128021471039" type="FizzyDrink">
+                                                                    <param id="0" name="Instance variable">Indestructable</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-16" name="Wait" sid="262019346933976" type="System">
+                                                                    <param id="0" name="Seconds">FizzyDrink.DestroyAfter</param>
+                                                                </action>
+                                                                <action id="-9" name="Destroy" sid="6055402397117791" type="FizzyDrink" />
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="3312729927903415">
+                                                            <conditions>
+                                                                <condition id="-8" name="Is boolean instance variable set" sid="2464689128022104" type="FizzyDrink">
+                                                                    <param id="0" name="Instance variable">Indestructable</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="6014691051290036" title="Gameplay - Variant Object - Fizzy Drink - IsHit - Trigger">
+                                            <sub-events>
+                                                <comment>if the object is not between 268 and 272 degrees --&gt; IsHit Bool is set to TRUE -Salman</comment>
+                                                <event-block sid="1390595665354514">
+                                                    <conditions>
+                                                        <condition id="-13" inverted="1" name="Is between angles" sid="299805521885484" type="FizzyDrink">
+                                                            <param id="0" name="First angle">268</param>
+                                                            <param id="1" name="Second angle">272</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="2793450305912707" type="FizzyDrink">
+                                                            <param id="0" name="Instance variable">IsHit</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                        <action id="4" name="Set animation" sid="4084389358300825" type="FizzyDrink">
+                                                            <param id="0" name="Animation">&quot;Moving&quot;</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="6892149134361683" title="Gameplay - Variant Object - Fizzy Drink - Collide on sides">
+                                    <sub-events>
+                                        <comment>-Salman</comment>
+                                        <event-block any="1" sid="3474056881671211">
+                                            <conditions>
+                                                <condition id="9" name="Is overlapping at offset" sid="9887693400470599" type="PlayerMask">
+                                                    <param id="0" name="Object">FizzyDrink</param>
+                                                    <param id="1" name="Offset X">5</param>
+                                                    <param id="2" name="Offset Y">0</param>
+                                                </condition>
+                                                <condition id="9" name="Is overlapping at offset" sid="5181403226755689" type="PlayerMask">
+                                                    <param id="0" name="Object">FizzyDrink</param>
+                                                    <param id="1" name="Offset X">-5</param>
+                                                    <param id="2" name="Offset Y">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Physics" id="6" name="Apply torque" sid="1490935268646907" type="FizzyDrink">
+                                                    <param id="0" name="Torque">random(-10,10)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="467878975540198" title="Gameplay - Variant Object - Mozzeralla Stick Shooter">
+                            <sub-events>
+                                <event-group description="" sid="8373280980600339" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret">
+                                    <sub-events>
+                                        <event-group description="" sid="2070616779017015" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret - Shoot">
+                                            <sub-events>
+                                                <event-block sid="8010895994500173">
+                                                    <conditions>
+                                                        <condition behavior="Turret" id="1" name="On shoot" sid="451975076840715" type="MozzerallaTurret" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="4924602786043887" type="MozzerallaTurret">
+                                                            <param id="0" name="Object">MozzerallaStickMissile</param>
+                                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                                            <param id="2" name="Image point">&quot;Barrel&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="2323578990583436" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret - Turret Position">
+                                            <sub-events>
+                                                <event-block sid="4636277579898003">
+                                                    <conditions>
+                                                        <condition id="-2" name="On start of layout" sid="2192448605072595" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-3" name="Set position" sid="6220098994172853" type="MozzerallaTurret">
+                                                            <param id="0" name="X">TurretPosition.X</param>
+                                                            <param id="1" name="Y">TurretPosition.Y</param>
+                                                        </action>
+                                                        <action behavior="Pin" id="0" name="Pin to object" sid="5207253135465155" type="MozzerallaTurret">
+                                                            <param id="0" name="Pin to">TurretPosition</param>
+                                                            <param id="1" name="Mode">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="5860671587506808" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Turret - Target Objects">
+                                            <sub-events>
+                                                <event-block sid="2393686964076975">
+                                                    <conditions>
+                                                        <condition behavior="Turret" id="0" inverted="1" name="Has target" sid="4365066523766085" type="MozzerallaTurret" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-8" name="Set angle" sid="7674606952997057" type="MozzerallaTurret">
+                                                            <param id="0" name="Angle">lerp(Self.Angle, 0, 0.1)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="711178508205051">
+                                                    <conditions>
+                                                        <condition id="-2" name="On start of layout" sid="5755739732560599" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Turret" id="1" name="Add object to target" sid="589376076901741" type="MozzerallaTurret">
+                                                            <param id="0" name="Target">PlayerMask</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="8990400956455567" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile">
+                                    <sub-events>
+                                        <event-group description="" sid="1068951176368237" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile - HasHomingMissiles(bool) ">
+                                            <sub-events>
+                                                <event-block sid="1993092501158302">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="3023069739674477" type="TurretPosition">
+                                                            <param id="0" name="Instance variable">HasHomingMissiles</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="6315045125180788" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Instance variable">HasHomingMissiles</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                    <sub-events>
+                                                        <event-block sid="990174918889208">
+                                                            <conditions>
+                                                                <condition id="-8" name="Is boolean instance variable set" sid="7162172121425786" type="MozzerallaStickMissile">
+                                                                    <param id="0" name="Instance variable">HasHomingMissiles</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                            <sub-events>
+                                                                <event-block sid="3747672026972779">
+                                                                    <conditions>
+                                                                        <condition id="-6" name="Every X seconds" sid="1426284898085447" type="System">
+                                                                            <param id="0" name="Interval (seconds)">0.05</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="-22" name="Set angle toward position" sid="9544659714609137" type="MozzerallaStickMissile">
+                                                                            <param id="0" name="X">PlayerMask.X</param>
+                                                                            <param id="1" name="Y">PlayerMask.Y</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="1468042154873983" title="Gameplay - Variant object - Mozzeralla Stick Shooter - Missile - Lifetime">
+                                            <sub-events>
+                                                <event-block sid="3806420209651999">
+                                                    <conditions>
+                                                        <condition behavior="Bullet" id="1" name="Compare distance travelled" sid="1131661344999383" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Comparison">4</param>
+                                                            <param id="1" name="Distance">350</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="8017426617579235" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="3657065156929042">
+                                                    <conditions>
+                                                        <condition id="-19" name="On destroyed" sid="7653579305925028" type="MozzerallaStickMissile" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="2619722448601519" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">CheeseSplatterParticles</param>
+                                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                                            <param id="2" name="Image point">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="2362013718445968" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile - On Collision">
+                                            <sub-events>
+                                                <event-block sid="4928131266118434">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="9856768779316688" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">PlayerMask</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="3935579509404641" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsHurt</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                        <action id="-9" name="Destroy" sid="5208662684800146" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="3110449161273281">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="5200886531155553" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">SolidTileset</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="6436634287559921" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="8432590611780732">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="77073597033507" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">FizzyDrink</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="3690884824726035" type="MozzerallaStickMissile" />
+                                                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="1757484585297047" type="FizzyDrink">
+                                                            <param id="0" name="Impulse">15</param>
+                                                            <param id="1" name="Angle">MozzerallaStickMissile.Angle </param>
+                                                            <param id="2" name="Image point">0</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="2826785301836513" type="FizzyDrink">
+                                                            <param id="0" name="Instance variable">IsHit</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="4709467912359153">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="5952720341085564" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">Spike</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="8200506304741443" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="6316079130105885">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="9612124986118171" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">MovingPlatform32x32</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="1728871233733298" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="9555309350864224">
+                                                    <conditions>
+                                                        <condition id="0" name="On collision with another object" sid="7922962387171442" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Object">MovingPlatform64x32</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="1029382640469347" type="MozzerallaStickMissile" />
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="9223594836186665" title="Gameplay - Variant Object - Mozzeralla Stick Shooter - Missile - On Created">
+                                            <sub-events>
+                                                <event-block sid="3653472625718911">
+                                                    <conditions>
+                                                        <condition id="-18" name="On created" sid="2499896370733577" type="MozzerallaStickMissile" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-8" name="Set angle" sid="4739099108898605" type="MozzerallaStickMissile">
+                                                            <param id="0" name="Angle">MozzerallaTurret.Angle</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="3584885138058153" title="Gameplay - Variant Object -  Does not Hurt">
+                    <sub-events>
+                        <event-group description="" sid="1065466767923543" title="Gameplay - Variant Object - Soft Block">
+                            <sub-events>
+                                <event-block sid="3712710991446773">
+                                    <conditions>
+                                        <condition id="-18" name="On created" sid="4775570513200495" type="StompDustParticle" />
+                                        <condition id="9" name="Is overlapping at offset" sid="6353840030536727" type="PlayerMask">
+                                            <param id="0" name="Object">SoftBlock</param>
+                                            <param id="1" name="Offset X">0</param>
+                                            <param id="2" name="Offset Y">-2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="2344510200924031" title="Gameplay - Variant Object - Moving Platform (64x64)">
+                            <sub-events>
+                                <event-group description="" sid="4142577764804984" title="Gameplay - Variant Object - Moving Platform (64x64) - Immovable">
+                                    <sub-events>
+                                        <comment></comment>
+                                        <event-block sid="4004163875509609">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="9807109380948074" type="MovingPlatform64x32">
+                                                    <param id="0" name="Instance variable">Immovable</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="MoveVertical" id="0" name="Set active" sid="1075930114654311" type="MovingPlatform64x32">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                                <action behavior="MoveHorizontal" id="0" name="Set active" sid="6295424322514748" type="MovingPlatform64x32">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment></comment>
+                                        <event-block sid="4799199220060215">
+                                            <conditions>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8062221538966493" type="MovingPlatform64x32">
+                                                    <param id="0" name="Instance variable">Immovable</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="MoveVertical" id="0" name="Set active" sid="5745640481925553" type="MovingPlatform64x32">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                                <action behavior="MoveHorizontal" id="0" name="Set active" sid="4517707075960328" type="MovingPlatform64x32">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="2481792425743472" title="Gameplay - Variant Object - Moving Platform (32x32)">
+                            <sub-events>
+                                <event-group description="" sid="4142577764804984" title="Gameplay - Variant Object - Moving Platform (32x32) - Immovable">
+                                    <sub-events>
+                                        <comment></comment>
+                                        <event-block sid="2426712734996227">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="4497947760885371" type="MovingPlatform32x32">
+                                                    <param id="0" name="Instance variable">Immovable</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="MoveHorizontal" id="0" name="Set active" sid="2541625434015634" type="MovingPlatform32x32">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                                <action behavior="MoveVertical" id="0" name="Set active" sid="1080508373176446" type="MovingPlatform32x32">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment></comment>
+                                        <event-block sid="2890194409070589">
+                                            <conditions>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2258831673458704" type="MovingPlatform32x32">
+                                                    <param id="0" name="Instance variable">Immovable</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="MoveHorizontal" id="0" name="Set active" sid="8372288376386486" type="MovingPlatform32x32">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                                <action behavior="MoveVertical" id="0" name="Set active" sid="6004422363655772" type="MovingPlatform32x32">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="2650512970485886" title="Gameplay - Variant Object - Ladder">
+                            <sub-events>
+                                <event-block sid="6732870429686379">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="6447314432539916" type="Function">
+                                            <param id="0" name="Name">&quot;playerInteract&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="6167352417677983">
+                                            <conditions>
+                                                <condition id="1" name="Is overlapping another object" sid="2814604728663763" type="PlayerMask">
+                                                    <param id="0" name="Object">Ladder</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="7055224202817485" type="PlayerMask">
+                                                    <param id="0" name="Instance variable">IsOnLadder</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <comment>to get off</comment>
+                                <event-block any="1" sid="264293293255054">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="5282968603491788" type="Function">
+                                            <param id="0" name="Name">&quot;playerJumpUp&quot;</param>
+                                        </condition>
+                                        <condition id="1" inverted="1" name="Is overlapping another object" sid="8943439604532547" type="PlayerMask">
+                                            <param id="0" name="Object">Ladder</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="7134035465161463" type="PlayerMask">
+                                            <param id="0" name="Instance variable">IsOnLadder</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action behavior="LadderMovement" id="8" name="Set enabled" sid="7426876503102302" type="PlayerMask">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action behavior="Platform" id="11" name="Set enabled" sid="8968649676599785" type="PlayerMask">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="7888538153035579" title="Gameplay - Variant Object - Popcorn Popper">
+                            <sub-events>
+                                <event-group description="" sid="2705474949293414" title="Gameplay - Variant Object - Popcorn Popper - Variables">
+                                    <sub-events>
+                                        <event-group description="" sid="9046131863140611" title="Gameplay - Variant Object - Popcorn Popper - Variables - Gravity">
+                                            <sub-events>
+                                                <event-block sid="4215354356379544">
+                                                    <conditions>
+                                                        <condition id="-18" name="On created" sid="6510246667536381" type="Popcorn" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Bullet" id="2" name="Set gravity" sid="3451365858044394" type="Popcorn">
+                                                            <param id="0" name="Gravity">Self.Gravity</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="5788836762092248" title="Gameplay - Variant Object - Popcorn Popper - Variables - Speed">
+                                            <sub-events>
+                                                <event-block sid="4215354356379544">
+                                                    <conditions>
+                                                        <condition id="-18" name="On created" sid="6510246667536381" type="Popcorn" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="3451365858044394" type="Popcorn">
+                                                            <param id="0" name="Instance variable">Speed</param>
+                                                            <param id="1" name="Value">PopcornPopper.Speed</param>
+                                                        </action>
+                                                        <action behavior="Bullet" id="0" name="Set speed" sid="8194758994768669" type="Popcorn">
+                                                            <param id="0" name="Speed">Popcorn.Speed</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="5546841541205829" title="Gameplay - Variant Object - Popcorn Popper - Variables - Max Distance">
+                                            <sub-events>
+                                                <event-block sid="8964554794916975">
+                                                    <conditions>
+                                                        <condition id="-18" name="On created" sid="5340821721961319" type="Popcorn" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="1192566738064601" type="Popcorn">
+                                                            <param id="0" name="Instance variable">MaxDistance</param>
+                                                            <param id="1" name="Value">PopcornPopper.MaxDistance</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="5478165881181007">
+                                                    <conditions>
+                                                        <condition behavior="Bullet" id="1" name="Compare distance travelled" sid="2755509031244487" type="Popcorn">
+                                                            <param id="0" name="Comparison">4</param>
+                                                            <param id="1" name="Distance">Self.MaxDistance</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="9822117130596186" type="Popcorn" />
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="4884426721178943" title="Gameplay - Variant Object - Popcorn Popper - Popcorn">
+                                    <sub-events>
+                                        <event-group description="" sid="2955644374394062" title="Gameplay - Variant Object - Popcorn Popper - Popcorn - On Created" />
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="2881468457549459" title="Gameplay - Variant Object - Popcorn Popper - Turret">
+                                    <sub-events>
+                                        <event-group description="" sid="4768026482266122" title="Gameplay - Variant Object - Popcorn Popper - Turret - Shoot">
+                                            <sub-events>
+                                                <event-block sid="2287882091632716">
+                                                    <conditions>
+                                                        <condition id="-6" name="Every X seconds" sid="5383056888869788" type="System">
+                                                            <param id="0" name="Interval (seconds)">PopcornPopper.ShootEvery</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Spawn another object" sid="4103647569619104" type="PopcornPopper">
+                                                            <param id="0" name="Object">Popcorn</param>
+                                                            <param id="1" name="Layer">&quot;InteractiveObjects&quot;</param>
+                                                            <param id="2" name="Image point">&quot;Barrel&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="6959537897601516" title="Gameplay - Variant Object - Bounce Pad">
+                            <sub-events>
+                                <event-group description="" sid="26755963525732" title="Gameplay - Variant Object - Bounce Pad - Angle + Collision">
+                                    <sub-events>
+                                        <event-group description="" sid="2229840752378519" title="Bounce Pad - Facing Up">
+                                            <sub-events>
+                                                <event-block sid="7106516958143975">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="4145681253395975" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="1134796392807065" type="BouncePad">
+                                                            <param id="0" name="First angle">265</param>
+                                                            <param id="1" name="Second angle">275</param>
+                                                        </condition>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4976206135515077" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="9" name="Set vector Y" sid="3660243131304282" type="PlayerMask">
+                                                            <param id="0" name="Vector Y">-BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>else if PlayerIsFlipped</comment>
+                                                <event-block sid="3528742346435678">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="7532587789904655" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="3886181891879194" type="BouncePad">
+                                                            <param id="0" name="First angle">265</param>
+                                                            <param id="1" name="Second angle">275</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="8578759689700519" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="9" name="Set vector Y" sid="3961443556880194" type="PlayerMask">
+                                                            <param id="0" name="Vector Y">BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="9675276982096019" title="Bounce Pad - Facing Down">
+                                            <sub-events>
+                                                <event-block sid="3099222753259723">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="7363005019638161" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="6243568829046682" type="BouncePad">
+                                                            <param id="0" name="First angle">85</param>
+                                                            <param id="1" name="Second angle">95</param>
+                                                        </condition>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2736404049439257" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="9" name="Set vector Y" sid="9443106804632943" type="PlayerMask">
+                                                            <param id="0" name="Vector Y">BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>else if PlayerIsFlipped</comment>
+                                                <event-block sid="7585277547008885">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="2707103102977101" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="806919377944713" type="BouncePad">
+                                                            <param id="0" name="First angle">85</param>
+                                                            <param id="1" name="Second angle">95</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="5754533053702537" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="9" name="Set vector Y" sid="2950649246266296" type="PlayerMask">
+                                                            <param id="0" name="Vector Y">-BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="6325390005320131" title="Bounce Pad - Facing Left">
+                                            <sub-events>
+                                                <event-block sid="8460055869254861">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="8930926293808538" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="9477975863497184" type="BouncePad">
+                                                            <param id="0" name="First angle">175</param>
+                                                            <param id="1" name="Second angle">185</param>
+                                                        </condition>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2543017587997338" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="7913338111923987" type="PlayerMask">
+                                                            <param id="0" name="Vector X">-BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>else if PlayerIsFlipped</comment>
+                                                <event-block sid="7548302196451339">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="1195078805787455" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="4196538060514866" type="BouncePad">
+                                                            <param id="0" name="First angle">175</param>
+                                                            <param id="1" name="Second angle">185</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="1265528988657118" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="8144202281223045" type="PlayerMask">
+                                                            <param id="0" name="Vector X">BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="694333501496756" title="Bounce Pad - Facing Right">
+                                            <sub-events>
+                                                <event-block sid="2494376188028155">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="417594989104299" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="2309019118735017" type="BouncePad">
+                                                            <param id="0" name="First angle">355</param>
+                                                            <param id="1" name="Second angle">360</param>
+                                                        </condition>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="1430328591161566" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="232209981978545" type="PlayerMask">
+                                                            <param id="0" name="Vector X">BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="5861033797733235">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="1438764743809961" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="5612310404707656" type="BouncePad">
+                                                            <param id="0" name="First angle">0</param>
+                                                            <param id="1" name="Second angle">5</param>
+                                                        </condition>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9205831132462875" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="7702471533595795" type="PlayerMask">
+                                                            <param id="0" name="Vector X">BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>else if PlayerIsFlipped</comment>
+                                                <event-block sid="839041964496869">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="6748252497752726" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="1317012016176704" type="BouncePad">
+                                                            <param id="0" name="First angle">0</param>
+                                                            <param id="1" name="Second angle">5</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="4325838698097783" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="3108131033779738" type="PlayerMask">
+                                                            <param id="0" name="Vector X">-BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="3205347828545972">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="2166433810757818" type="PlayerMask">
+                                                            <param id="0" name="Object">BouncePad</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="2153883755035591" type="BouncePad">
+                                                            <param id="0" name="First angle">355</param>
+                                                            <param id="1" name="Second angle">360</param>
+                                                        </condition>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="8666628245011547" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="8" name="Set vector X" sid="4435296787622341" type="PlayerMask">
+                                                            <param id="0" name="Vector X">-BouncePad.Power</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="8282309246397892" title="Gameplay - Variant Object - Gravity Switch">
+                            <sub-events>
+                                <event-group description="" sid="1918177835712404" title="Gameplay - Variant Object - Gravity Switch - Angle + Collision">
+                                    <sub-events>
+                                        <event-group description="" sid="4147200558678287" title="Gravity Switch - Facing Up">
+                                            <sub-events>
+                                                <comment>-Salman</comment>
+                                                <event-block sid="1560157309322601">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="4287809848196675" type="PlayerMask">
+                                                            <param id="0" name="Object">GravitySwitch</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="2757895201770118" type="GravitySwitch">
+                                                            <param id="0" name="First angle">265</param>
+                                                            <param id="1" name="Second angle">275</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="10" name="Set angle of gravity" sid="1991946083716125" type="PlayerMask">
+                                                            <param id="0" name="Angle">270</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="916878817374212" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                        <event-group description="" sid="4491970140092835" title="Gravity Switch - Facing Down">
+                                            <sub-events>
+                                                <comment>-Salman</comment>
+                                                <event-block sid="5972183190100375">
+                                                    <conditions>
+                                                        <condition id="1" name="Is overlapping another object" sid="1109543787204986" type="PlayerMask">
+                                                            <param id="0" name="Object">GravitySwitch</param>
+                                                        </condition>
+                                                        <condition id="-13" name="Is between angles" sid="7528198653077201" type="GravitySwitch">
+                                                            <param id="0" name="First angle">85</param>
+                                                            <param id="1" name="Second angle">95</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action behavior="Platform" id="10" name="Set angle of gravity" sid="6633176531183334" type="PlayerMask">
+                                                            <param id="0" name="Angle">90</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="6016953973662671" type="PlayerMask">
+                                                            <param id="0" name="Instance variable">IsPlayerFlipped</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-group>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
